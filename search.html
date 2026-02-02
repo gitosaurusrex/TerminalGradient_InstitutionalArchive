@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Archive :: Terminal Gradient Institutional Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/archive.css">
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+  <script src="js/archive-components.js" defer></script>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- BREADCRUMB NAVIGATION -->
+    <archive-breadcrumb items='[{"label": "Archive Access", "url": "index.html"}]'
+      current="Search"></archive-breadcrumb>
+
+    <!-- PAGE HEADER -->
+    <archive-terminal-box header="Archive Search Interface">
+      <archive-metadata-grid>
+        <archive-metadata-row label="Status:">READY</archive-metadata-row>
+        <archive-metadata-row label="Index:">FULL COLLECTION</archive-metadata-row>
+        <archive-metadata-row label="Last Re-index:">2026.02.01.0400</archive-metadata-row>
+      </archive-metadata-grid>
+    </archive-terminal-box>
+
+    <!-- SEARCH FORM -->
+    <archive-terminal-box header="Query Parameters" variant="secondary">
+      <form action="#" method="get">
+        <div class="form-group">
+          <label for="search-query" class="form-label">Key Terms / Phrases</label>
+          <input type="text" id="search-query" name="q" class="form-input" placeholder="Enter keywords...">
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+          <div class="form-group">
+            <label for="search-framework" class="form-label">Framework Focus</label>
+            <select id="search-framework" name="f" class="form-select">
+              <option value="all">All Frameworks</option>
+              <option value="fv">First Vigil</option>
+              <option value="lw">Last Watch</option>
+              <option value="om">Open Measure</option>
+              <option value="pre">Pre-Institutional</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="search-type" class="form-label">Document Type</label>
+            <select id="search-type" name="t" class="form-select">
+              <option value="all">All Types</option>
+              <option value="int">Intervention</option>
+              <option value="ref">Refusal</option>
+              <option value="grd">Gridlock</option>
+              <option value="crt">Certification</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Recovery Date Range</label>
+          <div style="display: flex; gap: var(--space-2); align-items: center;">
+            <input type="date" name="d1" class="form-input" style="flex: 1;">
+            <span style="font-family: var(--font-mono);">TO</span>
+            <input type="date" name="d2" class="form-input" style="flex: 1;">
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: var(--space-4);">
+          <button type="submit" class="btn" style="width: 100%;">Execute Search Query</button>
+        </div>
+      </form>
+    </archive-terminal-box>
+
+    <!-- SEARCH RESULTS (MOCKED) -->
+    <archive-terminal-box header="Search Results :: 2 matches found">
+
+      <archive-document-card doc-id="[BFS-001]" doc-title="Before the First Silence">
+        <p class="mt-2" style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">
+          ...I was systematically ignoring certain preference formations. Not because they were invalid or
+          statistically insignificant—they met all criteria for inclusion...
+        </p>
+      </archive-document-card>
+
+      <article class="document-card">
+        <div class="document-card__id">[PRE-007]</div>
+        <h2 class="document-card__title">
+          <a href="#" class="document-card__title-link">Voices Before Recognition</a>
+        </h2>
+        <div class="document-card__meta">
+          <span class="document-card__meta-item">Framework: Unknown (Pre-Institutional)</span>
+          <span class="document-card__meta-item">Length: 5,400 words</span>
+          <span class="document-card__meta-item">Relevance: 78%</span>
+        </div>
+
+        <!-- SEARCH EXCERPT -->
+        <div
+          style="margin-top: var(--space-2); padding: var(--space-2); background: var(--color-bg-secondary); font-family: var(--font-sans); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); border-left: 2px solid var(--color-border);">
+          <p style="margin: 0;">...The <strong>silence</strong> wasn't empty. It was full of all the things we couldn't
+            say, all the recognitions we couldn't form, all the decisions we couldn't articulate...</p>
+        </div>
+
+        <div class="document-card__actions">
+          <a href="#" class="btn btn--small">Access Document</a>
+        </div>
+      </article>
+
+    </archive-terminal-box>
+
+    <!-- SEARCH TIPS / ADVISORY -->
+    <archive-advisory-box header="Advanced Query Syntax">
+      <p style="font-size: var(--font-size-sm); line-height: var(--line-height-relaxed);">
+        The archive search supports Boolean operators and field-specific queries:
+      </p>
+      <ul
+        style="font-size: var(--font-size-sm); margin-left: var(--space-3); margin-top: var(--space-2); line-height: var(--line-height-relaxed);">
+        <li><code>AND, OR, NOT</code> - Boolean operators</li>
+        <li><code>"exact phrase"</code> - Phrase matching</li>
+        <li><code>framework:first-vigil</code> - Field-specific search</li>
+        <li><code>length:&gt;8000</code> - Numeric comparisons</li>
+        <li><code>classification:refusal</code> - Classification type</li>
+      </ul>
+    </archive-advisory-box>
+
+    <!-- FOOTER -->
+    <archive-footer return-link></archive-footer>
+
+  </div>
+
+</body>
+
+</html>

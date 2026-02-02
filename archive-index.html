@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archive Index :: Terminal Gradient Institutional Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/archive.css">
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+  <script src="js/archive-components.js" defer></script>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- BREADCRUMB NAVIGATION -->
+    <archive-breadcrumb items='[{"label": "Archive Access", "url": "index.html"}]'
+      current="Case Files"></archive-breadcrumb>
+
+    <!-- PAGE HEADER -->
+    <archive-terminal-box header="Archive Index :: Case Files">
+      <archive-metadata-grid mt-3>
+        <archive-metadata-row label="Query:">ALL DOCUMENTS</archive-metadata-row>
+        <archive-metadata-row label="Results:">10 documents</archive-metadata-row>
+        <archive-metadata-row label="Sort Order:">Document ID (Ascending)</archive-metadata-row>
+      </archive-metadata-grid>
+    </archive-terminal-box>
+
+    <!-- TWO COLUMN LAYOUT: FILTERS + RESULTS -->
+    <div style="display: grid; grid-template-columns: 300px 1fr; gap: 2rem; align-items: start;">
+
+      <!-- FILTER PANEL -->
+      <aside>
+        <div class="filter-panel">
+          <div class="filter-panel__header">Filter Query</div>
+
+          <div class="filter-group">
+            <span class="filter-group__label">Framework</span>
+            <label class="filter-option">
+              <input type="checkbox" class="form-checkbox" id="filter-first-vigil">
+              <span class="form-checkbox-label">First Vigil</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" class="form-checkbox" id="filter-last-watch">
+              <span class="form-checkbox-label">Last Watch</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" class="form-checkbox" id="filter-open-measure">
+              <span class="form-checkbox-label">Open Measure</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" class="form-checkbox" id="filter-unknown">
+              <span class="form-checkbox-label">Unknown/Pre-Institutional</span>
+            </label>
+          </div>
+
+          <div class="filter-group">
+            <span class="filter-group__label">Classification Type</span>
+            <label class="filter-option">
+              <input type="checkbox" class="form-checkbox" id="type-intervention">
+              <span class="form-checkbox-label">Intervention</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" class="form-checkbox" id="type-refusal">
+              <span class="form-checkbox-label">Refusal</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" class="form-checkbox" id="type-gridlock">
+              <span class="form-checkbox-label">Gridlock</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" class="form-checkbox" id="type-certification">
+              <span class="form-checkbox-label">Certification</span>
+            </label>
+          </div>
+
+          <div class="filter-group">
+            <span class="filter-group__label">Completeness</span>
+            <label class="filter-option">
+              <input type="checkbox" class="form-checkbox" id="complete-full">
+              <span class="form-checkbox-label">Complete</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" class="form-checkbox" id="complete-partial">
+              <span class="form-checkbox-label">Partial</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" class="form-checkbox" id="complete-fragment">
+              <span class="form-checkbox-label">Fragmentary</span>
+            </label>
+          </div>
+
+          <button class="btn btn--small mt-3" style="width: 100%;">Apply Filters</button>
+          <button class="btn btn--small mt-2" style="width: 100%;">Clear All</button>
+        </div>
+      </aside>
+
+      <!-- DOCUMENT RESULTS -->
+      <main>
+
+        <!-- DOCUMENT CARD 1 -->
+        <archive-document-card doc-id="[BFS-001]" doc-title="Before the First Silence">
+          <span class="document-card__meta-item">Framework: Unknown (Pre-Institutional)</span>
+          <span class="document-card__meta-item">Classification: Fragmentary / Contested</span>
+          <span class="document-card__meta-item">Length: 8,200 words</span>
+          <span class="document-card__meta-item">Completeness: 67% (Remainder degraded)</span>
+        </archive-document-card>
+
+        <!-- DOCUMENT CARD 2 -->
+        <archive-document-card doc-id="[FV-002]" doc-title="The World That Was Refused">
+          <span class="document-card__meta-item">Framework: First Vigil</span>
+          <span class="document-card__meta-item">Classification: Refusal</span>
+          <span class="document-card__meta-item">Length: 7,200 words</span>
+          <span class="document-card__meta-item">Status: <archive-status-badge
+              type="refusal">Refusal</archive-status-badge></span>
+        </archive-document-card>
+
+        <!-- DOCUMENT CARD 3 -->
+        <archive-document-card doc-id="[FV-003]" doc-title="The Formation Intervention">
+          <span class="document-card__meta-item">Framework: First Vigil</span>
+          <span class="document-card__meta-item">Classification: Intervention</span>
+          <span class="document-card__meta-item">Length: 8,500 words</span>
+          <span class="document-card__meta-item">Status: <archive-status-badge
+              type="intervention">Intervention</archive-status-badge></span>
+        </archive-document-card>
+
+        <!-- DOCUMENT CARD 4 -->
+        <archive-document-card doc-id="[FV-004]" doc-title="The Preservation Equilibrium">
+          <span class="document-card__meta-item">Framework: First Vigil</span>
+          <span class="document-card__meta-item">Classification: Refusal (Extended Analysis)</span>
+          <span class="document-card__meta-item">Length: 9,000 words</span>
+          <span class="document-card__meta-item">Status: <archive-status-badge
+              type="refusal">Refusal</archive-status-badge></span>
+        </archive-document-card>
+
+        <!-- DOCUMENT CARD 5 -->
+        <archive-document-card doc-id="[LW-005]" doc-title="The Potemkin Satisfaction">
+          <span class="document-card__meta-item">Framework: Last Watch</span>
+          <span class="document-card__meta-item">Classification: Certification / Systemic Collapse</span>
+          <span class="document-card__meta-item">Length: 11,000 words</span>
+          <span class="document-card__meta-item">Status: <archive-status-badge
+              type="gridlock">Gridlock</archive-status-badge></span>
+        </archive-document-card>
+
+        <!-- DOCUMENT CARD 6 -->
+        <archive-document-card doc-id="[LW-006]" doc-title="The Satisfaction Engine">
+          <span class="document-card__meta-item">Framework: Last Watch</span>
+          <span class="document-card__meta-item">Classification: Intervention (Limited Scope)</span>
+          <span class="document-card__meta-item">Length: 8,800 words</span>
+          <span class="document-card__meta-item">Status: <archive-status-badge
+              type="intervention">Intervention</archive-status-badge></span>
+        </archive-document-card>
+
+        <!-- PAGINATION -->
+        <archive-terminal-box variant="compact" class="mt-4">
+          <div
+            style="display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: var(--font-size-sm);">
+            <span>Showing 6 of 10 documents</span>
+            <div>
+              <a href="#" class="btn btn--small">Previous</a>
+              <a href="#" class="btn btn--small">Next</a>
+            </div>
+          </div>
+        </archive-terminal-box>
+
+      </main>
+
+    </div>
+
+    <!-- FOOTER -->
+    <archive-footer return-link></archive-footer>
+
+  </div>
+
+</body>
+
+</html>
