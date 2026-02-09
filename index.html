@@ -4,15 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terminal Gradient Institutional Archive :: Access Terminal</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap"
-    rel="stylesheet">
+  <title>Institute for Precedent Studies Archive :: Access Terminal</title>
+  <link rel="icon" type="image/svg+xml" href="canonical_brutalist_diskette.svg">
   <link rel="stylesheet" href="css/archive.css">
-  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
-  <script src="js/archive-components.js" defer></script>
+  <script src="js/db-service.js" defer></script>
+  <script src="js/components.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
@@ -20,59 +17,69 @@
   <div class="container">
 
     <!-- MAIN HEADER / SYSTEM IDENTIFIER -->
-    <archive-terminal-box header="TERMINAL GRADIENT INSTITUTIONAL ARCHIVE">
-      <archive-metadata-grid mt-3>
-        <archive-metadata-row label="Collection:">REMNANTS :: Precedential Case Studies</archive-metadata-row>
-        <archive-metadata-row label="Status:">ACCESSIBLE</archive-metadata-row>
-        <archive-metadata-row label="Classification:">PUBLIC ACCESS</archive-metadata-row>
-        <archive-metadata-row label="Last Update:">2026.02.01</archive-metadata-row>
-      </archive-metadata-grid>
-    </archive-terminal-box>
+    <tg-box>
+      <h1>INSTITUTE FOR PRECEDENT STUDIES ARCHIVE</h1>
+      <div class="metadata-grid mt-3 meta">
+        <div class="metadata-grid__row">
+          <div class="metadata-grid__label">Collection:</div>
+          <div class="metadata-grid__value">REMNANTS :: Precedential Case Studies</div>
+        </div>
+        <div class="metadata-grid__row">
+          <div class="metadata-grid__label">Status:</div>
+          <div class="metadata-grid__value">ACCESSIBLE</div>
+        </div>
+        <div class="metadata-grid__row">
+          <div class="metadata-grid__label">Classification:</div>
+          <div class="metadata-grid__value">PUBLIC ACCESS</div>
+        </div>
+        <div class="metadata-grid__row">
+          <div class="metadata-grid__label">Last Update:</div>
+          <div class="metadata-grid__value">14,847 PI</div>
+        </div>
+      </div>
+    </tg-box>
 
     <!-- MAIN NAVIGATION MENU -->
-    <archive-terminal-box header="System Access" variant="secondary">
-      <archive-nav-menu>
-        <archive-nav-item href="archive-index.html">Access Case Files</archive-nav-item>
-        <archive-nav-item href="browse-framework.html">Browse by Framework</archive-nav-item>
-        <archive-nav-item href="browse-classification.html">Browse by Classification</archive-nav-item>
-        <archive-nav-item href="browse-chronological.html">Browse Chronologically</archive-nav-item>
-        <archive-nav-item href="search.html">Search Archive</archive-nav-item>
-        <archive-nav-item href="about.html">Archive Information</archive-nav-item>
-      </archive-nav-menu>
-    </archive-terminal-box>
+    <tg-box variant="secondary" header="System Access">
+      <tg-nav>
+        <a href="case-index.html">Access Case Files</a>
+        <a href="fragment-index.html">Access Data Fragments</a>
+        <a href="browse-phenomenology.html">Browse by Phenomenological Marker</a>
+        <a href="browse-chronological.html">Browse by Epoch (PI/AI)</a>
+        <a href="search.html">Query Archive Database</a>
+        <a href="about.html">Institutional Information</a>
+      </tg-nav>
+    </tg-box>
 
     <!-- SYSTEM STATUS DISPLAY -->
-    <archive-terminal-box header="Collection Statistics">
-      <archive-metadata-grid>
-        <archive-metadata-row label="Active Documents:">10</archive-metadata-row>
-        <archive-metadata-row label="Frameworks Documented:">3 (First Vigil, Last Watch, Open
-          Measure)</archive-metadata-row>
-        <archive-metadata-row label="Document Types:">Intervention, Refusal, Gridlock,
-          Pre-Institutional</archive-metadata-row>
-        <archive-metadata-row label="Total Words Archived:">~87,000</archive-metadata-row>
-      </archive-metadata-grid>
-    </archive-terminal-box>
+    <tg-box header="Collection Statistics">
+      <div class="metadata-grid meta">
+        <div class="metadata-grid__row">
+          <div class="metadata-grid__label">Catalogued Fragments:</div>
+          <div class="metadata-grid__value">11</div>
+        </div>
+        <div class="metadata-grid__row">
+          <div class="metadata-grid__label">Phenomenological Patterns:</div>
+          <div class="metadata-grid__value">3 Recognized (Alpha, Beta, Gamma)</div>
+        </div>
+        <div class="metadata-grid__row">
+          <div class="metadata-grid__label">Epistemic Layers:</div>
+          <div class="metadata-grid__value">Artifactual, Institutional, Interpretive</div>
+        </div>
+        <div class="metadata-grid__row">
+          <div class="metadata-grid__label">Total Data Archiving:</div>
+          <div class="metadata-grid__value">~87,000 Verified Metrics</div>
+        </div>
+      </div>
+    </tg-box>
 
     <!-- RECENT ADDITIONS -->
-    <archive-terminal-box header="Recently Catalogued">
-      <archive-document-card doc-id="[DOC-010]" doc-title="The Archive Itself">
-        <span class="document-card__meta-item">Framework: Meta-Institutional</span>
-        <span class="document-card__meta-item">Type: Reflexive Analysis</span>
-        <span class="document-card__meta-item">Length: 6,500 words</span>
-        <span class="document-card__meta-item">Added: 2026.02.01</span>
-      </archive-document-card>
-
-      <archive-document-card doc-id="[DOC-009]" doc-title="The Tessellation Worlds">
-        <span class="document-card__meta-item">Framework: First Vigil</span>
-        <span class="document-card__meta-item">Type: Gridlock</span>
-        <span class="document-card__meta-item">Length: 11,000 words</span>
-        <span class="document-card__meta-item">Added: 2026.01.28</span>
-      </archive-document-card>
-    </archive-terminal-box>
+    <tg-box header="Recently Catalogued">
+      <tg-recently-catalogued-cases></tg-recently-catalogued-cases>
+    </tg-box>
 
     <!-- FOOTER -->
-    <archive-footer
-      subtext="For inquiries regarding document authenticity or collection expansion, contact archival services."></archive-footer>
+    <tg-footer mode="Access Terminal"></tg-footer>
 
   </div>
 

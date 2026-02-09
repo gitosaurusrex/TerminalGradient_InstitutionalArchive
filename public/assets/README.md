@@ -1,4 +1,4 @@
-# TERMINAL GRADIENT INSTITUTIONAL ARCHIVE
+# INSTITUTE FOR PRECEDENT STUDIES ARCHIVE
 ## Complete Specification Package for Agentic Website Generators
 
 **Version:** 1.0  
@@ -97,21 +97,26 @@ This specification package contains everything needed to build the Terminal Grad
 ## DESIGN PHILOSOPHY
 
 ### Core Concept
-This is NOT a website about an archive.  
-This IS the archive itself—an in-universe institutional system.
+- This is NOT a website about an archive.  
+- This IS the electronic archive itself—an in-universe institutional system.
+- Stories in the Terminal Gradient universe are "Case Files"
+- Case Files are composed of in-universe analysis and document fragments.
+- Document Fragments are in-universe logs, ruins, myths, etc, that describe events from someone's subjective POV
 
 ### Aesthetic Principles
-1. **HAL 9000 Minimalism** - Extreme geometric precision, zero decoration
+1. **HAL 9000 Minimalism** - Extreme geometric precision, zero decoration, high contrast
 2. **Brutalist Functionality** - Every element serves a purpose
 3. **Terminal Authority** - Institutional framing maintained throughout
 4. **Instant Responsiveness** - No animations or loading states
+5. **Unified Typography** - Single font with variation axes for hierarchy
 
 ### Absolute Prohibitions
 - No shadows, gradients, or rounded corners
 - No animations or transitions (except instant state changes)
 - No decorative elements or icons
 - No personality or casual language
-- No fonts beyond IBM Plex Mono and IBM Plex Sans
+- No fonts beyond Recursive Mono
+- No italics (use `slnt` axis)
 
 ---
 
@@ -125,11 +130,11 @@ Borders:      #333333 (default), #4a4a4a (active)
 Accents:      #00ff00 (green), #ff0000 (red), #ffaa00 (amber)
 ```
 
-### Typography
+### Typography (Locked System)
 ```
-Monospace:    IBM Plex Mono (UI, headers, metadata)
-Sans-serif:   IBM Plex Sans (body text)
-Sizes:        12px, 14px, 16px, 18px, 20px, 24px
+Single Font:  Recursive Mono
+Presets:      Prose, Metadata, Nav, CTA, Headers, Buttons
+Hierarchy:    Managed via axes (CASL, slnt)
 ```
 
 ### Spacing (8px Grid)
@@ -215,7 +220,9 @@ All templates demonstrated in example pages with complete markup.
 ## QUALITY STANDARDS
 
 ### Visual Fidelity Checklist
-- [ ] Only IBM Plex Mono and IBM Plex Sans fonts
+- [ ] Only Recursive Mono font
+- [ ] Axis variations match presets
+- [ ] No italics (use slnt axis)
 - [ ] Colors match design tokens exactly
 - [ ] All spacing is multiples of 8px
 - [ ] 2px borders, no rounded corners
@@ -246,7 +253,7 @@ All templates demonstrated in example pages with complete markup.
 ✓ Keep sharp 90° corners and no effects
 
 ❌ Using decorative fonts or multiple font families  
-✓ Only IBM Plex Mono and Sans
+✓ Only Recursive Mono with axes
 
 ❌ Softening contrast with mid-tone grays  
 ✓ Maintain stark contrast (#0a0a0a + #e8e8e8)
@@ -300,7 +307,7 @@ When creating new components not in examples:
 ### Example:
 Need a notification banner? 
 → Terminal box with appropriate border color
-→ Monospace typography
+→ Recursive Mono typography with axis presets
 → Instant appearance/dismissal
 → No animation or decoration
 
@@ -421,8 +428,9 @@ Your implementation succeeds when:
 
 ## VERSION HISTORY
 
-**Version 1.0** (February 2026)
-- Initial release
+**Version 1.1** (February 2026)
+- Updated to Recursive Mono typography system
+- 6 preset treatment system
 - 5 example pages
 - 14 components
 - Complete documentation

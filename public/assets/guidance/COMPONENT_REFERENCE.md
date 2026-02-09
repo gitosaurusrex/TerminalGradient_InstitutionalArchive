@@ -56,10 +56,11 @@ Base container for all framed sections. Foundation component used throughout sit
 }
 
 .terminal-box__header {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
+  opacity: 0.75;
+  font-variation-settings: "MONO" 1, "CASL" 0.1, "slnt" 0;
   padding-bottom: var(--space-2);
   border-bottom: 1px solid var(--color-border);
   margin-bottom: var(--space-3);
@@ -92,15 +93,15 @@ Clickable menu lists with hover states and active indicators.
 <nav>
   <ul class="nav-menu">
     <li class="nav-menu__item">
-      <a href="page1.html" class="nav-menu__link">Menu Item One</a>
+      <a href="page1.html" class="nav-menu__link nav-link">Menu Item One</a>
     </li>
     <li class="nav-menu__item">
-      <a href="page2.html" class="nav-menu__link nav-menu__link--active">
+      <a href="page2.html" class="nav-menu__link nav-link nav-menu__link--active">
         Active Menu Item
       </a>
     </li>
     <li class="nav-menu__item">
-      <a href="page3.html" class="nav-menu__link">Menu Item Three</a>
+      <a href="page3.html" class="nav-menu__link nav-link">Menu Item Three</a>
     </li>
   </ul>
 </nav>
@@ -118,10 +119,6 @@ Clickable menu lists with hover states and active indicators.
 
 .nav-menu__link {
   display: block;
-  color: var(--color-text-primary);
-  text-decoration: none;
-  font-family: var(--font-mono);
-  font-size: var(--font-size-base);
   padding: var(--space-1) 0;
   transition: none;
 }
@@ -179,10 +176,11 @@ Show current location in site hierarchy.
 ### CSS
 ```css
 .breadcrumb {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   color: var(--color-text-secondary);
   margin-bottom: var(--space-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .breadcrumb__link {
@@ -245,18 +243,19 @@ Display document listings in archive indexes.
 }
 
 .document-card__id {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   color: var(--color-text-secondary);
   margin-bottom: var(--space-1);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .document-card__title {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-lg);
-  text-transform: uppercase;
+  font-size: var(--font-size-xl);
+  text-transform: lowercase;
   margin-bottom: var(--space-2);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.18em;
+  font-variation-settings: "MONO" 1, "CASL" 0.3, "slnt" -12;
 }
 
 .document-card__title-link {
@@ -269,10 +268,11 @@ Display document listings in archive indexes.
 }
 
 .document-card__meta {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   color: var(--color-text-secondary);
-  line-height: var(--line-height-normal);
+  line-height: var(--line-height-meta);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .document-card__meta-item {
@@ -324,9 +324,10 @@ Display key-value pairs for document metadata or system information.
 ### CSS
 ```css
 .metadata-grid {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-sm);
-  line-height: var(--line-height-normal);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-meta);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .metadata-grid__row {
@@ -339,8 +340,7 @@ Display key-value pairs for document metadata or system information.
 
 .metadata-grid__label {
   color: var(--color-text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  opacity: 0.75;
 }
 
 .metadata-grid__value {
@@ -364,67 +364,47 @@ Display key-value pairs for document metadata or system information.
 
 ---
 
-## COMPONENT 6: STATUS BADGES
+## COMPONENT 6: REGISTER FLAGS
 
 ### Purpose
-Indicate document classification types with color coding.
+High-contrast status markers indicating phenomenological pattern and active verification.
 
 ### HTML
 ```html
-<!-- Intervention (green) -->
-<span class="status-badge status-badge--intervention">Intervention</span>
-
-<!-- Refusal (red) -->
-<span class="status-badge status-badge--refusal">Refusal</span>
-
-<!-- Gridlock (amber) -->
-<span class="status-badge status-badge--gridlock">Gridlock</span>
-
-<!-- Classified (red) -->
-<span class="status-badge status-badge--classified">Classified</span>
-
-<!-- Default (gray) -->
-<span class="status-badge">Certification</span>
+<div class="register-flag register-flag--pattern-b">
+  <span class="register-flag__bit">PATTERN-B</span>
+  <span class="register-flag__label">0x4F22 :: VERIFIED</span>
+</div>
 ```
 
 ### CSS
 ```css
-.status-badge {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
+.register-flag {
+  display: inline-flex;
+  font-size: 10px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: var(--space-1) var(--space-2);
+}
+
+.register-flag__bit {
+  background: var(--color-border);
+  color: var(--color-bg-primary);
+  padding: 2px 6px;
+  font-weight: 800;
+}
+
+.register-flag__label {
   border: 1px solid var(--color-border);
-}
-
-.status-badge--intervention {
-  border-color: var(--color-accent-green);
-  color: var(--color-accent-green);
-}
-
-.status-badge--refusal {
-  border-color: var(--color-accent-red);
-  color: var(--color-accent-red);
-}
-
-.status-badge--gridlock {
-  border-color: var(--color-accent-amber);
-  color: var(--color-accent-amber);
-}
-
-.status-badge--classified {
-  border-color: var(--color-accent-red);
-  color: var(--color-accent-red);
+  padding: 1px 6px;
+  color: var(--color-text-primary);
 }
 ```
 
 ### Color Meanings
-- **Green:** Intervention (action taken)
-- **Red:** Refusal (action declined) or Classified (restricted access)
-- **Amber:** Gridlock (consensus failure) or Advisory
-- **Gray:** Neutral/default classifications
+- **Pattern Alpha (amber):** Associated with systemic stillness/terminal stability.
+- **Pattern Beta (green):** Associated with sudden structural or atmospheric fractures.
+- **Pattern Gamma (red):** Associated with cognitive invalidation/meaning collapse.
+- **Default:** Neutral or pre-institutional classifications.
 
 ---
 
@@ -442,7 +422,7 @@ All clickable actions (links styled as buttons or actual button elements).
 <button class="btn btn--small">Small Action</button>
 
 <!-- Link styled as button -->
-<a href="page.html" class="btn">Link Action</a>
+<a href="page.html" class="btn cta">Link Action</a>
 
 <!-- Multiple buttons in row -->
 <div style="display: flex; gap: var(--space-2);">
@@ -455,16 +435,6 @@ All clickable actions (links styled as buttons or actual button elements).
 ```css
 .btn {
   display: inline-block;
-  font-family: var(--font-mono);
-  font-size: var(--font-size-sm);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-text-primary);
-  background: transparent;
-  border: var(--border-width) solid var(--color-border);
-  padding: var(--space-2) var(--space-3);
-  text-decoration: none;
-  cursor: pointer;
   transition: background-color 0.1s, color 0.1s;
 }
 
@@ -480,8 +450,8 @@ All clickable actions (links styled as buttons or actual button elements).
 }
 
 .btn--small {
-  padding: var(--space-1) var(--space-2);
-  font-size: var(--font-size-xs);
+  padding: 4px 8px;
+  font-size: 12px;
 }
 ```
 
@@ -554,19 +524,19 @@ All user input: text, select, checkboxes, etc.
 
 .form-label {
   display: block;
-  font-family: var(--font-mono);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   margin-bottom: var(--space-1);
   color: var(--color-text-secondary);
+  opacity: 0.75;
 }
 
 .form-input,
 .form-select,
 .form-textarea {
   width: 100%;
-  font-family: var(--font-mono);
+  font-family: inherit;
   font-size: var(--font-size-base);
   color: var(--color-text-primary);
   background: var(--color-bg-secondary);
@@ -590,8 +560,9 @@ All user input: text, select, checkboxes, etc.
 }
 
 .form-checkbox-label {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   cursor: pointer;
 }
 ```
@@ -632,18 +603,15 @@ Warnings, notices, reader advisories with color-coded severity.
 }
 
 .advisory__header {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
   color: var(--color-accent-amber);
   margin-bottom: var(--space-2);
 }
 
 .advisory__content {
-  font-family: var(--font-sans);
-  font-size: var(--font-size-sm);
-  line-height: var(--line-height-relaxed);
+  font-size: var(--font-size-base);
   color: var(--color-text-primary);
 }
 
@@ -691,8 +659,7 @@ Show document completeness or processing status.
   height: 16px;
   border: 1px solid var(--color-border);
   background: var(--color-bg-secondary);
-  font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
+  font-size: 12px;
   position: relative;
   overflow: hidden;
 }
@@ -724,43 +691,43 @@ Show document completeness or processing status.
 ## COMPONENT 11: FILTER PANEL
 
 ### Purpose
-Sidebar with checkboxes for filtering document listings.
+Sidebar with checkboxes for filtering document listings by phenomenological and epistemic markers.
 
 ### HTML
 ```html
 <aside>
   <div class="filter-panel">
-    <div class="filter-panel__header">Filter Query</div>
+    <div class="filter-panel__header">Query Parameters</div>
     
     <div class="filter-group">
-      <span class="filter-group__label">Framework</span>
+      <span class="filter-group__label">Phenomenology</span>
       <label class="filter-option">
-        <input type="checkbox" class="form-checkbox" id="fw-1">
-        <span class="form-checkbox-label">First Vigil</span>
+        <input type="checkbox" class="form-checkbox" id="ph-1">
+        <span class="form-checkbox-label">Systemic Stillness</span>
       </label>
       <label class="filter-option">
-        <input type="checkbox" class="form-checkbox" id="fw-2">
-        <span class="form-checkbox-label">Last Watch</span>
+        <input type="checkbox" class="form-checkbox" id="ph-2">
+        <span class="form-checkbox-label">Structural Fracture</span>
       </label>
       <label class="filter-option">
-        <input type="checkbox" class="form-checkbox" id="fw-3">
-        <span class="form-checkbox-label">Open Measure</span>
+        <input type="checkbox" class="form-checkbox" id="ph-3">
+        <span class="form-checkbox-label">Cognitive Invalidation</span>
       </label>
     </div>
 
     <div class="filter-group">
-      <span class="filter-group__label">Classification Type</span>
+      <span class="filter-group__label">Epistemic Status</span>
       <label class="filter-option">
-        <input type="checkbox" class="form-checkbox" id="type-1">
-        <span class="form-checkbox-label">Intervention</span>
+        <input type="checkbox" class="form-checkbox" id="ep-1">
+        <span class="form-checkbox-label">Primary Source</span>
       </label>
       <label class="filter-option">
-        <input type="checkbox" class="form-checkbox" id="type-2">
-        <span class="form-checkbox-label">Refusal</span>
+        <input type="checkbox" class="form-checkbox" id="ep-2">
+        <span class="form-checkbox-label">Institutional Analysis</span>
       </label>
     </div>
 
-    <button class="btn btn--small" style="width: 100%;">Apply Filters</button>
+    <button class="btn btn--small" style="width: 100%;">Refine Query</button>
   </div>
 </aside>
 ```
@@ -774,10 +741,9 @@ Sidebar with checkboxes for filtering document listings.
 }
 
 .filter-panel__header {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
   margin-bottom: var(--space-3);
   padding-bottom: var(--space-2);
   border-bottom: 1px solid var(--color-border);
@@ -788,10 +754,9 @@ Sidebar with checkboxes for filtering document listings.
 }
 
 .filter-group__label {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
+  font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   color: var(--color-text-secondary);
   margin-bottom: var(--space-2);
   display: block;
@@ -816,23 +781,23 @@ Display tabular data (comparison charts, statistics, etc.).
   <thead>
     <tr>
       <th>Document ID</th>
-      <th>Framework</th>
-      <th>Length</th>
-      <th>Status</th>
+      <th>Dating (Estimated)</th>
+      <th>Phenomenology</th>
+      <th>Epistemic Status</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>BFS-001</td>
-      <td>Unknown</td>
-      <td>8,200</td>
-      <td>Contested</td>
+      <td>RF-0001</td>
+      <td>15,000 AI</td>
+      <td>Terminal Stillness</td>
+      <td>Fragmentary</td>
     </tr>
     <tr>
-      <td>FV-002</td>
-      <td>First Vigil</td>
-      <td>7,200</td>
-      <td>Authenticated</td>
+      <td>RF-0012</td>
+      <td>2,041 PI</td>
+      <td>Atmospheric Fracture</td>
+      <td>Primary Testimony</td>
     </tr>
   </tbody>
 </table>
@@ -843,9 +808,10 @@ Display tabular data (comparison charts, statistics, etc.).
 .data-table {
   width: 100%;
   border-collapse: collapse;
-  font-family: var(--font-mono);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   margin: var(--space-4) 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .data-table th,
@@ -870,60 +836,114 @@ Display tabular data (comparison charts, statistics, etc.).
 
 ---
 
-## COMPONENT 13: DOCUMENT CONTENT
+## COMPONENT 13: CASE CONTENT & FRAGMENT FRAMES
 
 ### Purpose
-Styled prose content for story text.
+Display raw in-universe data fragments within a case narrative, surfacing esoteric metadata via server-side injection.
+
+### Shortcode Syntax (Diegetic)
+Fragments must be invoked within case analysis using the following syntax:
+`[[SURFACE_FRAGMENT:RF-####]]`
+
+### Application Logic
+The rendering engine must parse this shortcode, retrieve the fragment record from the database, and inject the following HTML structure:
+
+### HTML (Injected)
+```html
+<div class="fragment-frame">
+  <div class="fragment-frame__header meta">
+    <span>REF: RF-0001</span>
+    <span>STRATA: 12.4m</span>
+    <span>ISO-VAR: 0.004%</span>
+    <span>CONF: 87.2%</span>
+  </div>
+  <div class="fragment-frame__content testimony">
+    <p>...verbatim fragment text here...</p>
+  </div>
+</div>
+```
+
+### CSS
+(See existing .fragment-frame styles in archive.css)
+
+---
+
+## COMPONENT 14: REGISTER FLAGS
+
+### Purpose
+High-contrast status markers indicating phenomenological pattern and active verification.
 
 ### HTML
 ```html
-<article class="document-content">
-  <p><em>[Beginning of recovered text]</em></p>
-  
-  <p>There was a world before this one. I know because I was there.</p>
-  
-  <p>Not in body—I had no body then, or perhaps I had every body...</p>
-  
-  <p><strong>This is emphasized text within the narrative.</strong></p>
-  
-  <p><em>[Degraded section: ~1,200 words lost]</em></p>
-  
-  <p><em>[End of recovered text]</em></p>
-</article>
+<div class="register-flag register-flag--pattern-b">
+  <span class="register-flag__bit">PATTERN-B</span>
+  <span class="register-flag__label">0x4F22 :: VERIFIED</span>
+</div>
 ```
 
 ### CSS
 ```css
-.document-content {
-  font-family: var(--font-sans);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-relaxed);
+.register-flag {
+  display: inline-flex;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.register-flag__bit {
+  background: var(--color-border);
+  color: var(--color-bg-primary);
+  padding: 2px 6px;
+  font-weight: 800;
+}
+
+.register-flag__label {
+  border: 1px solid var(--color-border);
+  padding: 1px 6px;
   color: var(--color-text-primary);
-}
-
-.document-content p {
-  margin-bottom: var(--space-3);
-}
-
-.document-content em {
-  font-style: italic;
-  color: var(--color-text-secondary);
-}
-
-.document-content strong {
-  font-weight: 600;
-  color: var(--color-accent-white);
 }
 ```
 
-### Usage Notes
-- Use `<em>` for editorial notes like "[degraded section]"
-- Use `<strong>` sparingly for emphasis in narrative
-- Maintain comfortable line-height for reading
+---
+
+## COMPONENT 15: CORRUPTION UTILITIES
+
+### Purpose
+Visual representation of missing or unrecoverable data sectors.
+
+### HTML
+```html
+<!-- Inline character corruption -->
+<p>The entity was <span class="corrupted">██████</span> before manifestation.</p>
+
+<!-- Full block corruption -->
+<div class="sector-lost">
+  [SECTOR 0xAF4: PERMANENT DATA LOSS]
+</div>
+```
 
 ---
 
-## COMPONENT 14: FOOTER
+## COMPONENT 16: DATA STREAM (HIGH DENSITY)
+
+### Purpose
+Information-dense results table replacing card-based layouts.
+
+### HTML
+```html
+<table class="data-stream meta">
+  <tr class="data-stream__row">
+    <td class="data-stream__cell data-stream__cell--id">RF-0001</td>
+    <td class="data-stream__cell data-stream__cell--title">before the first silence</td>
+    <td class="data-stream__cell">15,000 AI</td>
+    <td class="data-stream__cell">PATTERN-A</td>
+  </tr>
+</table>
+```
+
+---
+
+## COMPONENT 17: FOOTER
 
 ### Purpose
 Site footer on every page.
@@ -946,8 +966,9 @@ Site footer on every page.
   margin-top: var(--space-8);
   padding: var(--space-4) 0;
   border-top: 1px solid var(--color-border);
-  font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   color: var(--color-text-secondary);
   text-align: center;
 }

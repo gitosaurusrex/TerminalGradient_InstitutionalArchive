@@ -80,9 +80,7 @@ Every page starts with:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>[Page Title] :: Terminal Gradient Institutional Archive</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="canonical_brutalist_diskette.svg">
   <link rel="stylesheet" href="css/archive.css">
 </head>
 <body>
@@ -113,26 +111,26 @@ Every page starts with:
 **Components needed:**
 - Breadcrumb navigation
 - Terminal box header with query info
-- Two-column layout: Filter panel (sidebar) + Document cards (main)
+- Two-column layout: Filter panel (sidebar) + Case cards (main)
 - Pagination controls
 - Footer
 
 **Reference:** See `../pages/archive-index.html`
 
-### 4.3 Document View (document-view.html)
+### 4.3 Case View (case-view.html)
 
 **Components needed:**
 - Breadcrumb navigation
 - Terminal box with full metadata grid
 - Advisory box (reader warnings)
 - Progress bar (completeness)
-- Terminal box with story content
-- Terminal box with archival commentary
+- Case Analysis (Institutional)
+- In-line Fragment Frames (Raw Data)
 - Related documents section
 - Action buttons
 - Footer
 
-**Reference:** See `../pages/document-view.html`
+**Reference:** See `../pages/case-view.html`
 
 ### 4.4 Search Page (search.html)
 
@@ -168,10 +166,11 @@ Borders: #333333 (default), #4a4a4a (active)
 Accents: #00ff00 (green), #ff0000 (red), #ffaa00 (amber), #ffffff (white)
 ```
 
-### Typography
+### Typography (Locked System)
 ```
-Monospace: IBM Plex Mono (headers, metadata, labels, UI)
-Sans-serif: IBM Plex Sans (body text, readable content)
+Single Font: Recursive Mono
+Hierarchy: Managed via variation axes (CASL, slnt)
+Presets: Prose, Metadata, Nav, CTA, Headers, Buttons
 ```
 
 ### Spacing (8px grid)
@@ -220,7 +219,9 @@ Never: rounded corners, gradients, shadows
 ## STEP 7: MAINTAIN CONSISTENCY
 
 ### Visual Consistency Checklist
-- [ ] Only IBM Plex Mono and IBM Plex Sans fonts
+- [ ] Only Recursive Mono font (no mixing)
+- [ ] Variation axes used correctly per preset
+- [ ] No italics (use slnt axis instead)
 - [ ] Only colors from design system
 - [ ] All spacing is multiples of 8px
 - [ ] All borders are 2px solid, no rounded corners
@@ -358,15 +359,17 @@ When you need to create something not in the examples:
 }
 
 .timeline__date {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .timeline__title {
-  font-family: var(--font-mono);
   font-size: var(--font-size-sm);
   color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
 }
 ```
 
@@ -417,12 +420,13 @@ When you need to create something not in the examples:
 ```css
 /* WRONG */
 h1 {
-  font-family: 'Georgia', serif;
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 /* RIGHT */
 h1 {
   font-family: var(--font-mono);
+  font-variation-settings: var(--axis-ui);
 }
 ```
 

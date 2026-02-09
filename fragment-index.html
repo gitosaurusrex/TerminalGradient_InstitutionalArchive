@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Archive Index :: Institute for Precedent Studies Archive</title>
+  <title>Data Fragment Index :: Institute for Precedent Studies Archive</title>
   <link rel="icon" type="image/svg+xml" href="canonical_brutalist_diskette.svg">
   <link rel="stylesheet" href="css/archive.css">
   <script src="js/db-service.js" defer></script>
@@ -19,19 +19,15 @@
     <!-- BREADCRUMB NAVIGATION -->
     <tg-breadcrumb>
       <a href="index.html">Archive Access</a>
-      <span>Case Files</span>
+      <span>Data Fragments</span>
     </tg-breadcrumb>
 
     <!-- PAGE HEADER -->
-    <tg-box header="Archive Index :: Case Files">
+    <tg-box header="Data Fragment Index :: Raw Records">
       <div class="metadata-grid mt-3 meta">
         <div class="metadata-grid__row">
           <div class="metadata-grid__label">Query:</div>
           <div class="metadata-grid__value">ALL FRAGMENTS</div>
-        </div>
-        <div class="metadata-grid__row">
-          <div class="metadata-grid__label">Results:</div>
-          <div class="metadata-grid__value">11 fragments</div>
         </div>
         <div class="metadata-grid__row">
           <div class="metadata-grid__label">Sort Order:</div>
@@ -40,7 +36,7 @@
       </div>
     </tg-box>
 
-    <!-- TWO COLUMN LAYOUT: FILTERS + RESULTS -->
+    <!-- TWO COLUMN LAYOUT -->
     <div style="display: grid; grid-template-columns: 300px 1fr; gap: var(--space-4); align-items: start;">
 
       <!-- FILTER PANEL -->
@@ -51,23 +47,12 @@
       <!-- DOCUMENT RESULTS -->
       <main>
         <tg-archive-list></tg-archive-list>
-
-        <!-- PAGINATION (Static for now) -->
-        <tg-box compact>
-          <div style="display: flex; justify-content: space-between; align-items: center;" class="meta">
-            <span>Accessing deep-time strata...</span>
-            <div>
-              <a href="#" class="btn btn--small">Previous</a>
-              <a href="#" class="btn btn--small">Next</a>
-            </div>
-          </div>
-        </tg-box>
       </main>
 
     </div>
 
     <!-- FOOTER -->
-    <tg-footer mode="Catalog Index"></tg-footer>
+    <tg-footer mode="Fragment Index"></tg-footer>
 
   </div>
 

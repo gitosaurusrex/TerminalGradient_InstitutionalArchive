@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Fragment View :: Institute for Precedent Studies Archive</title>
+  <link rel="icon" type="image/svg+xml" href="canonical_brutalist_diskette.svg">
+  <link rel="stylesheet" href="css/archive.css">
+  <script src="js/db-service.js" defer></script>
+  <script src="js/components.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- BREADCRUMB NAVIGATION -->
+    <tg-breadcrumb>
+      <a href="index.html">Archive Access</a>
+      <a href="fragment-index.html">Data Fragments</a>
+      <span id="breadcrumb-id">Loading...</span>
+    </tg-breadcrumb>
+
+    <!-- FRAGMENT HEADER -->
+    <tg-box id="fragment-header-box">
+      <div
+        style="border-bottom: 2px solid var(--color-border); padding-bottom: var(--space-2); margin-bottom: var(--space-3); display: flex; justify-content: space-between;"
+        class="meta">
+        <div id="collection-attribution">Analytical Window :: UNKNOWN</div>
+        <div>INSTITUTIONAL ARCHIVE SYSTEM</div>
+      </div>
+
+      <h1 id="fragment-title" style="margin-bottom: var(--space-4);">Retrieving Records...</h1>
+
+      <div id="fragment-metadata" class="metadata-grid meta">
+        <!-- Dynamic Metadata -->
+      </div>
+    </tg-box>
+
+    <tg-box id="fragment-content-box" header="Raw Data Fragment (Verbatim)">
+      <div id="fragment-content" class="document-content body">
+        <div class="meta">Initializing stratigraphic retrieval...</div>
+      </div>
+    </tg-box>
+
+    <!-- REFERENCED IN CASES -->
+    <tg-box id="referring-cases-box" header="Referenced In Institutional Cases">
+        <nav>
+            <ul class="nav-menu" id="referring-cases">
+                <!-- Cases will be rendered here -->
+            </ul>
+        </nav>
+    </tg-box>
+
+    <!-- ACTION BUTTONS -->
+    <tg-box compact style="display: flex; gap: var(--space-2); justify-content: center;">
+      <a href="fragment-index.html" class="btn">Return to Fragment Index</a>
+      <a href="#" class="btn">Download Raw Buffer (DATA)</a>
+      <a href="#" class="btn">Record Verification Claim</a>
+    </tg-box>
+
+    <!-- FOOTER -->
+    <tg-footer mode="Fragment View Mode"></tg-footer>
+
+  </div>
+
+  <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+          const urlParams = new URLSearchParams(window.location.search);
+          const id = urlParams.get('id');
+    
+          if (!id) {
+            document.getElementById('fragment-title').textContent = 'ERROR :: NO TARGET SPECIFIED';
+            return;
+          }
+    
+          const breadcrumb = document.getElementById('breadcrumb-id');
+          if (breadcrumb) breadcrumb.textContent = `Fragment ${id}`;
+    
+          try {
+            // Wait for database service to be registered on window
+            let retries = 0;
+            while (!window.IPS_DB && retries < 100) {
+              await new Promise(r => setTimeout(r, 60));
+              retries++;
+            }
+    
+            if (!window.IPS_DB) {
+              throw new Error('Database service not located in system environment.');
+            }
+    
+            // Fetch as a Fragment
+            const fragmentData = await window.IPS_DB.query('SELECT * FROM fragments WHERE fragment_id = $id', { '$id': id });
+    
+            if (fragmentData.length > 0) {
+              const fragment = fragmentData[0];
+              const referringCases = await window.IPS_DB.getReferringCases(id); // Fetch referring cases
+              renderStandaloneFragment(fragment, referringCases);
+            } else {
+              throw new Error(`Record ${id} is not a valid data fragment.`);
+            }
+          } catch (err) {
+            document.getElementById('fragment-title').textContent = 'ERR: STRATIGRAPHIC COLLAPSE';
+            document.getElementById('fragment-content').innerHTML = `<div class="advisory advisory--red">${err.message}</div>`;
+          }
+        });
+    
+        function renderStandaloneFragment(f, referringCases) {
+          document.getElementById('fragment-title').textContent = f.title || 'UNTITLED FRAGMENT';
+          document.getElementById('collection-attribution').textContent = `Analytical Window :: ${f.collection_attribution || 'REMNANTS'} Collection`;
+    
+          window._fragmentData = window._fragmentData || {};
+          window._fragmentData[f.fragment_id] = f;
+    
+          const meta = [
+            { label: 'Fragment ID', value: f.fragment_id },
+            { label: 'Strata Depth', value: `${f.strata_depth || '0.0'}m` },
+            { label: 'Time Reference', value: f.time_reference_basis },
+            { label: 'Epistemic Confidence', value: f.epistemic_confidence },
+            { label: 'Isotope Variance', value: f.isotope_variance || 'NULL' }
+          ];
+    
+          document.getElementById('fragment-metadata').innerHTML = meta.map(m => `
+            <div class="metadata-grid__row">
+              <div class="metadata-grid__label">${m.label}:</div>
+              <div class="metadata-grid__value">${m.value}</div>
+            </div>
+          `).join('');
+    
+          document.getElementById('fragment-content').innerHTML = `
+            <div class="fragment-frame">
+                <div class="fragment-frame__header meta">
+                    <div style="display: flex; gap: var(--space-3); align-items: center;">
+                        <span>REF: ${f.fragment_id}</span>
+                        <span>STRATA: ${(f.strata_depth || 0.0).toFixed(1)}m</span>
+                        <span>ISO-VAR: ${f.isotope_variance || 'NULL'}</span>
+                        <span>EPI-CONF: ${f.epistemic_confidence}</span>
+                        ${window.generateFlavorMetrics ? window.generateFlavorMetrics() : ''}
+                    </div>
+                    <button class="info-icon" onclick='window.showMetadataModal(window._fragmentData["${f.fragment_id}"])'>
+                        i
+                    </button>
+                </div>
+                <div class="fragment-frame__content document-content">
+                    <div>${marked.parse(f.content_text)}</div>
+                </div>
+            </div>
+          `;
+          
+          // Render referring cases
+          const referringCasesContainer = document.getElementById('referring-cases');
+          if (referringCasesContainer) {
+            if (referringCases && referringCases.length > 0) {
+              referringCasesContainer.innerHTML = referringCases.map(c => `
+                <li class="nav-menu__item">
+                  <a href="case-view.html?id=${c.case_id}" class="nav-menu__link nav-link">${c.case_id} :: ${c.title}</a>
+                </li>
+              `).join('');
+            } else {
+              referringCasesContainer.innerHTML = '<li class="nav-menu__item meta">No known institutional cases reference this fragment.</li>';
+            }
+          }
+        }
+      </script>
+    </body>
+    
+    </html>
+    
