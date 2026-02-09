@@ -1,0 +1,22 @@
+{
+  "name": "ips-archive",
+  "version": "1.0.0",
+  "description": "Institute for Precedent Studies Archive - SQLite Wasm Edition",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "archive",
+    "sqlite",
+    "wasm",
+    "brutalist"
+  ],
+  "author": "Antigravity",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^6.0.0"
+  }
+}

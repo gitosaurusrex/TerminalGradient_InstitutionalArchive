@@ -29,26 +29,45 @@ Visual and functional guidelines for maintaining design integrity.
 
 ---
 
-### ✓ DO: Use Monospace for UI Elements
+### ✓ DO: Use Recursive Mono for ALL Elements
 
 **CORRECT:**
-- All headers: IBM Plex Mono
-- All metadata: IBM Plex Mono
-- All labels: IBM Plex Mono
-- Navigation: IBM Plex Mono
-- Buttons: IBM Plex Mono
+- Body: Recursive Mono (CASL 0.15, slnt -5)
+- Headers: Recursive Mono (CASL 0.3, slnt -12)
+- Navigation: Recursive Mono (CASL 0.2, slnt -8)
+- Buttons: Recursive Mono (CASL 0.35, slnt -12)
 
-**REASON:** Monospace typography is inherent to terminal interfaces and creates visual consistency with technical/institutional systems.
+**REASON:** Using a single font with axis variations creates extreme visual coherence and a modern institutional feel.
 
-### ✗ DON'T: Use Decorative Fonts
+### ✗ DON'T: Use Multiple Font Families
 
 **WRONG:**
-- Serif fonts for headers
-- Script fonts anywhere
-- Display fonts
-- More than 2 font families
+- Using Sans for body and Mono for UI
+- Mixing IBM Plex with other fonts
+- Using italics (use `slnt` axis instead)
 
-**WHY:** Every additional font family dilutes the terminal aesthetic. The site must look like infrastructure, not a designed website.
+**WHY:** Every additional font family dilutes the terminal aesthetic. The site must look like a single, unified system interface.
+
+---
+
+### ✓ DO: Use Variation Axes for Distinction
+
+**CORRECT:**
+- Using `CASL` axis for UI vs prose distinction
+- Using `slnt` axis for emphasis (replaces italics)
+- Institutional Analysis: `CASL 0.0`
+- Primary Testimony: `CASL 0.3`
+
+**REASON:** Recursive Mono's axes allow for subtle hierarchy without breaking the monospace grid.
+
+### ✗ DON'T: Use Traditional Italics or Bolding
+
+**WRONG:**
+- `font-style: italic`
+- `font-weight: 700`
+- Animating axes
+
+**WHY:** Traditional styling breaks the mechanical, archival feel of the system. Use the `slnt` and `CASL` axes instead.
 
 ---
 
@@ -125,44 +144,40 @@ Visual and functional guidelines for maintaining design integrity.
 
 ## TYPOGRAPHY
 
-### ✓ DO: Use Uppercase for Headers
+### ✓ DO: Use Preset Case Treatments
 
 **CORRECT:**
-```
-TERMINAL GRADIENT INSTITUTIONAL ARCHIVE
-DOCUMENT ID: BFS-001
-CLASSIFICATION: PUBLIC ACCESS
-```
+- Headers: lowercase, wide spacing
+- Buttons/Metadata: uppercase
+- Body: sentence case
+- Nav: lowercase
 
-**REASON:** Military/government/institutional systems use uppercase for headers and labels. Creates authoritative tone.
+**REASON:** Explicit case presets distinguish different functional areas of the interface.
 
 ### ✗ DON'T: Mix Case Randomly
 
 **WRONG:**
-```
-Terminal Gradient Institutional Archive
-Document Id: bfs-001
-Classification: Public Access
-```
+- Sentence case headers
+- Title case buttons
+- Inconsistent metadata labels
 
 **WHY:** Inconsistent case treatment looks unprofessional and breaks the systematic aesthetic.
 
 ---
 
-### ✓ DO: Add Letter-Spacing to Headers
+### ✓ DO: Add Letter-Spacing to Presets
 
 **CORRECT:**
-- Headers: `letter-spacing: 0.05em`
-- Labels: `letter-spacing: 0.1em`
-- Creates technical/institutional feel
+- Headers: `letter-spacing: 0.18em`
+- Metadata: `letter-spacing: 0.06em`
+- Nav: `letter-spacing: 0.12em`
 
-**REASON:** Widely-spaced monospace type is characteristic of technical documentation and terminal systems.
+**REASON:** Wide letter-spacing creates the technical/archival feel characteristic of institutional systems.
 
 ### ✗ DON'T: Use Tight Letter-Spacing
 
 **WRONG:**
-- `letter-spacing: -0.05em` (negative spacing)
-- No letter-spacing on monospace
+- No letter-spacing on presets
 - Compressed headers
 
 **WHY:** Tight spacing makes monospace fonts harder to read and loses the technical aesthetic.
@@ -245,24 +260,22 @@ Classification: Public Access
 ### ✓ DO: Use Institutional Voice
 
 **CORRECT:**
-- "Access Case Files"
-- "Document Recovery Status"
-- "Classification: Public Access"
-- "Query Results: 10 documents"
-- "Archival Year 14,847 Post-Institutional"
+- "Query Phenomenological Markers"
+- "Estimated Dating: 14,847 PI"
+- "Pattern Alpha (Systemic Stillness)"
+- "Epistemic Status: Primary Testimony"
 
-**REASON:** The site is an in-universe institutional archive. All copy should maintain this framing.
+**REASON:** The site is an in-universe institutional archive. All copy should maintain this framing and avoid authorial omniscience.
 
-### ✗ DON'T: Use Casual Language
+### ✗ DON'T: Use Authorial/Technical Terminology
 
 **WRONG:**
-- "Check out our stories!"
-- "Hey there!"
-- "Awesome archive"
-- "Thanks for visiting"
-- Emoji or emoticons
+- "Filter by Framework"
+- "Intervention Mode: Nullification"
+- "First Vigil Case Files"
+- "Refusal Documentation"
 
-**WHY:** Casual language breaks the institutional framing. The site has no personality—it's infrastructure.
+**WHY:** Frameworks and intervention modes are retroactive scholarly classifications, not fundamental laws visible to the terminal user. Using them as primary navigation categories breaks the diegetic immersion. Use descriptive phenomenological terms instead.
 
 ---
 
@@ -568,7 +581,7 @@ Classification: Public Access
 Before considering any component complete, verify:
 
 ### Visual
-- [ ] Uses only IBM Plex Mono or IBM Plex Sans
+- [ ] Uses only Recursive Mono
 - [ ] Colors match design tokens exactly
 - [ ] All spacing is multiples of 8px
 - [ ] Borders are 2px solid, no rounded corners

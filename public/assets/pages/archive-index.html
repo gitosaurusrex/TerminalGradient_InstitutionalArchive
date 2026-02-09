@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archive Index :: Terminal Gradient Institutional Archive</title>
+  <link rel="stylesheet" href="../css/archive.css">
+</head>
+<body>
+  
+  <div class="container">
+    
+    <!-- BREADCRUMB NAVIGATION -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html" class="breadcrumb__link">Archive Access</a>
+      <span class="breadcrumb__separator">/</span>
+      <span>Recovered Files</span>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <div class="terminal-box">
+      <h1>Archive Index :: Recovered Files</h1>
+      <div class="metadata-grid mt-3 meta">
+        <div class="metadata-grid__row">
+          <div class="metadata-grid__label">Query:</div>
+          <div class="metadata-grid__value">ALL FRAGMENTS</div>
+        </div>
+        <div class="metadata-grid__row">
+          <div class="metadata-grid__label">Results:</div>
+          <div class="metadata-grid__value">11 fragments</div>
+        </div>
+        <div class="metadata-grid__row">
+          <div class="metadata-grid__label">Sort Order:</div>
+          <div class="metadata-grid__value">Record ID (Ascending)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TWO COLUMN LAYOUT: FILTERS + RESULTS -->
+    <div style="display: grid; grid-template-columns: 300px 1fr; gap: 2rem; align-items: start;">
+      
+      <!-- FILTER PANEL -->
+      <aside>
+        <div class="filter-panel">
+          <div class="filter-panel__header">Query Parameters</div>
+          
+          <div class="filter-group">
+            <span class="filter-group__label">Phenomenology</span>
+            <label class="filter-option">
+              <input type="checkbox" class="form-checkbox" id="filter-pattern-a">
+              <span class="form-checkbox-label">Pattern Alpha (Stillness)</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" class="form-checkbox" id="filter-pattern-b">
+              <span class="form-checkbox-label">Pattern Beta (Fracture)</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" class="form-checkbox" id="filter-pattern-c">
+              <span class="form-checkbox-label">Pattern Gamma (Invalidation)</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" class="form-checkbox" id="filter-unclassifiable">
+              <span class="form-checkbox-label">Unclassifiable</span>
+            </label>
+          </div>
+
+          <div class="filter-group">
+            <span class="filter-group__label">Epistemic Status</span>
+            <label class="filter-option">
+              <input type="checkbox" class="form-checkbox" id="type-primary">
+              <span class="form-checkbox-label">Primary Testimony</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" class="form-checkbox" id="type-log">
+              <span class="form-checkbox-label">Institutional Log</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" class="form-checkbox" id="type-analysis">
+              <span class="form-checkbox-label">Scholarly Analysis</span>
+            </label>
+          </div>
+
+          <button class="btn btn--small mt-3" style="width: 100%;">Refine Query</button>
+          <button class="btn btn--small mt-2" style="width: 100%;">Reset Database</button>
+        </div>
+      </aside>
+
+      <!-- DOCUMENT RESULTS -->
+      <main>
+        
+        <!-- DOCUMENT CARD 1 -->
+        <article class="document-card">
+          <div class="document-card__id meta">RF-0001</div>
+          <h2 class="document-card__title">
+            <a href="document-view.html" class="document-card__title-link">Before the First Silence</a>
+          </h2>
+          <div class="document-card__meta meta">
+            <span class="document-card__meta-item">Pattern: Unclassifiable</span>
+            <span class="document-card__meta-item">Dating: 15,000 AI</span>
+            <span class="document-card__meta-item">Status: <span class="status-badge">Pre-Institutional</span></span>
+          </div>
+          <div class="document-card__actions">
+            <a href="document-view.html" class="btn btn--small">Access Document</a>
+          </div>
+        </article>
+
+        <!-- DOCUMENT CARD 2 -->
+        <article class="document-card">
+          <div class="document-card__id meta">RF-0012</div>
+          <h2 class="document-card__title">
+            <a href="document-view.html" class="document-card__title-link">The World That Was Refused</a>
+          </h2>
+          <div class="document-card__meta meta">
+            <span class="document-card__meta-item">Pattern: Pattern Alpha (Stillness)</span>
+            <span class="document-card__meta-item">Dating: 2,041 PI</span>
+            <span class="document-card__meta-item">Status: <span class="status-badge status-badge--pattern-a">Catalogued</span></span>
+          </div>
+          <div class="document-card__actions">
+            <a href="document-view.html" class="btn btn--small">Access Document</a>
+          </div>
+        </article>
+
+        <!-- PAGINATION -->
+        <div class="terminal-box terminal-box--compact mt-4">
+          <div style="display: flex; justify-content: space-between; align-items: center;" class="meta">
+            <span>Showing 2 of 11 fragments</span>
+            <div>
+              <a href="#" class="btn btn--small">Previous</a>
+              <a href="#" class="btn btn--small">Next</a>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <p><a href="index.html" class="nav-link" style="color: inherit; text-decoration: none;">Return to Archive Access</a></p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

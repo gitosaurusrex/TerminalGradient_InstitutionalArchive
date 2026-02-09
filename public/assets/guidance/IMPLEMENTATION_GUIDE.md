@@ -25,17 +25,22 @@ This guide provides COMPLETE specifications for building the Terminal Gradient I
 - High contrast monochrome base + minimal color accents
 - Institutional authority through restraint
 
-**2. Archival Document System (Not Terminal Emulator)**
-- This is NOT a fake command-line interface
-- This IS an in-universe institutional archive system
-- Users navigate with mouse/touch (no typing commands)
-- Stories are presented as archived documents with metadata
+**2. Archival Case System (Diegetic)**
+- This is NOT a fake command-line interface.
+- This IS an in-universe institutional archive system.
+- Narratives are catalogued as **Cases** (analytical windows into events).
+- Cases reference **Fragments** (raw evidence: logs, ruins, testimonies).
+- **In-line Framing:** Raw Fragments must be displayed in-line within Cases using specialized frames that expose esoteric metadata.
 
 **3. Functional Brutalism**
 - Every element serves a purpose
 - No animations, transitions, shadows, gradients, or decorations
 - Navigation is instant and precise
 - Borders are structural, not decorative
+- **Epistemic Layering:** Use the `CASL` axis to distinguish between raw data and analysis. 
+    - Institutional Analysis: `CASL 0.0` (Static, processed).
+    - Primary Testimony: `CASL 0.3` (Human, raw).
+- **Hardware Flags (Registers):** Use solid-block "Register Flags" for status markers to imply active system verification. Include Validation Hashes (e.g., 0x4F22) next to patterns.
 
 ---
 
@@ -80,10 +85,11 @@ This guide provides COMPLETE specifications for building the Terminal Gradient I
 - No modal overlays (unless critical)
 
 ❌ **Typography Violations**
-- No font families beyond IBM Plex Mono and IBM Plex Sans
+- No font families beyond Recursive Mono
 - No decorative fonts
-- No font weights beyond 400 and 600
-- No text transformations beyond uppercase for headers
+- No italics (use `slnt` axis)
+- No animating variation axes
+- No text transformations beyond defined presets
 
 ---
 
@@ -117,32 +123,42 @@ This guide provides COMPLETE specifications for building the Terminal Gradient I
 - Amber: Advisory boxes, gridlock status badges, caution states
 - White: Active navigation items, focused elements, strong emphasis
 
-### Typography
+### Typography (Locked System)
+
+All presets assume the **Recursive Mono** font file. Only variation axes and spacing change.
 
 ```css
 /* FONT FAMILIES */
---font-mono: 'IBM Plex Mono', 'Courier New', monospace;
---font-sans: 'IBM Plex Sans', 'Arial', sans-serif;
+--font-mono: "Recursive Mono", ui-monospace, monospace;
 
-/* SIZES (16px base) */
---font-size-xs: 0.75rem;    /* 12px - small metadata */
---font-size-sm: 0.875rem;   /* 14px - secondary text */
---font-size-base: 1rem;     /* 16px - body text */
---font-size-lg: 1.125rem;   /* 18px - subheadings */
---font-size-xl: 1.25rem;    /* 20px - section headers */
---font-size-2xl: 1.5rem;    /* 24px - page titles */
+/* SIZES */
+--font-size-xs: 13px;    /* Metadata */
+--font-size-sm: 14px;    /* Buttons */
+--font-size-base: 16px;  /* Body/Prose */
+--font-size-lg: 15px;    /* Nav/CTA */
+--font-size-xl: 20px;    /* H2 */
+--font-size-2xl: 24px;   /* H1 */
 
 /* LINE HEIGHTS */
---line-height-tight: 1.2;    /* Headers */
---line-height-normal: 1.5;   /* UI elements */
---line-height-relaxed: 1.8;  /* Body text */
+--line-height-header: 1.2;
+--line-height-meta: 1.35;
+--line-height-base: 1.45;
 ```
 
-**Typography Usage Rules:**
-- Headers: `font-mono`, uppercase, letter-spacing: 0.05em
-- Body text: `font-sans`, normal case, relaxed line-height
-- Metadata: `font-mono`, small size, secondary color
-- UI labels: `font-mono`, uppercase, extra letter-spacing (0.1em)
+**Typography Usage Presets:**
+
+1. **Body Text (Institutional):** Uses `--axis-institutional`. Used for Case Analysis.
+2. **Body Text (Testimony):** Uses `--axis-testimony`. Used for raw fragments.
+3. **Metadata:** `font-size: 13px`, uppercase, `opacity: 0.75`.
+4. **Navigation Links:** `font-size: 15px`, lowercase, `--axis-ui`.
+5. **Headers (h1, h2, h3):** lowercase, letter-spacing: 0.18em.
+6. **Buttons:** uppercase, border 2px solid.
+
+**Typography Rules:**
+- ❌ Do not mix fonts.
+- ❌ Do not use italics.
+- ❌ Do not change `MONO` from `1`.
+- ❌ Do not exceed `CASL 0.35`.
 
 ### Spacing System (8px Grid)
 
@@ -560,6 +576,14 @@ This guide provides COMPLETE specifications for building the Terminal Gradient I
 
 ---
 
+## CORE ASSETS
+
+### Favicon
+- **File:** `canonical_brutalist_diskette.svg`
+- **Usage:** Must be linked in the `<head>` of every institutional page. It represents the "Legacy Data Node" signature.
+
+---
+
 ## RESPONSIVE BEHAVIOR
 
 ### Breakpoints
@@ -635,26 +659,23 @@ All interface copy should maintain institutional neutrality:
 
 ### Metadata Fields
 
-Standard fields for document metadata:
-- Classification: Access level
-- Document ID: Unique identifier (format: [ABC-001])
-- Recovery Date: Archival year format
-- Framework: Which intervention framework
-- Document Type: Narrative, analysis, fragmentary, etc.
-- Authenticity: Verification status
-- Completeness: Percentage or qualitative
-- Length: Word count
-- Interpretive Status: Consensus/contested/uncertain
+Standard fields for document metadata must avoid authorial "system" knowledge:
+- **Classificatory Pattern:** (e.g., Pattern Alpha, Pattern Beta - based on phenomenological similarity)
+- **Document ID:** Unique identifier (format: [RF-####])
+- **Dating (Estimated):** PI/AI format
+- **Document Type:** Testimony, Log, Archive Fragment, Scholarly Analysis
+- **Epistemic Status:** Primary, Secondary, Reconstructed, Contested
+- **Observational Integrity:** Percentage
+- **Phenomenological Tags:** Observed effects (e.g., Stillness, Fracture, Absence)
 
-### Classification Types
+### Classificatory Groupings (Diegetic)
 
-Standard document classifications:
-- **Intervention**: Direct action taken
-- **Refusal**: Intervention declined
-- **Gridlock**: Unable to reach consensus
-- **Certification**: Evaluation/assessment process
-- **Pre-Institutional**: Predates framework development
-- **Unknown**: Framework cannot be determined
+Standard document groupings should be based on **Phenomenological Signature** rather than "Frameworks":
+- **Pattern A (Stable):** Associated with long-term civilizational stillness or saturation.
+- **Pattern B (Dynamic):** Associated with sudden atmospheric or structural fractures.
+- **Pattern C (Cognitive):** Associated with the collapse of meaning or justification.
+- **Pre-Institutional:** Documents predating the formation of formal observation.
+- **Unclassifiable:** Documents resisting even phenomenological grouping.
 
 ---
 

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study: RF-0001 :: Institute for Precedent Studies Archive</title>
+  <link rel="icon" type="image/svg+xml" href="canonical_brutalist_diskette.svg">
+  <link rel="stylesheet" href="css/archive.css">
+  <script src="js/db-service.js" defer></script>
+  <script src="js/components.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- BREADCRUMB NAVIGATION -->
+    <tg-breadcrumb>
+      <a href="index.html">Archive Access</a>
+      <a href="case-index.html">CASE FILE</a>
+      <span id="breadcrumb-id">Loading...</span>
+    </tg-breadcrumb>
+
+    <!-- CASE HEADER / METADATA BLOCK -->
+    <tg-box id="case-header-box">
+      <div
+        style="border-bottom: 2px solid var(--color-border); padding-bottom: var(--space-2); margin-bottom: var(--space-3); display: flex; justify-content: space-between;"
+        class="meta">
+        <div id="collection-attribution">Analytical Window :: REMNANTS Collection</div>
+        <div>INSTITUTIONAL ARCHIVE SYSTEM</div>
+      </div>
+
+      <h1 id="case-title" style="margin-bottom: var(--space-4);">Retrieving Records...</h1>
+
+      <div id="case-metadata" class="metadata-grid meta">
+        <!-- Dynamic Metadata -->
+      </div>
+    </tg-box>
+
+    <!-- COMPLETION STATUS BAR -->
+    <tg-box compact>
+      <div class="meta" style="margin-bottom: var(--space-2);">Analytical Completeness:</div>
+      <div class="progress-bar">
+        <div class="progress-bar__fill" style="width: 85%;">
+          <span class="progress-bar__text">85%</span>
+        </div>
+      </div>
+    </tg-box>
+
+    <tg-box id="case-analysis-box" header="Case Analysis (Institutional)">
+      <div id="case-content" class="document-content body">
+        <div class="meta">Initializing stratigraphic retrieval...</div>
+      </div>
+    </tg-box>
+
+    <!-- ACTION BUTTONS -->
+    <tg-box compact style="display: flex; gap: var(--space-2); justify-content: center;">
+      <a href="case-index.html" class="btn">Return to Case Files</a>
+      <a href="#" class="btn">Download Raw Buffer (DATA)</a>
+      <a href="#" class="btn">Record Verification Claim</a>
+    </tg-box>
+
+    <!-- FOOTER -->
+    <tg-footer mode="Case View Mode"></tg-footer>
+
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get('id');
+
+      if (!id) {
+        document.getElementById('case-title').textContent = 'ERROR :: NO TARGET SPECIFIED';
+        return;
+      }
+
+      const breadcrumb = document.getElementById('breadcrumb-id');
+      if (breadcrumb) breadcrumb.textContent = `Record ${id}`;
+
+      try {
+        // Wait for database service to be registered on window
+        let retries = 0;
+        while (!window.IPS_DB && retries < 100) {
+          await new Promise(r => setTimeout(r, 60));
+          retries++;
+        }
+
+        if (!window.IPS_DB) {
+          throw new Error('Database service not located in system environment.');
+        }
+
+        // Attempt to fetch as a Case first
+        const caseData = await window.IPS_DB.getCase(id);
+
+        if (caseData.length > 0) {
+          renderCase(caseData[0]);
+          const fragments = await window.IPS_DB.getCaseFragments(id);
+          renderFragments(fragments);
+        } else {
+          throw new Error(`Record ${id} is not a valid case study. Please provide a Case ID (e.g., CS-S01).`);
+        }
+      } catch (err) {
+        document.getElementById('case-title').textContent = 'ERR: STRATIGRAPHIC COLLAPSE';
+        document.getElementById('case-content').innerHTML = `<div class="advisory advisory--red">${err.message}</div>`;
+      }
+    });
+
+    function renderCase(c) {
+      document.getElementById('case-title').textContent = c.title;
+      document.getElementById('collection-attribution').textContent = `Analytical Window :: INSTITUTIONAL ANALYTICS`;
+
+      const meta = [
+        { label: 'Access Level', value: c.access_level },
+        { label: 'Case ID', value: c.case_id },
+        { label: 'Epoch Estimate', value: c.epoch_estimate },
+        { label: 'Observed Pattern', value: c.pattern_name },
+        { label: 'Last Verification', value: c.last_verification_date || 'N/A' },
+        { label: 'Validation Hash', value: c.validation_hash || 'N/A' }
+      ];
+
+      document.getElementById('case-metadata').innerHTML = meta.map(m => `
+        <div class="metadata-grid__row">
+          <div class="metadata-grid__label">${m.label}:</div>
+          <div class="metadata-grid__value">${m.value}</div>
+        </div>
+      `).join('');
+
+      document.getElementById('case-content').innerHTML = `<div>${marked.parse(c.analysis_text)}</div><div id="fragments-list"></div>`;
+    }
+
+    async function renderFragments(fragments) {
+      const container = document.getElementById('fragments-list');
+      if (!container) return;
+
+      container.innerHTML = fragments.map((f, index) => {
+        // Store fragment data in a global-ish way or pass as stringified JSON (carefully)
+        // Best approach for simplicity in this vanilla setup is stringification if data is small,
+        // or using an index to a global array.
+        window._fragmentData = window._fragmentData || {};
+        window._fragmentData[f.fragment_id] = f;
+
+        return `
+            <div class="fragment-frame">
+                <div class="fragment-frame__header meta">
+                    <div style="display: flex; gap: var(--space-3); align-items: center;">
+                        <span>REF: ${f.fragment_id}</span>
+                        <span>STRATA: ${(f.strata_depth || 0.0).toFixed(1)}m</span>
+                        <span>ISO-VAR: ${f.isotope_variance || 'NULL'}</span>
+                        <span>EPI-CONF: ${f.epistemic_confidence}</span>
+                        ${window.generateFlavorMetrics ? window.generateFlavorMetrics() : ''}
+                    </div>
+                    <button class="info-icon" onclick='window.showMetadataModal(window._fragmentData["${f.fragment_id}"])'>
+                        i
+                    </button>
+                </div>
+                <div class="fragment-frame__content document-content">
+                    <div>${marked.parse(f.content_text)}</div>
+                </div>
+            </div>
+        `;
+      }).join('');
+    }
+
+    function renderStandaloneFragment(f) {
+      document.getElementById('case-title').textContent = f.title;
+      document.getElementById('collection-attribution').textContent = `Analytical Window :: ${f.collection_attribution} Collection`;
+
+      window._fragmentData = window._fragmentData || {};
+      window._fragmentData[f.fragment_id] = f;
+
+      const meta = [
+        { label: 'Fragment ID', value: f.fragment_id },
+        { label: 'Strata Depth', value: `${f.strata_depth}m` },
+        { label: 'Time Reference', value: f.time_reference_basis },
+        { label: 'Epistemic Confidence', value: `${f.epistemic_confidence}%` }
+      ];
+
+      document.getElementById('case-metadata').innerHTML = meta.map(m => `
+        <div class="metadata-grid__row">
+          <div class="metadata-grid__label">${m.label}:</div>
+          <div class="metadata-grid__value">${m.value}</div>
+        </div>
+      `).join('');
+
+      document.getElementById('case-content').innerHTML = `
+        <div class="fragment-frame">
+            <div class="fragment-frame__header meta">
+                <span>VERBATIM ENCODING</span>
+                <button class="info-icon" onclick='window.showMetadataModal(window._fragmentData["${f.fragment_id}"])'>
+                    i
+                </button>
+            </div>
+            <div class="fragment-frame__content document-content">
+                <div>${marked.parse(f.content_text)}</div>
+            </div>
+        </div>
+      `;
+    }
+  </script>
+</body>
+
+</html>

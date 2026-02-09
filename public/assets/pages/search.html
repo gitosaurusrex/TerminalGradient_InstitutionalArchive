@@ -1,36 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Archive Search :: Institute for Precedent Studies Archive</title>
-  <link rel="icon" type="image/svg+xml" href="canonical_brutalist_diskette.svg">
-  <link rel="stylesheet" href="css/archive.css">
-  <script src="js/db-service.js" defer></script>
-  <script src="js/components.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <title>Archive Search :: Terminal Gradient Institutional Archive</title>
+  <link rel="stylesheet" href="../css/archive.css">
 </head>
-
 <body>
-
+  
   <div class="container">
-
+    
     <!-- BREADCRUMB NAVIGATION -->
-    <tg-breadcrumb>
-      <a href="index.html">Archive Access</a>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html" class="breadcrumb__link">Archive Access</a>
+      <span class="breadcrumb__separator">/</span>
       <span>Search</span>
-    </tg-breadcrumb>
+    </nav>
 
     <!-- PAGE HEADER -->
-    <tg-box header="Archive Search">
-      <p class="text-secondary meta mt-3">Query the institutional archive database. Search across all recovered text,
-        metadata, and phenomenological markers.</p>
-    </tg-box>
+    <div class="terminal-box">
+      <h1>Archive Search</h1>
+      <p class="text-secondary meta mt-3">Query the institutional archive database. Search across all recovered text, metadata, and phenomenological markers.</p>
+    </div>
 
     <!-- SEARCH FORM -->
-    <tg-box variant="secondary" header="Query Parameters">
-      <form id="search-form">
+    <div class="terminal-box terminal-box--secondary">
+      <div class="terminal-box__header">Query Parameters</div>
+      
+      <form>
         <!-- DATABASE TARGET -->
         <div class="form-group">
           <label class="form-label">Database Target</label>
@@ -49,7 +46,12 @@
         <!-- TEXT SEARCH -->
         <div class="form-group">
           <label for="search-query" class="form-label">Search Terms</label>
-          <input type="text" id="search-query" class="form-input" placeholder="Enter query string...">
+          <input 
+            type="text" 
+            id="search-query" 
+            class="form-input" 
+            placeholder="Enter query string..."
+          >
         </div>
 
         <!-- PHENOMENOLOGY FILTER -->
@@ -81,8 +83,16 @@
         <div class="form-group">
           <label class="form-label">Estimated Epoch Range</label>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2);">
-            <input type="text" class="form-input" placeholder="From (e.g. 10,000 AI)">
-            <input type="text" class="form-input" placeholder="To (e.g. 14,847 PI)">
+            <input 
+              type="text" 
+              class="form-input" 
+              placeholder="From (e.g. 10,000 AI)"
+            >
+            <input 
+              type="text" 
+              class="form-input" 
+              placeholder="To (e.g. 14,847 PI)"
+            >
           </div>
         </div>
 
@@ -92,33 +102,57 @@
           <button type="reset" class="btn">Clear Parameters</button>
         </div>
       </form>
-    </tg-box>
+    </div>
 
     <!-- SEARCH RESULTS (shown after query) -->
-    <tg-box header="Query Results">
-      <div id="search-stats" class="metadata-grid mb-4 meta" style="display: none;">
+    <div class="terminal-box">
+      <div class="terminal-box__header">Query Results</div>
+      
+      <div class="metadata-grid mb-4 meta">
         <div class="metadata-grid__row">
           <div class="metadata-grid__label">Query:</div>
-          <div id="stat-query" class="metadata-grid__value">-</div>
+          <div class="metadata-grid__value">"silence" AND Epoch = AI</div>
         </div>
         <div class="metadata-grid__row">
           <div class="metadata-grid__label">Results:</div>
-          <div id="stat-count" class="metadata-grid__value">0 documents found</div>
+          <div class="metadata-grid__value">2 documents found</div>
+        </div>
+        <div class="metadata-grid__row">
+          <div class="metadata-grid__label">Processing Time:</div>
+          <div class="metadata-grid__value">0.047 seconds</div>
         </div>
       </div>
 
-      <div id="search-results-container">
-        <div class="meta">Awaiting query execution...</div>
-      </div>
-    </tg-box>
+      <!-- RESULT 1 -->
+      <article class="document-card">
+        <div class="document-card__id meta">RF-0001</div>
+        <h2 class="document-card__title">
+          <a href="document-view.html" class="document-card__title-link">Before the First Silence</a>
+        </h2>
+        <div class="document-card__meta meta">
+          <span class="document-card__meta-item">Pattern: Unclassifiable</span>
+          <span class="document-card__meta-item">Dating: 15,000 AI</span>
+          <span class="document-card__meta-item">Epistemic: Reconstructed</span>
+        </div>
+        
+        <!-- SEARCH EXCERPT -->
+        <div style="margin-top: var(--space-2); padding: var(--space-2); background: var(--color-bg-secondary); border-left: 2px solid var(--color-border);">
+          <p class="body" style="margin: 0; font-size: 14px;">...And that's when the first <strong>silence</strong> fell. But I'm still here. Somehow. In some form. Reduced, certainly—I can barely hold these thoughts together...</p>
+        </div>
+        
+        <div class="document-card__actions">
+          <a href="document-view.html" class="btn btn--small">Access Document</a>
+        </div>
+      </article>
+
+    </div>
 
     <!-- ADVANCED SEARCH NOTICE -->
     <div class="advisory">
       <div class="advisory__header">Advanced Query Syntax</div>
       <div class="advisory__content">
         <p>The archive search supports Boolean operators and field-specific queries:</p>
-        <ul class="meta"
-          style="margin-left: var(--space-3); margin-top: var(--space-2); line-height: var(--line-height-relaxed);">
+        <ul class="meta" style="margin-left: var(--space-3); margin-top: var(--space-2); line-height: var(--line-height-relaxed);">
           <li><code>AND, OR, NOT</code> - Boolean operators</li>
           <li><code>"exact phrase"</code> - Phrase matching</li>
           <li><code>pattern:alpha</code> - Phenomenological grouping</li>
@@ -129,59 +163,11 @@
     </div>
 
     <!-- FOOTER -->
-    <tg-footer mode="Search Intelligence"></tg-footer>
+    <footer class="site-footer">
+      <p><a href="index.html" class="nav-link" style="color: inherit; text-decoration: none;">Return to Archive Access</a></p>
+    </footer>
 
   </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-      const form = document.getElementById('search-form');
-      const resultsContainer = document.getElementById('search-results-container');
-      const stats = document.getElementById('search-stats');
-      const statQuery = document.getElementById('stat-query');
-      const statCount = document.getElementById('stat-count');
-
-      // Wait for database service to be registered on window
-      let retries = 0;
-      while (!window.IPS_DB && retries < 100) {
-        await new Promise(r => setTimeout(r, 60));
-        retries++;
-      }
-
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const query = document.getElementById('search-query').value;
-        const target = form.querySelector('input[name="target"]:checked').value;
-
-        resultsContainer.innerHTML = '<div class="meta">Executing stratigraphic query...</div>';
-        stats.style.display = 'block';
-        statQuery.textContent = `"${query || '*'}" [TARGET: ${target}]`;
-
-        try {
-          const results = await window.IPS_DB.search(query);
-          statCount.textContent = `${results.length} documents found`;
-
-          if (results.length === 0) {
-            resultsContainer.innerHTML = '<div class="meta">No records matching criteria located in current strata.</div>';
-          } else {
-            resultsContainer.innerHTML = results.map(r => `
-              <div class="document-card">
-                <div class="document-card__id">${r.fragment_id}</div>
-                <h2 class="document-card__title">
-                  <a href="case-view.html?id=${r.fragment_id}" class="document-card__title-link">${r.title}</a>
-                </h2>
-                <div class="document-card__actions">
-                  <a href="case-view.html?id=${r.fragment_id}" class="btn btn--small">Access Document</a>
-                </div>
-              </div>
-            `).join('');
-          }
-        } catch (err) {
-          resultsContainer.innerHTML = `<div class="advisory advisory--red"><div class="advisory__header">QUERY FAILED</div><div class="advisory__content">${err.message}</div></div>`;
-        }
-      });
-    });
-  </script>
 </body>
-
 </html>

@@ -4,15 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About the Archive :: Terminal Gradient Institutional Archive</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap"
-    rel="stylesheet">
+  <title>Archive Information :: Institute for Precedent Studies Archive</title>
+  <link rel="icon" type="image/svg+xml" href="canonical_brutalist_diskette.svg">
   <link rel="stylesheet" href="css/archive.css">
-  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
-  <script src="js/archive-components.js" defer></script>
+  <script src="js/components.js" defer></script>
 </head>
 
 <body>
@@ -20,153 +15,176 @@
   <div class="container">
 
     <!-- BREADCRUMB NAVIGATION -->
-    <archive-breadcrumb items='[{"label": "Archive Access", "url": "index.html"}]' current="About"></archive-breadcrumb>
+    <tg-breadcrumb>
+      <a href="index.html">Archive Access</a>
+      <span>Institutional Information</span>
+    </tg-breadcrumb>
 
-    <!-- MISSION BLOCK -->
-    <archive-terminal-box header="Mission & Institutional Scope">
-      <div class="document-content">
-        <p>The Terminal Gradient Institutional Archive serves as the primary repository for the documentation, analysis,
-          and preservation of precedential case studies from the Post-Institutional era.</p>
-        <p>Our objective is to maintain a neutral, verifiable record of the various intervention frameworks that
-          governed collective preference formation during the cycles of systemic harmonization.</p>
+    <!-- PAGE HEADER -->
+    <tg-box header="Archive Information">
+      <div class="metadata-grid mt-3 meta">
+        <div class="metadata-grid__row">
+          <div class="metadata-grid__label">Institution:</div>
+          <div class="metadata-grid__value">Institute for Precedent Studies</div>
+        </div>
+        <div class="metadata-grid__row">
+          <div class="metadata-grid__label">Archive Name:</div>
+          <div class="metadata-grid__value">Institute for Precedent Studies Archive</div>
+        </div>
+        <div class="metadata-grid__row">
+          <div class="metadata-grid__label">Collection:</div>
+          <div class="metadata-grid__value">REMNANTS :: Deep-Time Jurisprudential Records</div>
+        </div>
+        <div class="metadata-grid__row">
+          <div class="metadata-grid__label">Established:</div>
+          <div class="metadata-grid__value">Archival Year 14,220 Post-Institutional</div>
+        </div>
       </div>
-    </archive-terminal-box>
+    </tg-box>
+
+    <!-- MISSION STATEMENT -->
+    <tg-box variant="secondary" header="Institutional Mission">
+      <div class="document-content body">
+        <p>The Institute for Precedent Studies maintains this archive to preserve and catalog recovered documentation
+          related to large-scale civilizational anomalies and the presence of unclassifiable entities.</p>
+
+        <p>Our mission is threefold:</p>
+
+        <p><strong>Preservation:</strong> We recover, authenticate, and maintain documents from civilizations across
+          observable space and time. Many of these records describe events that defy conventional causal explanation.
+          Our archival processes prioritize the integrity of the fragment over the comfort of the reader.</p>
+
+        <p><strong>Neutrality:</strong> We do not advocate for any single interpretive framework. While various
+          institutional schools have proposed names and structures for the anomalies documented here, the Institute
+          remains committed to presenting the data without enforcing a unified narrative.</p>
+
+        <p><strong>Precedential Analysis:</strong> By making these records accessible, we provide the necessary data for
+          civilizations to understand the boundary conditions of their own trajectories. We do not offer solutions; we
+          offer history.</p>
+      </div>
+    </tg-box>
 
     <!-- COLLECTION OVERVIEW -->
-    <archive-terminal-box header="Collection Overview" variant="secondary">
-      <div class="document-content">
-        <p>The collection is organized around three primary interpretive frameworks, each representing a distinct epoch
-          or approach to systemic management:</p>
-        <ul style="margin-top: var(--space-2); margin-bottom: var(--space-2);">
-          <li><strong>First Vigil:</strong> Documents early-cycle interventions focused on individual preference
-            alignment.</li>
-          <li><strong>Last Watch:</strong> Records from the final transitions, documenting systemic collapse and the
-            formation of the terminal equilibrium.</li>
-          <li><strong>Open Measure:</strong> Contemporary analyses and meta-institutional narratives exploring the
-            nature of the archive itself.</li>
-        </ul>
-        <p>Additionally, we maintain documents classified as Pre-Institutional or Unknown Framework—materials that
-          predate formal intervention development or whose framework cannot be reliably determined from available
-          evidence.</p>
+    <tg-box header="Phenomenological Patterns (REMNANTS)">
+      <div class="document-content body">
+        <p>The REMNANTS collection categorizes data fragments based on observed phenomenological signatures. While
+          the origin of these signatures remains unconfirmed, three distinct patterns have been identified across
+          millennia of data:</p>
+
+        <h3 class="meta mt-4 mb-2">Pattern Alpha (Systemic Stillness)</h3>
+        <p>Associated with civilizations that have achieved terminal equilibrium or total risk saturation. Documentation
+          often describes a crushing sense of peace, the cessation of novelty, or a multi-generational preference for
+          stillness. These cases frequently culminate in a documented 'Measurement' followed by either continued
+          stillness or biological cessation.</p>
+
+        <h3 class="meta mt-4 mb-2">Pattern Beta (Dynamic Fracture)</h3>
+        <p>Associated with sudden, violent interruptions of civilizational trajectories. Records describe atmospheric
+          fractures, the nullification of planetary infrastructure, and the instantaneous restoration of variance
+          capacity. These events often result in catastrophic collateral damage and the birth of 'Wounded Guardian'
+          mythologies.</p>
+
+        <h3 class="meta mt-4 mb-2">Pattern Gamma (Cognitive Invalidation)</h3>
+        <p>Associated with the collapse of formal justification and the spread of 'Justification Blindness.' Unlike
+          physical fractures, Pattern Gamma targets the semantic stability of a society. Records describe the
+          persistence of logical validity alongside the total loss of experienced significance. Attribution is often
+          tied to fragmentary, non-local presences.</p>
+
+        <p class="mt-4 meta">Records predating formal observational epochs are classified as
+          <strong>Pre-Institutional</strong>. Those resisting even phenomenological grouping are categorized as
+          <strong>Unclassifiable</strong>.
+        </p>
       </div>
-    </archive-terminal-box>
+    </tg-box>
 
     <!-- CLASSIFICATION SYSTEM -->
-    <archive-terminal-box header="Document Classification System">
-      <div class="document-content">
-        <p>Documents in the archive are classified according to outcome type:</p>
+    <tg-box header="Classificatory Status Markers">
+      <div class="document-content body">
+        <p>Fragments are tagged with markers indicating the observed outcome of the phenomenological event:</p>
 
         <div style="margin: var(--space-3) 0;">
           <div
             style="display: grid; grid-template-columns: 150px 1fr; gap: var(--space-2); margin-bottom: var(--space-2);">
-            <archive-status-badge type="intervention">Intervention</archive-status-badge>
-            <span class="text-sm">Framework actors took direct action to modify system trajectory. Outcome range:
-              successful prevention to cascading instability.</span>
+            <tg-status type="beta">Fracture</tg-status>
+            <span class="meta" style="font-size: 13px;">Confirmed manifestation resulting in structural or atmospheric
+              discontinuity.</span>
           </div>
 
           <div
             style="display: grid; grid-template-columns: 150px 1fr; gap: var(--space-2); margin-bottom: var(--space-2);">
-            <archive-status-badge type="refusal">Refusal</archive-status-badge>
-            <span class="text-sm">Framework actors determined intervention was inappropriate or harmful. System
-              continued development without modification.</span>
+            <tg-status type="alpha">Catalogued</tg-status>
+            <span class="meta" style="font-size: 13px;">Confirmed observation period resulting in non-interruption or
+              terminal stillness.</span>
           </div>
 
           <div
             style="display: grid; grid-template-columns: 150px 1fr; gap: var(--space-2); margin-bottom: var(--space-2);">
-            <archive-status-badge type="gridlock">Gridlock</archive-status-badge>
-            <span class="text-sm">Framework participants unable to reach consensus on appropriate action. System evolved
-              during deliberation period, rendering initial framework assumptions invalid.</span>
+            <tg-status type="gamma">Invalidated</tg-status>
+            <span class="meta" style="font-size: 13px;">Confirmed event resulting in the semantic collapse of
+              justification frameworks.</span>
           </div>
 
           <div style="display: grid; grid-template-columns: 150px 1fr; gap: var(--space-2);">
-            <archive-status-badge>Certification</archive-status-badge>
-            <span class="text-sm">Formal evaluation process determining system stability and safety characteristics. May
-              precede intervention or refusal decision.</span>
+            <tg-status>Unresolved</tg-status>
+            <span class="meta" style="font-size: 13px;">Conflicting evidence regarding manifestation status or outcome
+              finality.</span>
           </div>
         </div>
 
-        <p><em>Note: Many documents contain elements of multiple classifications. Primary classification is assigned
-            based on dominant outcome type.</em></p>
+        <p class="meta" style="font-size: 12px;"><em>Note: These markers reflect the consensus of the recovery team at
+            the time of cataloging and are subject to PI-drift revision.</em></p>
       </div>
-    </archive-terminal-box>
+    </tg-box>
 
     <!-- AUTHENTICITY STANDARDS -->
-    <archive-terminal-box header="Authenticity Standards" variant="secondary">
-      <div class="document-content">
-        <p class="text-sm">All documents undergo multi-stage verification:</p>
+    <tg-box variant="secondary" header="Epistemic Verification Protocols">
+      <div class="document-content body">
+        <p class="meta" style="font-size: 14px;">All records undergo a multi-stage verification process to ensure
+          artifactual integrity:</p>
 
-        <ol
-          style="margin-left: var(--space-3); margin-top: var(--space-2); line-height: var(--line-height-relaxed); font-size: var(--font-size-sm);">
-          <li><strong>Linguistic Analysis:</strong> Verification of language patterns, terminology usage, and stylistic
-            consistency with known authentic documents from claimed time period.</li>
-          <li><strong>Material Dating:</strong> Isotope analysis, substrate degradation patterns, and storage medium
-            characteristics confirm chronological placement.</li>
-          <li><strong>Content Verification:</strong> Cross-reference with other authenticated sources, verification of
-            claimed technical details, consistency with known historical events.</li>
-          <li><strong>Consensus Review:</strong> Independent verification by multiple archival teams. Documents entering
-            public access require unanimous authentication approval.</li>
+        <ol class="meta"
+          style="margin-left: var(--space-3); margin-top: var(--space-2); line-height: var(--line-height-relaxed); font-size: 13px;">
+          <li><strong>Stratigraphic Linguistic Analysis:</strong> Verification of terminology usage against known
+            epochal lexicons.</li>
+          <li><strong>Isotope Chronometry:</strong> Physical substrate dating to confirm chronological placement within
+            the AI/PI timeline.</li>
+          <li><strong>Correlation Mapping:</strong> Cross-referencing with other recovered records to identify
+            overlapping phenomenological markers.</li>
+          <li><strong>Blind Review:</strong> Verification by independent archival nodes to prevent framework
+            contamination.</li>
         </ol>
 
-        <p class="text-sm mt-3">Documents failing any verification stage are flagged with appropriate warnings.
-          Contested documents remain accessible but include detailed documentation of interpretive disputes.</p>
+        <p class="meta mt-3" style="font-size: 13px;">Records failing verification are moved to the <strong>Contested
+            Archive</strong> or flagged with appropriate Epistemic Hazard warnings.</p>
       </div>
-    </archive-terminal-box>
+    </tg-box>
 
     <!-- CONTACT / NEWSLETTER -->
-    <archive-terminal-box header="Archive Updates">
-      <div class="document-content">
-        <p>New documents are added to the archive as they are recovered and authenticated. This process is
-          irregular—recovery efforts may yield multiple documents in rapid succession or experience extended periods
-          without new additions.</p>
-
-        <p>To receive notifications when new documents are declassified and made publicly accessible:</p>
+    <tg-box header="Archive Synchronization">
+      <div class="document-content body">
+        <p>The archive is updated irregularly as new fragments are recovered from deep-time sites. To synchronize your
+          local terminal with the latest declassified records:</p>
 
         <form style="margin-top: var(--space-3);">
           <div class="form-group">
-            <label for="email" class="form-label">Email Address</label>
-            <input type="email" id="email" class="form-input" placeholder="your.email@example.com">
+            <label for="email" class="form-label">Terminal Identification (ID)</label>
+            <input type="text" id="email" class="form-input" placeholder="AUTH-ID-0000">
           </div>
 
           <div class="form-group">
             <label class="filter-option">
               <input type="checkbox" class="form-checkbox" id="consent">
-              <span class="form-checkbox-label">I consent to receiving archive update notifications</span>
+              <span class="form-checkbox-label meta" style="font-size: 13px;">I consent to high-frequency archival
+                synchronization bursts.</span>
             </label>
           </div>
 
-          <button type="submit" class="btn">Subscribe to Archive Updates</button>
+          <button type="submit" class="btn">Initiate Sync</button>
         </form>
       </div>
-    </archive-terminal-box>
-
-    <!-- RESEARCH INQUIRIES -->
-    <archive-terminal-box header="Research Inquiries" variant="secondary">
-      <div class="document-content">
-        <p>For inquiries regarding:</p>
-        <ul style="margin-left: var(--space-3); margin-top: var(--space-2); line-height: var(--line-height-relaxed);">
-          <li>Document authenticity verification</li>
-          <li>Access to restricted or unprocessed materials</li>
-          <li>Contribution of recovered documents to the collection</li>
-          <li>Collaboration on archival research projects</li>
-        </ul>
-
-        <p class="mt-3">Contact: <strong>archival.services@precedent-institute.org</strong></p>
-      </div>
-    </archive-terminal-box>
-
-    <!-- TECHNICAL SPECIFICATIONS -->
-    <archive-terminal-box header="Technical Specifications">
-      <archive-metadata-grid>
-        <archive-metadata-row label="Archive Format:">Static HTML / Markdown source</archive-metadata-row>
-        <archive-metadata-row label="Accessibility:">WCAG 2.1 AA compliant</archive-metadata-row>
-        <archive-metadata-row label="Document Formats:">HTML, PDF (on request), Plain Text</archive-metadata-row>
-        <archive-metadata-row label="Citation Style:">Archive ID + Title + Recovery Date</archive-metadata-row>
-        <archive-metadata-row label="License:">Public Domain (historical documents)</archive-metadata-row>
-      </archive-metadata-grid>
-    </archive-terminal-box>
+    </tg-box>
 
     <!-- FOOTER -->
-    <archive-footer return-link></archive-footer>
+    <tg-footer mode="Institutional Information"></tg-footer>
 
   </div>
 
