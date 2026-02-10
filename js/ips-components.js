@@ -5,34 +5,59 @@
  * Centralizes UI logic and enforces institutional design standards.
  */
 
-/*
 const FOOTER_LOGO_DARK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
+
   <defs>
+
     <mask id="footer-logo-mask">
+
       <rect width="64" height="64" fill="white"/>
+
       <rect x="8" y="8" width="48" height="48" fill="black"/>
+
       <rect x="8" y="12" width="8" height="16" fill="white"/>
+
       <rect x="28" y="28" width="8" height="8" fill="white"/>
+
     </mask>
+
   </defs>
+
   <rect width="64" height="64" fill="currentColor" mask="url(#footer-logo-mask)"/>
+
 </svg>`;
+
+
 
 const FOOTER_LOGO_LIGHT_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
-  <rect width="64" height="64" fill="#0a0a0a"></rect>
-  <rect x="8" y="8" width="48" height="48" fill="#e8e8e8"></rect>
-  <rect x="12" y="12" width="10" height="4" fill="#0a0a0a"></rect>
-  <rect x="12" y="12" width="4" height="10" fill="#0a0a0a"></rect>
-  <rect x="42" y="12" width="10" height="4" fill="#0a0a0a"></rect>
-  <rect x="48" y="12" width="4" height="10" fill="#0a0a0a"></rect>
-  <rect x="12" y="48" width="10" height="4" fill="#0a0a0a"></rect>
-  <rect x="12" y="42" width="4" height="10" fill="#0a0a0a"></rect>
-  <rect x="42" y="48" width="10" height="4" fill="#0a0a0a"></rect>
-  <rect x="48" y="42" width="4" height="10" fill="#0a0a0a"></rect>
-</svg>`;
-*/
 
-// UTILITY: Flavor Metric Generatorwindow.generateFlavorMetrics = () => {
+  <rect width="64" height="64" fill="#0a0a0a"></rect>
+
+  <rect x="8" y="8" width="48" height="48" fill="#e8e8e8"></rect>
+
+  <rect x="12" y="12" width="10" height="4" fill="#0a0a0a"></rect>
+
+  <rect x="12" y="12" width="4" height="10" fill="#0a0a0a"></rect>
+
+  <rect x="42" y="12" width="10" height="4" fill="#0a0a0a"></rect>
+
+  <rect x="48" y="12" width="4" height="10" fill="#0a0a0a"></rect>
+
+  <rect x="12" y="48" width="10" height="4" fill="#0a0a0a"></rect>
+
+  <rect x="12" y="42" width="4" height="10" fill="#0a0a0a"></rect>
+
+  <rect x="42" y="48" width="10" height="4" fill="#0a0a0a"></rect>
+
+  <rect x="48" y="42" width="4" height="10" fill="#0a0a0a"></rect>
+
+</svg>`;
+
+
+
+// UTILITY: Flavor Metric Generator
+
+export const generateFlavorMetrics = () => {
   const metrics = [
     { acronym: 'ACI', unit: 'Δ', range: [-128.000, 128.000], precision: 3 },
     { acronym: 'CR', unit: 'rΣ', range: [0.000, 16.384], precision: 4 },
@@ -60,20 +85,20 @@ const FOOTER_LOGO_LIGHT_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="
   return `<span class="flavor-metric">${generateMetricString(selectedMetrics[0])}</span><span class="flavor-metric">${generateMetricString(selectedMetrics[1])}</span>`;
 };
 
-const formatStrata = (depth) => {
+// Re-expose to window for direct HTML calls
+window.generateFlavorMetrics = generateFlavorMetrics;
+
+export const formatStrata = (depth) => {
   const value = parseFloat(depth);
   return isNaN(value) ? '0.0' : value.toFixed(1);
 };
 
-const interpretMarkdown = (text) => {
+export const interpretMarkdown = (text) => {
   if (window.marked && typeof window.marked.parse === 'function') {
     return window.marked.parse(text);
   }
   return text.split('\n\n').map(p => `<p>${p}</p>`).join('');
 };
-
-window.formatStrata = formatStrata;
-window.interpretMarkdown = interpretMarkdown;
 
 class TGMetadataModal extends HTMLElement {
   connectedCallback() {
@@ -183,15 +208,11 @@ class TGFooter extends HTMLElement {
     const currentTheme = document.documentElement.getAttribute('data-theme') || 'light'; // Default to light
 
     let logoSvg = '';
-    /*
     if (currentTheme === 'dark') {
       logoSvg = FOOTER_LOGO_DARK_SVG;
     } else {
       logoSvg = FOOTER_LOGO_LIGHT_SVG;
     }
-    */
-    logoSvg = `<svg viewBox="0 0 64 64"></svg>`; // Placeholder SVG
-
 
     // Find the logo container and update its innerHTML
     const logoContainer = this.querySelector('.site-footer__logo');
@@ -975,7 +996,7 @@ customElements.define('tg-browse-phenomenology', TGBrowsePhenomenology);
 customElements.define('tg-browse-chronological', TGBrowseChronological);
 
 // Global modal instance for easy access
-window.showMetadataModal = (data) => {
+export const showMetadataModal = (data) => {
   let modal = document.querySelector('tg-metadata-modal');
   if (!modal) {
     modal = document.createElement('tg-metadata-modal');
@@ -992,6 +1013,9 @@ window.showMetadataModal = (data) => {
 
   modal.show(data);
 };
+
+// Re-expose to window for direct HTML calls
+window.showMetadataModal = showMetadataModal;
 
 // CRT TERMINAL INITIALIZATION
 document.addEventListener('DOMContentLoaded', () => {
