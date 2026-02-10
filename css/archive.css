@@ -90,7 +90,12 @@ html[data-theme="light"] {
 
   /* OPTICAL EFFECTS */
   --mf-blur: 0.3px;
-  --mf-vignette: inset 0 0 40px rgba(0,0,0,0.05);
+  --mf-vignette: inset 0 0 60px rgba(139, 69, 19, 0.15); /* Stronger Sepia Vignette */
+}
+
+/* Hide CRT elements entirely in light mode */
+html[data-theme="light"] .crt-overlay {
+  display: none !important;
 }
 
 /* ============================================
