@@ -49,6 +49,7 @@
   /* Default Filter Reset */
   --mf-blur: 0px;
   --mf-vignette: none;
+  --mf-text-bloom: none;
 }
 
 /* ============================================
@@ -91,6 +92,7 @@ html[data-theme="light"] {
   /* OPTICAL EFFECTS */
   --mf-blur: 0.3px;
   --mf-vignette: inset 0 0 60px rgba(139, 69, 19, 0.075); /* Refined Sepia Vignette */
+  --mf-text-bloom: 0 0 0.4px rgba(26, 26, 26, 0.25); /* Subtle Ink Bleed */
 }
 
 /* Hide CRT elements entirely in light mode */
@@ -139,13 +141,17 @@ h1, h2, h3 {
   line-height: var(--line-height-header);
   font-weight: 400;
   font-variation-settings: "MONO" 1, "CASL" 0.3, "slnt" -12;
+  text-shadow: var(--mf-text-bloom);
 }
 
 h1 { font-size: var(--font-size-2xl); }
 h2 { font-size: var(--font-size-xl); }
 h3 { font-size: var(--font-size-base); }
 
-p { margin-bottom: var(--space-2); }
+p { 
+  margin-bottom: var(--space-2); 
+  text-shadow: var(--mf-text-bloom);
+}
 
 .meta {
   font-size: var(--font-size-xs);
@@ -176,11 +182,13 @@ button, .btn {
   color: inherit;
   cursor: pointer;
   font-variation-settings: "MONO" 1, "CASL" 0.35, "slnt" -12;
+  text-shadow: var(--mf-text-bloom);
 }
 
 button:hover, .btn:hover {
   background: var(--color-text-primary);
   color: var(--color-bg-primary);
+  text-shadow: none; /* Clear bloom on hover inversion */
 }
 
 /* ============================================
