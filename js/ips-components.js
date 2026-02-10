@@ -912,11 +912,22 @@ document.addEventListener('DOMContentLoaded', () => {
     svg.style.display = "none";
     svg.innerHTML = `
       <defs>
-        <filter id="ink-noise" x="-20%" y="-20%" width="140%" height="140%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="5" result="noise" />
-          <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 10 -4" result="mask" />
-          <feComposite in="SourceGraphic" in2="mask" operator="out" result="distressed" />
-          <feDisplacementMap in="distressed" in2="noise" scale="2" />
+        <!-- Distressed Border Filter -->
+        <filter id="ink-border-noise" x="-20%" y="-20%" width="140%" height="140%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="5" result="wobble" />
+          <feDisplacementMap in="SourceGraphic" in2="wobble" scale="3" result="distorted" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" seed="7" result="grain" />
+          <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 12 -5" result="mask" />
+          <feComposite in="distorted" in2="mask" operator="out" />
+        </filter>
+
+        <!-- Subtle Text Noise Filter -->
+        <filter id="ink-text-noise" x="-10%" y="-10%" width="120%" height="120%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="3" result="subtle-wobble" />
+          <feDisplacementMap in="SourceGraphic" in2="subtle-wobble" scale="0.6" result="distorted-text" />
+          <feTurbulence type="fractalNoise" baseFrequency="1.5" numOctaves="2" seed="1" result="fine-grain" />
+          <feColorMatrix in="fine-grain" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 -2" result="text-mask" />
+          <feComposite in="distorted-text" in2="text-mask" operator="out" />
         </filter>
       </defs>
     `;
