@@ -38,7 +38,7 @@
     <!-- FRAGMENT HEADER -->
     <tg-box id="fragment-header-box">
       <div
-        style="border-bottom: 2px solid var(--color-border); padding-bottom: var(--space-2); margin-bottom: var(--space-3); display: flex; justify-content: space-between;"
+        style="border-bottom: 2px solid var(--color-border); padding-bottom: var(--space-2); margin-bottom: var(--space-3); display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2);"
         class="meta">
         <div id="collection-attribution">Analytical Window :: UNKNOWN</div>
         <div>INSTITUTIONAL ARCHIVE SYSTEM</div>
@@ -134,7 +134,7 @@
           document.getElementById('fragment-content').innerHTML = `
             <div class="fragment-frame">
                 <div class="fragment-frame__header meta">
-                    <div style="display: flex; gap: var(--space-3); align-items: center;">
+                    <div style="display: flex; gap: var(--space-3); align-items: center; flex-wrap: wrap;">
                         <span>REF: ${f.fragment_id}</span>
                         <span>STRATA: ${formatStrata(f.strata_depth)}m</span>
                         <span>ISO-VAR: ${f.isotope_variance || 'NULL'}</span>

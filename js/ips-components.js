@@ -56,7 +56,7 @@ class TGMetadataModal extends HTMLElement {
         <div class="modal-content-container">
           <div class="modal-animation-frame"></div>
           <div class="terminal-box modal-body">
-            <div class="terminal-box__header" style="display: flex; justify-content: space-between;">
+            <div class="terminal-box__header" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-1);">
               <span>STRATIGRAPHIC METADATA REGISTER</span>
               <button class="modal-close-btn info-icon">x</button>
             </div>
@@ -745,7 +745,7 @@ class TGBrowseChronological extends HTMLElement {
     let html = `
       <div class="terminal-box terminal-box--secondary mb-4">
         <div class="terminal-box__header">Filter by Epoch</div>
-        <div style="display: flex; gap: var(--space-2);">
+        <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
           <button class="btn btn--small epoch-toggle" data-epoch="ALL">SHOW ALL</button>
           <button class="btn btn--small epoch-toggle" data-epoch="PI">POST-INSTITUTIONAL (PI)</button>
           <button class="btn btn--small epoch-toggle" data-epoch="AI">ANTE-INSTITUTIONAL (AI)</button>
