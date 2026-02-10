@@ -912,9 +912,11 @@ document.addEventListener('DOMContentLoaded', () => {
     svg.style.display = "none";
     svg.innerHTML = `
       <defs>
-        <filter id="ink-noise" x="-10%" y="-10%" width="120%" height="120%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" result="noise" />
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.8" />
+        <filter id="ink-noise" x="-20%" y="-20%" width="140%" height="140%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="5" result="noise" />
+          <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 10 -4" result="mask" />
+          <feComposite in="SourceGraphic" in2="mask" operator="out" result="distressed" />
+          <feDisplacementMap in="distressed" in2="noise" scale="2" />
         </filter>
       </defs>
     `;
