@@ -10,6 +10,7 @@ const htmlFiles = globSync('*.html').reduce((acc, file) => {
 
 export default defineConfig({
     base: '/',
+    appType: 'mpa',
     server: {
         port: 3000,
         open: true
