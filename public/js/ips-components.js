@@ -138,23 +138,32 @@ class TGBox extends HTMLElement {
 
 class TGFooter extends HTMLElement {
   connectedCallback() {
-    const type = this.getAttribute('mode') || 'Institutional Archive';
+    const mode = this.getAttribute('mode') || 'Access Terminal';
     this.innerHTML = `
       <footer class="site-footer">
-        <p>${type} :: Institute for Precedent Studies Archive</p>
-        <p class="mt-2 meta">For inquiries regarding record authenticity or stratigraphic access, contact archival services.</p>
-        <div class="site-footer__logo-container" style="margin-top: var(--space-6); display: flex; justify-content: center;">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges" style="width: 64px; height: 64px; opacity: 0.7;">
-            <defs>
-              <mask id="logo-mask">
-                <rect width="64" height="64" fill="white"/>
-                <rect x="8" y="8" width="48" height="48" fill="black"/>
-                <rect x="8" y="12" width="8" height="16" fill="white"/>
-                <rect x="28" y="28" width="8" height="8" fill="white"/>
-              </mask>
-            </defs>
-            <rect width="64" height="64" fill="var(--color-text-primary)" mask="url(#logo-mask)"/>
-          </svg>
+        <div class="site-footer__left">
+          <div class="site-footer__logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
+              <defs>
+                <mask id="footer-logo-mask">
+                  <rect width="64" height="64" fill="white"/>
+                  <rect x="8" y="8" width="48" height="48" fill="black"/>
+                  <rect x="8" y="12" width="8" height="16" fill="white"/>
+                  <rect x="28" y="28" width="8" height="8" fill="white"/>
+                </mask>
+              </defs>
+              <rect width="64" height="64" fill="currentColor" mask="url(#footer-logo-mask)"/>
+            </svg>
+          </div>
+          <div class="site-footer__text">
+            ${mode} :: Institute for Precedent Studies Archive
+          </div>
+        </div>
+        <div class="site-footer__right">
+          <div class="site-footer__meta meta">
+            For inquiries regarding record authenticity or stratigraphic access, contact archival services.
+          </div>
+          <tg-theme-toggle></tg-theme-toggle>
         </div>
       </footer>
     `;
@@ -397,7 +406,6 @@ class TGArchiveList extends HTMLElement {
 
 class TGFilterPanel extends HTMLElement {
   connectedCallback() {
-    console.log('IPS :: TGFilterPanel CONNECTED');
     this.render();
     this.setupEventListeners();
   }
@@ -828,11 +836,10 @@ class TGThemeToggle extends HTMLElement {
 
   render() {
     this.innerHTML = `
-      <div class="theme-toggle-container meta" style="display: flex; gap: var(--space-2); align-items: center;">
-        <span>LUMINANCE CALIBRATION:</span>
-        <button class="btn btn--small theme-btn" data-basis="dark">STB</button>
-        <button class="btn btn--small theme-btn" data-basis="light">MFB</button>
-        <button class="btn btn--small theme-btn" data-basis="auto">AUTO</button>
+      <div class="theme-toggle-container">
+        <button class="btn btn--small theme-btn" data-basis="dark" title="Standard Terminal Basis">STB</button>
+        <button class="btn btn--small theme-btn" data-basis="light" title="Microfiche Basis">MFB</button>
+        <button class="btn btn--small theme-btn" data-basis="auto" title="System Managed">AUTO</button>
       </div>
     `;
 
