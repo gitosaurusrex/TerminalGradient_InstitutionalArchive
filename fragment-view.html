@@ -134,12 +134,12 @@
                 <div class="fragment-frame__header meta">
                     <div style="display: flex; gap: var(--space-3); align-items: center;">
                         <span>REF: ${f.fragment_id}</span>
-                        <span>STRATA: ${(f.strata_depth || 0.0).toFixed(1)}m</span>
+                        <span>STRATA: ${formatStrata(f.strata_depth)}m</span>
                         <span>ISO-VAR: ${f.isotope_variance || 'NULL'}</span>
                         <span>EPI-CONF: ${f.epistemic_confidence}</span>
                         ${window.generateFlavorMetrics ? window.generateFlavorMetrics() : ''}
                     </div>
-                    <button class="info-icon" onclick='window.showMetadataModal(window._fragmentData["${f.fragment_id}"])'>
+                    <button class="info-icon" onclick='window.showMetadataModal(window._fragmentData["${f.fragment_id}"], event)'>
                         i
                     </button>
                 </div>

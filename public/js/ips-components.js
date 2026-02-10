@@ -73,6 +73,14 @@ class TGMetadataModal extends HTMLElement {
     const modal = this.querySelector('#metadata-modal');
     const tableContainer = this.querySelector('#modal-table-container');
     
+    // Reset animation frame position to center if no event provided
+    const frame = this.querySelector('.modal-animation-frame');
+    if (frame && !frame.style.left) {
+        frame.style.left = '50%';
+        frame.style.top = '50%';
+        frame.style.transform = 'translate(-50%, -50%)';
+    }
+
     const whitelist = {
       'fragment_id': 'Record ID',
       'title': 'Designation',
@@ -738,12 +746,28 @@ customElements.define('tg-browse-phenomenology', TGBrowsePhenomenology);
 customElements.define('tg-browse-chronological', TGBrowseChronological);
 
 // Global modal instance for easy access
-window.showMetadataModal = (data) => {
+window.showMetadataModal = (data, event) => {
   let modal = document.querySelector('tg-metadata-modal');
   if (!modal) {
     modal = document.createElement('tg-metadata-modal');
     document.body.appendChild(modal);
   }
+
+  const frame = modal.querySelector('.modal-animation-frame');
+  if (frame) {
+    if (event) {
+      const rect = event.target.getBoundingClientRect();
+      frame.style.left = `${rect.left + rect.width / 2}px`;
+      frame.style.top = `${rect.top + rect.height / 2}px`;
+      frame.style.position = 'fixed';
+    } else {
+      frame.style.left = '50%';
+      frame.style.top = '50%';
+      frame.style.position = 'absolute';
+    }
+    frame.style.transform = 'translate(-50%, -50%)';
+  }
+
   modal.show(data);
 };
 

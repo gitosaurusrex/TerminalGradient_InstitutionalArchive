@@ -142,7 +142,7 @@
                         <span>EPI-CONF: ${f.epistemic_confidence}</span>
                         ${window.generateFlavorMetrics ? window.generateFlavorMetrics() : ''}
                     </div>
-                    <button class="info-icon" onclick='window.showMetadataModal(window._fragmentData["${f.fragment_id}"])'>
+                    <button class="info-icon" onclick='window.showMetadataModal(window._fragmentData["${f.fragment_id}"], event)'>
                         i
                     </button>
                 </div>
@@ -179,7 +179,7 @@
         <div class="fragment-frame">
             <div class="fragment-frame__header meta">
                 <span>VERBATIM ENCODING</span>
-                <button class="info-icon" onclick='window.showMetadataModal(window._fragmentData["${f.fragment_id}"])'>
+                <button class="info-icon" onclick='window.showMetadataModal(window._fragmentData["${f.fragment_id}"], event)'>
                     i
                 </button>
             </div>
