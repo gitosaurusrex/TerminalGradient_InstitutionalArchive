@@ -39,16 +39,6 @@
       </div>
     </tg-box>
 
-    <!-- COMPLETION STATUS BAR -->
-    <tg-box compact>
-      <div class="meta" style="margin-bottom: var(--space-2);">Analytical Completeness:</div>
-      <div class="progress-bar">
-        <div class="progress-bar__fill" style="width: 85%;">
-          <span class="progress-bar__text">85%</span>
-        </div>
-      </div>
-    </tg-box>
-
     <tg-box id="case-analysis-box" header="Case Analysis (Institutional)">
       <div id="case-content" class="document-content body">
         <div class="meta">Initializing stratigraphic retrieval...</div>
@@ -147,7 +137,7 @@
                 <div class="fragment-frame__header meta">
                     <div style="display: flex; gap: var(--space-3); align-items: center;">
                         <span>REF: ${f.fragment_id}</span>
-                        <span>STRATA: ${(f.strata_depth || 0.0).toFixed(1)}m</span>
+                        <span>STRATA: ${formatStrata(f.strata_depth)}m</span>
                         <span>ISO-VAR: ${f.isotope_variance || 'NULL'}</span>
                         <span>EPI-CONF: ${f.epistemic_confidence}</span>
                         ${window.generateFlavorMetrics ? window.generateFlavorMetrics() : ''}
@@ -173,7 +163,7 @@
 
       const meta = [
         { label: 'Fragment ID', value: f.fragment_id },
-        { label: 'Strata Depth', value: `${f.strata_depth}m` },
+        { label: 'Strata Depth', value: `${formatStrata(f.strata_depth)}m` },
         { label: 'Time Reference', value: f.time_reference_basis },
         { label: 'Epistemic Confidence', value: `${f.epistemic_confidence}%` }
       ];
