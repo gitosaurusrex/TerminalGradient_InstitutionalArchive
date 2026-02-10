@@ -794,6 +794,7 @@ class TGThemeToggle extends HTMLElement {
 // REGISTER COMPONENTS
 customElements.define('tg-theme-toggle', TGThemeToggle);
 customElements.define('tg-metadata-modal', TGMetadataModal);
+customElements.define('tg-filter-panel', TGFilterPanel);
 customElements.define('tg-case-list', TGCaseList);
 customElements.define('tg-fragment-list', TGFragmentList);
 customElements.define('tg-box', TGBox);
