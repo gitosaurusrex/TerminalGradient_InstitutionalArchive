@@ -224,16 +224,16 @@ button:hover, .btn:hover {
    ============================================ */
 html[data-theme="light"] .btn,
 html[data-theme="light"] button {
-  border: none; 
+  border: none;
   border-radius: var(--stamp-border-radius);
   position: relative;
-  transition: box-shadow 0.1s ease, background 0.1s ease, filter 0.1s ease;
+  transition: box-shadow 0.1s ease, background 0.1s ease, filter 0.1s ease, color 0.1s ease;
   filter: url(#ink-text-noise) drop-shadow(0.3px 0.3px 0.1px rgba(0,0,0,0.1));
   font-variation-settings: "MONO" 1, "CASL" 1, "slnt" 0;
   box-shadow: 0 0 1px 0.5px rgba(26, 26, 26, 0.1); /* Soft ink bleed */
   z-index: 1;
+  color: var(--color-text-secondary); /* Lighter default text color */
 }
-
 html[data-theme="light"] .btn::after,
 html[data-theme="light"] button::after {
   content: '';
@@ -252,7 +252,7 @@ html[data-theme="light"] button:hover,
 html[data-theme="light"] .btn:active,
 html[data-theme="light"] button:active {
   background: rgba(255, 255, 255, 0.4); /* Lighten but not white */
-  color: var(--color-text-primary);
+  color: var(--color-text-primary); /* Return to primary text color on hover */
   box-shadow: 0 0 3px rgba(26, 26, 26, 0.4); /* Ink bleed bloom */
   filter: none; /* Remove noise on hover */
 }
@@ -930,6 +930,27 @@ html[data-theme="dark"] .container.crt-animate,
 
 .theme-toggle-container .btn:hover {
   background: rgba(255,255,255,0.05);
+}
+
+/* Exclude theme toggle buttons from light mode skeuomorphic overrides */
+html[data-theme="light"] .theme-toggle-container .btn {
+  filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-variation-settings: initial !important;
+  color: var(--color-text-secondary) !important;
+}
+
+html[data-theme="light"] .theme-toggle-container .btn::after {
+  display: none !important; /* Hide the pseudo-element border */
+}
+
+html[data-theme="light"] .theme-toggle-container .btn:hover,
+html[data-theme="light"] .theme-toggle-container .btn:active {
+  background: rgba(255,255,255,0.05) !important;
+  color: var(--color-text-secondary) !important;
+  filter: none !important;
+  box-shadow: none !important;
 }
 
 /* ============================================
