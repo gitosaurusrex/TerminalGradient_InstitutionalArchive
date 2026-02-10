@@ -48,14 +48,13 @@ const IPS_VIEW_UTILS = (function() {
 
     // 1. OUTGOING: Detect direction and store in session
     window.navigation.addEventListener('navigate', (event) => {
-        if (event.navigationType === 'traverse') {
-            const currentIdx = window.navigation.currentEntry.index;
-            const destinationIdx = event.destination.index;
-            if (destinationIdx < currentIdx) {
-                sessionStorage.setItem('ips-transition-direction', 'back');
-            } else {
-                sessionStorage.setItem('ips-transition-direction', 'forward');
-            }
+        // Early return for non-traversal events to prevent intercepting and potentially stripping URLs
+        if (event.navigationType !== 'traverse') return;
+
+        const currentIdx = window.navigation.currentEntry.index;
+        const destinationIdx = event.destination.index;
+        if (destinationIdx < currentIdx) {
+            sessionStorage.setItem('ips-transition-direction', 'back');
         } else {
             sessionStorage.setItem('ips-transition-direction', 'forward');
         }
