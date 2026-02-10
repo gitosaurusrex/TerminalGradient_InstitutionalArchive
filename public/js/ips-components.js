@@ -396,11 +396,11 @@ class TGFilterPanel extends HTMLElement {
             <span class="form-checkbox-label">High Confidence</span>
           </label>
           <label class="filter-option">
-            <input type="checkbox" class="ips-filter" data-group="medium" value="medium" checked>
+            <input type="checkbox" class="ips-filter" data-group="confidence" value="medium" checked>
             <span class="form-checkbox-label">Medium Confidence</span>
           </label>
           <label class="filter-option">
-            <input type="checkbox" class="ips-filter" data-group="low" value="low" checked>
+            <input type="checkbox" class="ips-filter" data-group="confidence" value="low" checked>
             <span class="form-checkbox-label">Low Confidence / Speculative</span>
           </label>
         </div>

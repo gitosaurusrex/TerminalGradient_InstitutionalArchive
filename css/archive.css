@@ -317,7 +317,7 @@ button:hover, .btn:hover {
   border: var(--border-width) solid var(--color-border);
   padding: var(--space-3);
   margin-bottom: var(--space-4);
-  background: var(--color-bg-primary);
+  background: var(--color-bg-secondary);
 }
 
 .filter-panel__header {
@@ -547,12 +547,19 @@ button:hover, .btn:hover {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
   background: rgba(0, 0, 0, 0.92);
-  display: flex; align-items: center; justify-content: center;
-  z-index: 10000; opacity: 0; pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
   transition: opacity 0.1s steps(2);
 }
 
-.modal-overlay.modal-active { opacity: 1; pointer-events: auto; }
+.modal-overlay.modal-active {
+  opacity: 1;
+  pointer-events: auto;
+}
 
 .modal-content-container {
   position: relative; width: 90%; max-width: 600px;
