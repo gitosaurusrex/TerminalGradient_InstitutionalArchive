@@ -39,10 +39,20 @@
       </div>
     </tg-box>
 
-    <!-- DOCUMENT RESULTS -->
-    <main>
-      <tg-case-list></tg-case-list>
-    </main>
+    <!-- TWO COLUMN LAYOUT -->
+    <div style="display: grid; grid-template-columns: 300px 1fr; gap: var(--space-4); align-items: start;">
+
+      <!-- FILTER PANEL -->
+      <aside>
+        <tg-filter-panel></tg-filter-panel>
+      </aside>
+
+      <!-- DOCUMENT RESULTS -->
+      <main>
+        <tg-case-list></tg-case-list>
+      </main>
+
+    </div>
 
     <!-- FOOTER -->
     <tg-footer mode="Case File Index"></tg-footer>

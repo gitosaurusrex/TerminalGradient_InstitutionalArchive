@@ -119,7 +119,7 @@ body {
   font-variation-settings: var(--axis-institutional);
   min-height: 100vh;
   padding: var(--space-4);
-  filter: blur(var(--mf-blur));
+  /* Removed filter from body to prevent containing-block issues with fixed elements */
   transition: background 0.2s steps(4), color 0.2s steps(4);
 }
 
@@ -537,6 +537,7 @@ button:hover, .btn:hover {
   max-width: var(--container-max-width);
   margin: 0 auto;
   padding: var(--space-8) var(--space-4);
+  filter: blur(var(--mf-blur));
 }
 
 /* ============================================
@@ -547,7 +548,7 @@ button:hover, .btn:hover {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
   background: rgba(0, 0, 0, 0.92);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 10000;
@@ -557,6 +558,7 @@ button:hover, .btn:hover {
 }
 
 .modal-overlay.modal-active {
+  display: flex;
   opacity: 1;
   pointer-events: auto;
 }
