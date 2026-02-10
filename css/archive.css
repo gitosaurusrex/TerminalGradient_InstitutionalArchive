@@ -311,13 +311,13 @@ button:hover, .btn:hover {
 
 /* ============================================
    FILTER PANEL
-   ============================================ */
+    ============================================ */
 
 .filter-panel {
   border: var(--border-width) solid var(--color-border);
   padding: var(--space-3);
   margin-bottom: var(--space-4);
-  background: var(--color-bg-secondary);
+  background: var(--color-bg-primary);
 }
 
 .filter-panel__header {
@@ -343,16 +343,23 @@ button:hover, .btn:hover {
 }
 
 .filter-option {
-  display: block;
+  display: flex;
+  align-items: center;
   margin-bottom: var(--space-1);
   cursor: pointer;
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .filter-option input[type="checkbox"],
 .filter-option input[type="radio"] {
-  margin-right: var(--space-1);
+  margin-right: var(--space-2);
+  accent-color: var(--color-text-primary);
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
 }
-
 /* ============================================
    BUTTONS & LINKS
    ============================================ */
