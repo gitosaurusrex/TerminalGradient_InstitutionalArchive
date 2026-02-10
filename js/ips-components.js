@@ -1,12 +1,38 @@
 /**
  * INSTITUTE FOR PRECEDENT STUDIES ARCHIVE
  * Web Components Library (Vanilla Custom Elements)
- * 
+ *
  * Centralizes UI logic and enforces institutional design standards.
  */
 
-// UTILITY: Flavor Metric Generator
-window.generateFlavorMetrics = () => {
+/*
+const FOOTER_LOGO_DARK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
+  <defs>
+    <mask id="footer-logo-mask">
+      <rect width="64" height="64" fill="white"/>
+      <rect x="8" y="8" width="48" height="48" fill="black"/>
+      <rect x="8" y="12" width="8" height="16" fill="white"/>
+      <rect x="28" y="28" width="8" height="8" fill="white"/>
+    </mask>
+  </defs>
+  <rect width="64" height="64" fill="currentColor" mask="url(#footer-logo-mask)"/>
+</svg>`;
+
+const FOOTER_LOGO_LIGHT_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
+  <rect width="64" height="64" fill="#0a0a0a"></rect>
+  <rect x="8" y="8" width="48" height="48" fill="#e8e8e8"></rect>
+  <rect x="12" y="12" width="10" height="4" fill="#0a0a0a"></rect>
+  <rect x="12" y="12" width="4" height="10" fill="#0a0a0a"></rect>
+  <rect x="42" y="12" width="10" height="4" fill="#0a0a0a"></rect>
+  <rect x="48" y="12" width="4" height="10" fill="#0a0a0a"></rect>
+  <rect x="12" y="48" width="10" height="4" fill="#0a0a0a"></rect>
+  <rect x="12" y="42" width="4" height="10" fill="#0a0a0a"></rect>
+  <rect x="42" y="48" width="10" height="4" fill="#0a0a0a"></rect>
+  <rect x="48" y="42" width="4" height="10" fill="#0a0a0a"></rect>
+</svg>`;
+*/
+
+// UTILITY: Flavor Metric Generatorwindow.generateFlavorMetrics = () => {
   const metrics = [
     { acronym: 'ACI', unit: 'Δ', range: [-128.000, 128.000], precision: 3 },
     { acronym: 'CR', unit: 'rΣ', range: [0.000, 16.384], precision: 4 },
@@ -141,23 +167,59 @@ class TGBox extends HTMLElement {
 
 class TGFooter extends HTMLElement {
   connectedCallback() {
-    const mode = this.getAttribute('mode') || 'Access Terminal';
+    this.mode = this.getAttribute('mode') || 'Access Terminal';
+    this.renderLogo(); // Initial render
+
+    // Observe changes to the data-theme attribute on the html element
+    this.observer = new MutationObserver(this.renderLogo.bind(this));
+    this.observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  }
+
+  disconnectedCallback() {
+    this.observer.disconnect();
+  }
+
+  renderLogo() {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light'; // Default to light
+
+    let logoSvg = '';
+    /*
+    if (currentTheme === 'dark') {
+      logoSvg = FOOTER_LOGO_DARK_SVG;
+    } else {
+      logoSvg = FOOTER_LOGO_LIGHT_SVG;
+    }
+    */
+    logoSvg = `<svg viewBox="0 0 64 64"></svg>`; // Placeholder SVG
+
+
+    // Find the logo container and update its innerHTML
+    const logoContainer = this.querySelector('.site-footer__logo');
+    if (logoContainer) {
+      logoContainer.innerHTML = logoSvg;
+    }
+    
+    // Re-render the entire footer structure to ensure other dynamic parts are consistent
     this.innerHTML = `
       <footer class="site-footer">
         <div class="site-footer__left">
           <div class="site-footer__logo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
-              <defs>
-                <mask id="footer-logo-mask">
-                  <rect width="64" height="64" fill="white"/>
-                  <rect x="8" y="8" width="48" height="48" fill="black"/>
-                  <rect x="8" y="12" width="8" height="16" fill="white"/>
-                  <rect x="28" y="28" width="8" height="8" fill="white"/>
-                </mask>
-              </defs>
-              <rect width="64" height="64" fill="currentColor" mask="url(#footer-logo-mask)"/>
-            </svg>
+            ${logoSvg}
           </div>
+          <div class="site-footer__text">
+            ${this.mode} :: Institute for Precedent Studies Archive
+          </div>
+        </div>
+        <div class="site-footer__right">
+          <div class="site-footer__meta meta">
+            To report stratigraphic drift or artifactual inconsistency, broadcast an encrypted 0x88-SIGMA packet to <strong>IPS-NODE::14847</strong>. Response is not authorized; your identifying metrics have been catalogued.
+          </div>
+          <tg-theme-toggle></tg-theme-toggle>
+        </div>
+      </footer>
+    `;
+  }
+}
           <div class="site-footer__text">
             ${mode} :: Institute for Precedent Studies Archive
           </div>
@@ -827,15 +889,32 @@ class TGThemeToggle extends HTMLElement {
     } else {
       html.setAttribute('data-theme', basis);
     }
+    this.updateFavicon(basis);
+        
+        // Update button states
+        this.querySelectorAll('.theme-btn').forEach(btn => {
+          btn.classList.toggle('btn--active', btn.getAttribute('data-basis') === basis);
+          // Inline style for active state since we are in a refactor
+          btn.style.background = btn.getAttribute('data-basis') === basis ? 'var(--color-text-primary)' : 'transparent';
+          btn.style.color = btn.getAttribute('data-basis') === basis ? 'var(--color-bg-primary)' : 'inherit';
+        });
+      }
     
-    // Update button states
-    this.querySelectorAll('.theme-btn').forEach(btn => {
-      btn.classList.toggle('btn--active', btn.getAttribute('data-basis') === basis);
-      // Inline style for active state since we are in a refactor
-      btn.style.background = btn.getAttribute('data-basis') === basis ? 'var(--color-text-primary)' : 'transparent';
-      btn.style.color = btn.getAttribute('data-basis') === basis ? 'var(--color-bg-primary)' : 'inherit';
-    });
-  }
+      updateFavicon(basis) {
+        const faviconLink = document.getElementById('favicon-link');
+        if (!faviconLink) return;
+    
+        let theme = basis;
+        if (basis === 'auto') {
+            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+    
+        if (theme === 'dark') {
+            faviconLink.href = '/assets/favicons/favicon-dark.svg';
+        } else {
+            faviconLink.href = '/assets/favicons/favicon-light.svg';
+        }
+      }
 
   render() {
     this.innerHTML = `
@@ -864,6 +943,18 @@ class TGThemeToggle extends HTMLElement {
   } else {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+  }
+  // Update favicon based on initial theme
+  const toggleInstance = document.querySelector('tg-theme-toggle');
+  if (toggleInstance && typeof toggleInstance.updateFavicon === 'function') {
+    toggleInstance.updateFavicon(saved);
+  } else {
+    // Fallback if component not yet defined or found
+    const faviconLink = document.getElementById('favicon-link');
+    if (faviconLink) {
+        const theme = (saved === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) || saved === 'dark' ? 'dark' : 'light';
+        faviconLink.href = theme === 'dark' ? '/assets/favicons/favicon-dark.svg' : '/assets/favicons/favicon-light.svg';
+    }
   }
 })();
 
