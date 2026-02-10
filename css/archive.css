@@ -433,6 +433,18 @@ button:hover, .btn:hover {
   font-size: 12px;
 }
 
+.btn--large {
+  padding: var(--space-4);
+  font-size: var(--font-size-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 120px;
+  height: 100%;
+}
+
 /* ============================================
    BREADCRUMB NAVIGATION
    ============================================ */
@@ -938,6 +950,13 @@ html[data-theme="dark"]::view-transition-new(root) {
 .layout-grid--sidebar-right { grid-template-columns: 1fr 300px; }
 .layout-grid--halves { grid-template-columns: 1fr 1fr; }
 .layout-grid--status { grid-template-columns: 150px 1fr; }
+
+.nav-mosaic {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-2);
+  width: 100%;
+}
 
 .action-box .tg-box-content {
   display: flex;
