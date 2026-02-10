@@ -904,6 +904,23 @@ window.showMetadataModal = (data) => {
 
 // CRT TERMINAL INITIALIZATION
 document.addEventListener('DOMContentLoaded', () => {
+  // Inject Skeuomorphic Ink Noise Filter
+  if (!document.getElementById('ips-svg-filters')) {
+    const svgNS = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(svgNS, "svg");
+    svg.id = "ips-svg-filters";
+    svg.style.display = "none";
+    svg.innerHTML = `
+      <defs>
+        <filter id="ink-noise" x="-10%" y="-10%" width="120%" height="120%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.8" />
+        </filter>
+      </defs>
+    `;
+    document.body.appendChild(svg);
+  }
+
   if (!document.querySelector('.crt-overlay')) {
     const overlay = document.createElement('div');
     overlay.classList.add('crt-overlay');
