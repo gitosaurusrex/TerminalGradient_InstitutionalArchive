@@ -5,6 +5,8 @@
  * Provides a client-side SQL interface for record retrieval and search.
  */
 
+console.log('IPS :: DATABASE SERVICE LOADING...');
+
 const DB_SERVICE = (function () {
     let db = null;
     let SQL = null;
