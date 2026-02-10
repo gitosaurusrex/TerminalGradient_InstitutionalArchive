@@ -566,7 +566,8 @@ class TGBrowsePhenomenology extends HTMLElement {
       const patternCases = cases.filter(c => c.observed_pattern === p.pattern_id);
       
       html += `
-        <tg-box header="Pattern ${p.name}">
+        <div class="terminal-box">
+          <div class="terminal-box__header">Pattern ${p.name}</div>
           <p class="meta mb-3">${p.description}</p>
           ${patternCases.length > 0 ? patternCases.map(c => `
             <article class="document-card">
@@ -580,7 +581,7 @@ class TGBrowsePhenomenology extends HTMLElement {
               </div>
             </article>
           `).join('') : '<div class="meta">No cases catalogued under this pattern.</div>'}
-        </tg-box>
+        </div>
       `;
     });
 
@@ -617,7 +618,8 @@ class TGBrowseChronological extends HTMLElement {
     const piFragments = fragments.filter(f => f.time_reference_basis === 'PI');
 
     let html = `
-      <tg-box header="Post-Institutional Epoch (PI)">
+      <div class="terminal-box">
+        <div class="terminal-box__header">Post-Institutional Epoch (PI)</div>
         <p class="meta mb-3">Records originating after the formation of the Institute and the establishment of the Standard Temporal Basis.</p>
         ${piFragments.length > 0 ? piFragments.map(f => `
           <article class="document-card">
@@ -631,9 +633,10 @@ class TGBrowseChronological extends HTMLElement {
             </div>
           </article>
         `).join('') : '<div class="meta">No records located in this epoch.</div>'}
-      </tg-box>
+      </div>
 
-      <tg-box header="Ante-Institutional Epoch (AI)">
+      <div class="terminal-box">
+        <div class="terminal-box__header">Ante-Institutional Epoch (AI)</div>
         <p class="meta mb-3">Deep-time records originating prior to the Great Convergence and the formalization of historical metrics.</p>
         ${aiFragments.length > 0 ? aiFragments.map(f => `
           <article class="document-card">
@@ -647,7 +650,7 @@ class TGBrowseChronological extends HTMLElement {
             </div>
           </article>
         `).join('') : '<div class="meta">No records located in this epoch.</div>'}
-      </tg-box>
+      </div>
     `;
 
     this.innerHTML = html;
