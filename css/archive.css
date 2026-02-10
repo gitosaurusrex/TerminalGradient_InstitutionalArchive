@@ -136,6 +136,7 @@ html[data-theme="light"] .crt-overlay {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  cursor: default; /* Set cursor to default site-wide */
 }
 
 html {
