@@ -731,7 +731,68 @@ class TGBrowseChronological extends HTMLElement {
   }
 }
 
+class TGThemeToggle extends HTMLElement {
+  connectedCallback() {
+    this.render();
+    this.initTheme();
+  }
+
+  initTheme() {
+    const saved = localStorage.getItem('ips-basis') || 'auto';
+    this.applyTheme(saved);
+  }
+
+  applyTheme(basis) {
+    const html = document.documentElement;
+    if (basis === 'auto') {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      html.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+    } else {
+      html.setAttribute('data-theme', basis);
+    }
+    
+    // Update button states
+    this.querySelectorAll('.theme-btn').forEach(btn => {
+      btn.classList.toggle('btn--active', btn.getAttribute('data-basis') === basis);
+      // Inline style for active state since we are in a refactor
+      btn.style.background = btn.getAttribute('data-basis') === basis ? 'var(--color-text-primary)' : 'transparent';
+      btn.style.color = btn.getAttribute('data-basis') === basis ? 'var(--color-bg-primary)' : 'inherit';
+    });
+  }
+
+  render() {
+    this.innerHTML = `
+      <div class="theme-toggle-container meta" style="display: flex; gap: var(--space-2); align-items: center;">
+        <span>LUMINANCE CALIBRATION:</span>
+        <button class="btn btn--small theme-btn" data-basis="dark">STB</button>
+        <button class="btn btn--small theme-btn" data-basis="light">MFB</button>
+        <button class="btn btn--small theme-btn" data-basis="auto">AUTO</button>
+      </div>
+    `;
+
+    this.querySelectorAll('.theme-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const basis = btn.getAttribute('data-basis');
+        localStorage.setItem('ips-basis', basis);
+        this.applyTheme(basis);
+      });
+    });
+  }
+}
+
+// Global initialization to prevent flash
+(function() {
+  const saved = localStorage.getItem('ips-basis') || 'auto';
+  if (saved !== 'auto') {
+    document.documentElement.setAttribute('data-theme', saved);
+  } else {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+  }
+})();
+
 // REGISTER COMPONENTS
+customElements.define('tg-theme-toggle', TGThemeToggle);
 customElements.define('tg-metadata-modal', TGMetadataModal);
 customElements.define('tg-case-list', TGCaseList);
 customElements.define('tg-fragment-list', TGFragmentList);
