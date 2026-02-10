@@ -67,9 +67,9 @@
     </tg-box>
 
     <!-- ACTION BUTTONS -->
-    <tg-box compact style="display: flex; gap: var(--space-2); justify-content: center;">
+    <tg-box compact class="action-box">
       <a href="/fragment-index" class="btn">Return to Fragment Index</a>
-      <a href="#" class="btn">Download Raw Buffer (DATA)</a>
+      <a href="#" class="btn">Download RAW Buffer</a>
       <a href="#" class="btn">Record Verification Claim</a>
     </tg-box>
 
@@ -134,7 +134,7 @@
           document.getElementById('fragment-content').innerHTML = `
             <div class="fragment-frame">
                 <div class="fragment-frame__header meta">
-                    <div style="display: flex; gap: var(--space-3); align-items: center; flex-wrap: wrap;">
+                    <div class="fragment-frame__metrics">
                         <span>REF: ${f.fragment_id}</span>
                         <span>STRATA: ${formatStrata(f.strata_depth)}m</span>
                         <span>ISO-VAR: ${f.isotope_variance || 'NULL'}</span>

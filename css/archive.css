@@ -338,6 +338,15 @@ button:hover, .btn:hover {
   font-weight: 600;
 }
 
+.fragment-frame__metrics {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  flex-wrap: wrap;
+  height: 20px; /* Force single line height */
+  overflow: hidden; /* Wrapped items are hidden */
+}
+
 .fragment-frame__content {
   padding: var(--space-3);
 }
@@ -929,6 +938,19 @@ html[data-theme="dark"]::view-transition-new(root) {
 .layout-grid--sidebar-right { grid-template-columns: 1fr 300px; }
 .layout-grid--halves { grid-template-columns: 1fr 1fr; }
 .layout-grid--status { grid-template-columns: 150px 1fr; }
+
+.action-box .tg-box-content {
+  display: flex;
+  gap: var(--space-2);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.action-box .btn {
+  flex: 1 0 auto;
+  text-align: center;
+  white-space: nowrap;
+}
 
 @media (max-width: 900px) {
   .layout-grid--sidebar-left,
