@@ -140,7 +140,9 @@ const DB_SERVICE = (function () {
             JOIN case_fragments cf ON c.case_id = cf.case_id
             WHERE cf.fragment_id = $fragmentId
             ORDER BY c.case_id ASC
-        `, { '$fragmentId': fragmentId })
+        `, { '$fragmentId': fragmentId }),
+        getPatterns: () => query('SELECT * FROM phenomenological_patterns ORDER BY pattern_id ASC'),
+        getCases: () => query('SELECT * FROM cases ORDER BY case_id ASC')
     };
 })();
                 

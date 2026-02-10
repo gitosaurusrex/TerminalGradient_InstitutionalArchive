@@ -241,7 +241,7 @@ class TGCaseList extends HTMLElement {
         throw new Error('Database service not located in system environment.');
       }
 
-      const cases = await window.IPS_DB.query('SELECT * FROM cases ORDER BY case_id ASC');
+      const cases = await window.IPS_DB.getCases();
       this.render(cases);
     } catch (err) {
       this.innerHTML = `<div class="advisory advisory--red"><div class="advisory__header">CRITICAL ERROR</div><div class="advisory__content">${err.message}</div></div>`;
@@ -565,8 +565,8 @@ class TGBrowsePhenomenology extends HTMLElement {
         throw new Error('Database service not located in system environment.');
       }
 
-      const patterns = await window.IPS_DB.query('SELECT * FROM phenomenological_patterns ORDER BY pattern_id ASC');
-      const cases = await window.IPS_DB.query('SELECT * FROM cases');
+      const patterns = await window.IPS_DB.getPatterns();
+      const cases = await window.IPS_DB.getCases();
       
       this.render(patterns, cases);
     } catch (err) {
@@ -746,7 +746,7 @@ customElements.define('tg-browse-phenomenology', TGBrowsePhenomenology);
 customElements.define('tg-browse-chronological', TGBrowseChronological);
 
 // Global modal instance for easy access
-window.showMetadataModal = (data, event) => {
+window.showMetadataModal = (data) => {
   let modal = document.querySelector('tg-metadata-modal');
   if (!modal) {
     modal = document.createElement('tg-metadata-modal');
@@ -755,16 +755,9 @@ window.showMetadataModal = (data, event) => {
 
   const frame = modal.querySelector('.modal-animation-frame');
   if (frame) {
-    if (event) {
-      const rect = event.target.getBoundingClientRect();
-      frame.style.left = `${rect.left + rect.width / 2}px`;
-      frame.style.top = `${rect.top + rect.height / 2}px`;
-      frame.style.position = 'fixed';
-    } else {
-      frame.style.left = '50%';
-      frame.style.top = '50%';
-      frame.style.position = 'absolute';
-    }
+    frame.style.left = '50%';
+    frame.style.top = '50%';
+    frame.style.position = 'absolute';
     frame.style.transform = 'translate(-50%, -50%)';
   }
 

@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/archive.css">
   <script src="/js/db-service.js" defer></script>
   <script src="/js/ips-components.js" defer></script>
+  <script src="/js/ips-views.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
@@ -71,30 +72,20 @@
       if (breadcrumb) breadcrumb.textContent = `Record ${id}`;
 
       try {
-        // Wait for database service to be registered on window
-        let retries = 0;
-        while (!window.IPS_DB && retries < 100) {
-          await new Promise(r => setTimeout(r, 60));
-          retries++;
-        }
-
-        if (!window.IPS_DB) {
-          throw new Error('Database service not located in system environment.');
-        }
+        const db = await IPS_VIEW_UTILS.waitForDB();
 
         // Attempt to fetch as a Case first
-        const caseData = await window.IPS_DB.getCase(id);
+        const caseData = await db.getCase(id);
 
         if (caseData.length > 0) {
           renderCase(caseData[0]);
-          const fragments = await window.IPS_DB.getCaseFragments(id);
+          const fragments = await db.getCaseFragments(id);
           renderFragments(fragments);
         } else {
           throw new Error(`Record ${id} is not a valid case study. Please provide a Case ID (e.g., CS-S01).`);
         }
       } catch (err) {
-        document.getElementById('case-title').textContent = 'ERR: STRATIGRAPHIC COLLAPSE';
-        document.getElementById('case-content').innerHTML = `<div class="advisory advisory--red">${err.message}</div>`;
+        IPS_VIEW_UTILS.handleRetrievalError(err, 'case-title', 'case-content');
       }
     });
 
@@ -142,7 +133,7 @@
                         <span>EPI-CONF: ${f.epistemic_confidence}</span>
                         ${window.generateFlavorMetrics ? window.generateFlavorMetrics() : ''}
                     </div>
-                    <button class="info-icon" onclick='window.showMetadataModal(window._fragmentData["${f.fragment_id}"], event)'>
+                    <button class="info-icon" onclick='window.showMetadataModal(window._fragmentData["${f.fragment_id}"])'>
                         i
                     </button>
                 </div>
@@ -179,7 +170,7 @@
         <div class="fragment-frame">
             <div class="fragment-frame__header meta">
                 <span>VERBATIM ENCODING</span>
-                <button class="info-icon" onclick='window.showMetadataModal(window._fragmentData["${f.fragment_id}"], event)'>
+                <button class="info-icon" onclick='window.showMetadataModal(window._fragmentData["${f.fragment_id}"])'>
                     i
                 </button>
             </div>
