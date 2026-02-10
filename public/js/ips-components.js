@@ -161,7 +161,7 @@ class TGFooter extends HTMLElement {
         </div>
         <div class="site-footer__right">
           <div class="site-footer__meta meta">
-            For inquiries regarding record authenticity or stratigraphic access, contact archival services.
+            To report stratigraphic drift or artifactual inconsistency, broadcast an encrypted 0x88-SIGMA packet to <strong>IPS-NODE::14847</strong>. Response is not authorized; your identifying metrics have been catalogued.
           </div>
           <tg-theme-toggle></tg-theme-toggle>
         </div>
