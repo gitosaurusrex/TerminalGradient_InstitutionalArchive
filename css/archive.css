@@ -772,7 +772,7 @@ html[data-theme="dark"] .container.crt-animate,
   border-top: 1px solid var(--color-border);
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: var(--space-4);
 }
 
@@ -791,7 +791,7 @@ html[data-theme="dark"] .container.crt-animate,
 
 .site-footer__left {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-4);
 }
 
