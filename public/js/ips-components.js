@@ -818,7 +818,7 @@ window.showMetadataModal = (data) => {
   if (frame) {
     frame.style.left = '50%';
     frame.style.top = '50%';
-    frame.style.position = 'absolute';
+    frame.style.position = 'fixed';
     frame.style.transform = 'translate(-50%, -50%)';
   }
 
