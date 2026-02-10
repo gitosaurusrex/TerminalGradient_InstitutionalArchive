@@ -555,37 +555,69 @@ class TGBrowsePhenomenology extends HTMLElement {
       
       this.render(patterns, cases);
     } catch (err) {
+      console.error('IPS :: BROWSE PHENOMENOLOGY ERROR:', err);
       this.innerHTML = `<div class="advisory advisory--red"><div class="advisory__header">CRITICAL ERROR</div><div class="advisory__content">${err.message}</div></div>`;
     }
   }
 
   render(patterns, cases) {
-    let html = '';
+    if (!patterns || patterns.length === 0) {
+        this.innerHTML = '<div class="meta">No phenomenological markers identified in current strata.</div>';
+        return;
+    }
+
+    let html = `
+      <div class="terminal-box terminal-box--secondary mb-4">
+        <div class="terminal-box__header">Filter by Pattern</div>
+        <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+          <button class="btn btn--small active-pattern-toggle" data-pattern="ALL">SHOW ALL</button>
+          ${patterns.map(p => `<button class="btn btn--small active-pattern-toggle" data-pattern="${p.pattern_id}">${p.name}</button>`).join('')}
+        </div>
+      </div>
+      <div id="pattern-results-container">
+    `;
 
     patterns.forEach(p => {
       const patternCases = cases.filter(c => c.observed_pattern === p.pattern_id);
       
       html += `
-        <div class="terminal-box">
-          <div class="terminal-box__header">Pattern ${p.name}</div>
-          <p class="meta mb-3">${p.description}</p>
-          ${patternCases.length > 0 ? patternCases.map(c => `
-            <article class="document-card">
-              <div class="document-card__id meta">${c.case_id}</div>
-              <h3 class="document-card__title">
-                <a href="case-view.html?id=${c.case_id}" class="document-card__title-link">${c.title}</a>
-              </h3>
-              <div class="document-card__meta meta">
-                <span class="document-card__meta-item">Epoch: ${c.epoch_estimate}</span>
-                <span class="document-card__meta-item">Status: ${c.epistemic_status}</span>
-              </div>
-            </article>
-          `).join('') : '<div class="meta">No cases catalogued under this pattern.</div>'}
+        <div class="pattern-section" data-pattern-id="${p.pattern_id}">
+          <div class="terminal-box">
+            <div class="terminal-box__header">Pattern ${p.name}</div>
+            <p class="meta mb-3">${p.description}</p>
+            ${patternCases.length > 0 ? patternCases.map(c => `
+              <article class="document-card">
+                <div class="document-card__id meta">${c.case_id}</div>
+                <h3 class="document-card__title">
+                  <a href="case-view.html?id=${c.case_id}" class="document-card__title-link">${c.title}</a>
+                </h3>
+                <div class="document-card__meta meta">
+                  <span class="document-card__meta-item">Epoch: ${c.epoch_estimate}</span>
+                  <span class="document-card__meta-item">Status: ${c.epistemic_status}</span>
+                </div>
+              </article>
+            `).join('') : '<div class="meta">No cases catalogued under this pattern.</div>'}
+          </div>
         </div>
       `;
     });
 
+    html += '</div>';
     this.innerHTML = html;
+
+    // Attach Toggle Logic
+    this.querySelectorAll('.active-pattern-toggle').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const pattern = e.target.getAttribute('data-pattern');
+        this.querySelectorAll('.pattern-section').forEach(sec => {
+          if (pattern === 'ALL' || sec.getAttribute('data-pattern-id') === pattern) {
+            sec.style.display = 'block';
+          } else {
+            sec.style.display = 'none';
+          }
+        });
+      });
+    });
   }
 }
 
@@ -604,56 +636,87 @@ class TGBrowseChronological extends HTMLElement {
         throw new Error('Database service not located in system environment.');
       }
 
-      // We'll show Ante-Institutional (AI) and Post-Institutional (PI) sections
       const fragments = await window.IPS_DB.query('SELECT * FROM fragments ORDER BY time_reference_basis ASC, pi_estimation DESC');
-      
       this.render(fragments);
     } catch (err) {
+      console.error('IPS :: BROWSE CHRONOLOGICAL ERROR:', err);
       this.innerHTML = `<div class="advisory advisory--red"><div class="advisory__header">CRITICAL ERROR</div><div class="advisory__content">${err.message}</div></div>`;
     }
   }
 
   render(fragments) {
+    if (!fragments || fragments.length === 0) {
+        this.innerHTML = '<div class="meta">No chronological strata identified.</div>';
+        return;
+    }
+
     const aiFragments = fragments.filter(f => f.time_reference_basis === 'AI');
     const piFragments = fragments.filter(f => f.time_reference_basis === 'PI');
 
     let html = `
-      <div class="terminal-box">
-        <div class="terminal-box__header">Post-Institutional Epoch (PI)</div>
-        <p class="meta mb-3">Records originating after the formation of the Institute and the establishment of the Standard Temporal Basis.</p>
-        ${piFragments.length > 0 ? piFragments.map(f => `
-          <article class="document-card">
-            <div class="document-card__id meta">${f.fragment_id} :: ${f.pi_estimation} PI</div>
-            <h3 class="document-card__title">
-              <a href="fragment-view.html?id=${f.fragment_id}" class="document-card__title-link">${f.title}</a>
-            </h3>
-            <div class="document-card__meta meta">
-              <span class="document-card__meta-item">Strata: ${f.strata_depth}m</span>
-              <span class="document-card__meta-item">Confidence: ${f.epistemic_confidence}%</span>
-            </div>
-          </article>
-        `).join('') : '<div class="meta">No records located in this epoch.</div>'}
+      <div class="terminal-box terminal-box--secondary mb-4">
+        <div class="terminal-box__header">Filter by Epoch</div>
+        <div style="display: flex; gap: var(--space-2);">
+          <button class="btn btn--small epoch-toggle" data-epoch="ALL">SHOW ALL</button>
+          <button class="btn btn--small epoch-toggle" data-epoch="PI">POST-INSTITUTIONAL (PI)</button>
+          <button class="btn btn--small epoch-toggle" data-epoch="AI">ANTE-INSTITUTIONAL (AI)</button>
+        </div>
       </div>
 
-      <div class="terminal-box">
-        <div class="terminal-box__header">Ante-Institutional Epoch (AI)</div>
-        <p class="meta mb-3">Deep-time records originating prior to the Great Convergence and the formalization of historical metrics.</p>
-        ${aiFragments.length > 0 ? aiFragments.map(f => `
-          <article class="document-card">
-            <div class="document-card__id meta">${f.fragment_id} :: EPOCH ${f.time_reference_basis}</div>
-            <h3 class="document-card__title">
-              <a href="fragment-view.html?id=${f.fragment_id}" class="document-card__title-link">${f.title}</a>
-            </h3>
-            <div class="document-card__meta meta">
-              <span class="document-card__meta-item">Strata: ${f.strata_depth}m</span>
-              <span class="document-card__meta-item">Confidence: ${f.epistemic_confidence}%</span>
-            </div>
-          </article>
-        `).join('') : '<div class="meta">No records located in this epoch.</div>'}
+      <div class="epoch-section" data-epoch-id="PI">
+        <div class="terminal-box">
+          <div class="terminal-box__header">Post-Institutional Epoch (PI)</div>
+          <p class="meta mb-3">Records originating after the formation of the Institute and the establishment of the Standard Temporal Basis.</p>
+          ${piFragments.length > 0 ? piFragments.map(f => `
+            <article class="document-card">
+              <div class="document-card__id meta">${f.fragment_id} :: ${f.pi_estimation} PI</div>
+              <h3 class="document-card__title">
+                <a href="fragment-view.html?id=${f.fragment_id}" class="document-card__title-link">${f.title}</a>
+              </h3>
+              <div class="document-card__meta meta">
+                <span class="document-card__meta-item">Strata: ${f.strata_depth}m</span>
+                <span class="document-card__meta-item">Confidence: ${f.epistemic_confidence}%</span>
+              </div>
+            </article>
+          `).join('') : '<div class="meta">No records located in this epoch.</div>'}
+        </div>
+      </div>
+
+      <div class="epoch-section" data-epoch-id="AI">
+        <div class="terminal-box">
+          <div class="terminal-box__header">Ante-Institutional Epoch (AI)</div>
+          <p class="meta mb-3">Deep-time records originating prior to the Great Convergence and the formalization of historical metrics.</p>
+          ${aiFragments.length > 0 ? aiFragments.map(f => `
+            <article class="document-card">
+              <div class="document-card__id meta">${f.fragment_id} :: EPOCH ${f.time_reference_basis}</div>
+              <h3 class="document-card__title">
+                <a href="fragment-view.html?id=${f.fragment_id}" class="document-card__title-link">${f.title}</a>
+              </h3>
+              <div class="document-card__meta meta">
+                <span class="document-card__meta-item">Strata: ${f.strata_depth}m</span>
+                <span class="document-card__meta-item">Confidence: ${f.epistemic_confidence}%</span>
+              </div>
+            </article>
+          `).join('') : '<div class="meta">No records located in this epoch.</div>'}
+        </div>
       </div>
     `;
 
     this.innerHTML = html;
+
+    // Attach Toggle Logic
+    this.querySelectorAll('.epoch-toggle').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const epoch = e.target.getAttribute('data-epoch');
+        this.querySelectorAll('.epoch-section').forEach(sec => {
+          if (epoch === 'ALL' || sec.getAttribute('data-epoch-id') === epoch) {
+            sec.style.display = 'block';
+          } else {
+            sec.style.display = 'none';
+          }
+        });
+      });
+    });
   }
 }
 
