@@ -5,8 +5,6 @@
  * Provides a client-side SQL interface for record retrieval and search.
  */
 
-console.log('IPS :: DATABASE SERVICE LOADING...');
-
 const DB_SERVICE = (function () {
     let db = null;
     let SQL = null;
@@ -22,7 +20,6 @@ const DB_SERVICE = (function () {
      * Shows a visible diagnostic overlay if a critical error occurs.
      */
     function showErrorOverlay(message, details = '') {
-        console.error('IPS :: DIAGNOSTIC ERROR:', message, details);
         const overlay = document.createElement('div');
         overlay.style.cssText = `
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -46,7 +43,6 @@ const DB_SERVICE = (function () {
         if (initPromise) return initPromise;
 
         initPromise = (async () => {
-            console.log('IPS :: INITIALIZING ARCHIVE DATABASE...');
             try {
                 // 1. Load SQL.js
                 if (!window.initSqlJs) {
@@ -58,18 +54,13 @@ const DB_SERVICE = (function () {
                 db = new SQL.Database();
 
                 // 3. Load Schema
-                console.log('IPS :: FETCHING SCHEMA FROM:', SCHEMA_URL);
                 const schema = await fetchText(SCHEMA_URL);
-                console.log('IPS :: SCHEMA DATA (chars):', schema.length);
                 db.run(schema);
 
                 // 4. Load Seed Data
-                console.log('IPS :: FETCHING SEED DATA FROM:', SEED_URL);
                 const seed = await fetchText(SEED_URL);
-                console.log('IPS :: SEED DATA (chars):', seed.length);
                 db.run(seed);
 
-                console.log('IPS :: DATABASE READY.');
                 return db;
             } catch (err) {
                 showErrorOverlay('DATABASE INITIALIZATION FAILED', err.toString());
@@ -93,7 +84,6 @@ const DB_SERVICE = (function () {
             stmt.free();
             return results;
         } catch (err) {
-            console.error('IPS :: QUERY ERROR:', sql, params, err);
             return [];
         }
     }

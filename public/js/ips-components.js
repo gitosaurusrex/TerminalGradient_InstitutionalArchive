@@ -5,8 +5,6 @@
  * Centralizes UI logic and enforces institutional design standards.
  */
 
-console.log('IPS :: COMPONENTS LIBRARY LOADING...');
-
 // UTILITY: Flavor Metric Generator
 window.generateFlavorMetrics = () => {
   const metrics = [
@@ -20,13 +18,11 @@ window.generateFlavorMetrics = () => {
   ];
 
   const selectedMetrics = [];
-  const availableMetrics = [...metrics]; // Clone to pick unique
+  const availableMetrics = [...metrics];
 
-  // Pick first unique metric
   let randomIndex = Math.floor(Math.random() * availableMetrics.length);
   selectedMetrics.push(availableMetrics.splice(randomIndex, 1)[0]);
 
-  // Pick second unique metric
   randomIndex = Math.floor(Math.random() * availableMetrics.length);
   selectedMetrics.push(availableMetrics.splice(randomIndex, 1)[0]);
 
@@ -42,7 +38,6 @@ const interpretMarkdown = (text) => {
   if (window.marked && typeof window.marked.parse === 'function') {
     return window.marked.parse(text);
   }
-  // Fallback to simple paragraph if marked is not loaded
   return text.split('\n\n').map(p => `<p>${p}</p>`).join('');
 };
 
@@ -73,7 +68,6 @@ class TGMetadataModal extends HTMLElement {
     const modal = this.querySelector('#metadata-modal');
     const tableContainer = this.querySelector('#modal-table-container');
     
-    // In-Universe Metadata Whitelist
     const whitelist = {
       'fragment_id': 'Record ID',
       'title': 'Designation',
@@ -266,12 +260,10 @@ class TGArchiveList extends HTMLElement {
   async connectedCallback() {
     this.innerHTML = '<div class="meta">Initializing stratigraphic retrieval...</div>';
     
-    // Listen for filter updates
     this._onFilterUpdate = (e) => this.fetchAndRender(e.detail);
     document.addEventListener('ips-filter-update', this._onFilterUpdate);
 
     try {
-      // Wait for database service to be registered on window
       let retries = 0;
       while (!window.IPS_DB && retries < 100) {
         await new Promise(r => setTimeout(r, 60));
@@ -321,7 +313,6 @@ class TGArchiveList extends HTMLElement {
       const fragments = await window.IPS_DB.query(sql, params);
       this.render(fragments);
     } catch (err) {
-      console.error('Fetch Error:', err);
       this.innerHTML = `<div class="advisory advisory--red"><div class="advisory__header">QUERY ERROR</div><div class="advisory__content">${err.message}</div></div>`;
     }
   }
@@ -334,7 +325,8 @@ class TGArchiveList extends HTMLElement {
 
     const html = fragments.map(f => `
       <div class="document-card">
-                  <div class="document-card__id">${f.fragment_id} :: DEPTH ${(f.strata_depth || 0.0).toFixed(1)}m</div>        <h2 class="document-card__title">
+        <div class="document-card__id">${f.fragment_id} :: DEPTH ${(f.strata_depth || 0.0).toFixed(1)}m</div>
+        <h2 class="document-card__title">
           <a href="fragment-view.html?id=${f.fragment_id}" class="document-card__title-link">${f.title}</a>
         </h2>
         <div class="document-card__meta meta">
@@ -433,12 +425,10 @@ class TGFilterPanel extends HTMLElement {
       if (filters[group]) {
         filters[group].push(cb.value);
       } else if (group === 'medium' || group === 'low') {
-        // Fix for my typo in the checkbox data-group
         filters.confidence.push(cb.value);
       }
     });
 
-    // Special case for confidence because of the checkboxes I rendered
     filters.confidence = [];
     this.querySelectorAll('.ips-filter[data-group="confidence"]:checked, .ips-filter[data-group="medium"]:checked, .ips-filter[data-group="low"]:checked').forEach(cb => {
         filters.confidence.push(cb.value);
@@ -465,7 +455,6 @@ class TGRecentlyCatalogued extends HTMLElement {
         throw new Error('Database service not located in system environment.');
       }
 
-      // Fetch cases, order by case_id to get S01, S02, etc. (assuming S01 is the oldest/first)
       const cases = await window.IPS_DB.query('SELECT * FROM cases ORDER BY case_id ASC LIMIT 2');
       this.render(cases);
     } catch (err) {
@@ -537,7 +526,6 @@ class TGFragmentList extends HTMLElement {
 
 class TGBrowsePhenomenology extends HTMLElement {
   async connectedCallback() {
-    console.log('IPS :: TGBrowsePhenomenology CONNECTED');
     this.innerHTML = '<div class="terminal-box"><div class="meta">Initializing stratigraphic retrieval...</div></div>';
 
     try {
@@ -551,14 +539,11 @@ class TGBrowsePhenomenology extends HTMLElement {
         throw new Error('Database service not located in system environment.');
       }
 
-      console.log('IPS :: TGBrowsePhenomenology DB READY, QUERYING...');
       const patterns = await window.IPS_DB.query('SELECT * FROM phenomenological_patterns ORDER BY pattern_id ASC');
       const cases = await window.IPS_DB.query('SELECT * FROM cases');
-      console.log(`IPS :: TGBrowsePhenomenology DATA LOADED: ${patterns.length} patterns, ${cases.length} cases`);
       
       this.render(patterns, cases);
     } catch (err) {
-      console.error('IPS :: TGBrowsePhenomenology ERROR:', err);
       this.innerHTML = `<div class="advisory advisory--red"><div class="advisory__header">CRITICAL ERROR</div><div class="advisory__content">${err.message}</div></div>`;
     }
   }
@@ -608,11 +593,9 @@ class TGBrowsePhenomenology extends HTMLElement {
     html += '</div>';
     this.innerHTML = html;
 
-    // Attach Toggle Logic
     this.querySelectorAll('.active-pattern-toggle').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const pattern = e.target.getAttribute('data-pattern');
-        console.log(`IPS :: BROWSE FILTER :: ${pattern}`);
         this.querySelectorAll('.pattern-section').forEach(sec => {
           if (pattern === 'ALL' || sec.getAttribute('data-pattern-id') === pattern) {
             sec.style.display = 'block';
@@ -627,7 +610,6 @@ class TGBrowsePhenomenology extends HTMLElement {
 
 class TGBrowseChronological extends HTMLElement {
   async connectedCallback() {
-    console.log('IPS :: TGBrowseChronological CONNECTED');
     this.innerHTML = '<div class="terminal-box"><div class="meta">Initializing stratigraphic retrieval...</div></div>';
 
     try {
@@ -641,13 +623,9 @@ class TGBrowseChronological extends HTMLElement {
         throw new Error('Database service not located in system environment.');
       }
 
-      console.log('IPS :: TGBrowseChronological DB READY, QUERYING...');
       const fragments = await window.IPS_DB.query('SELECT * FROM fragments ORDER BY time_reference_basis ASC, pi_estimation DESC');
-      console.log(`IPS :: TGBrowseChronological DATA LOADED: ${fragments.length} fragments`);
-      
       this.render(fragments);
     } catch (err) {
-      console.error('IPS :: TGBrowseChronological ERROR:', err);
       this.innerHTML = `<div class="advisory advisory--red"><div class="advisory__header">CRITICAL ERROR</div><div class="advisory__content">${err.message}</div></div>`;
     }
   }
@@ -712,11 +690,9 @@ class TGBrowseChronological extends HTMLElement {
 
     this.innerHTML = html;
 
-    // Attach Toggle Logic
     this.querySelectorAll('.epoch-toggle').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const epoch = e.target.getAttribute('data-epoch');
-        console.log(`IPS :: CHRONO FILTER :: ${epoch}`);
         this.querySelectorAll('.epoch-section').forEach(sec => {
           if (epoch === 'ALL' || sec.getAttribute('data-epoch-id') === epoch) {
             sec.style.display = 'block';
@@ -730,7 +706,6 @@ class TGBrowseChronological extends HTMLElement {
 }
 
 // REGISTER COMPONENTS
-console.log('IPS :: REGISTERING CUSTOM ELEMENTS...');
 customElements.define('tg-metadata-modal', TGMetadataModal);
 customElements.define('tg-case-list', TGCaseList);
 customElements.define('tg-fragment-list', TGFragmentList);
@@ -743,7 +718,6 @@ customElements.define('tg-archive-list', TGArchiveList);
 customElements.define('tg-recently-catalogued-cases', TGRecentlyCatalogued);
 customElements.define('tg-browse-phenomenology', TGBrowsePhenomenology);
 customElements.define('tg-browse-chronological', TGBrowseChronological);
-console.log('IPS :: CUSTOM ELEMENTS REGISTERED.');
 
 // Global modal instance for easy access
 window.showMetadataModal = (data) => {
@@ -757,15 +731,12 @@ window.showMetadataModal = (data) => {
 
 // CRT TERMINAL INITIALIZATION
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('IPS :: DOM LOADED, INITIALIZING CRT...');
-  // Add CRT Overlay
   if (!document.querySelector('.crt-overlay')) {
     const overlay = document.createElement('div');
     overlay.classList.add('crt-overlay');
     document.body.appendChild(overlay);
   }
 
-  // Explicitly trigger reveal on container if it exists
   const container = document.querySelector('.container');
   if (container) {
     container.classList.add('crt-animate');
