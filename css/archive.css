@@ -552,6 +552,10 @@ button:hover, .btn:hover {
   filter: blur(var(--mf-blur));
 }
 
+@view-transition {
+  navigation: auto;
+}
+
 /* ============================================
    MODAL SYSTEM
    ============================================ */
@@ -561,8 +565,8 @@ button:hover, .btn:hover {
   top: 0; left: 0; width: 100vw; height: 100vh;
   background: rgba(0, 0, 0, 0.92);
   display: none;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   z-index: 10000;
   opacity: 0;
   pointer-events: none;
@@ -784,10 +788,6 @@ html[data-theme="dark"] .container.crt-animate,
 /* ============================================
    VIEW TRANSITIONS (MICROFICHE BASIS ONLY)
    ============================================ */
-
-@view-transition {
-  navigation: auto;
-}
 
 /* Disable transitions for Dark Mode */
 html[data-theme="dark"] {
