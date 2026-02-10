@@ -33,7 +33,7 @@ const FOOTER_LOGO_LIGHT_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="
 
   <rect width="64" height="64" fill="#0a0a0a"></rect>
 
-  <rect x="8" y="8" width="48" height="48" fill="#e8e8e8"></rect>
+  <rect x="8" y="8" width="48" height="48" fill="#dcd7c9"></rect>
 
   <rect x="12" y="12" width="10" height="4" fill="#0a0a0a"></rect>
 
@@ -193,39 +193,12 @@ class TGBox extends HTMLElement {
 class TGFooter extends HTMLElement {
   connectedCallback() {
     this.mode = this.getAttribute('mode') || 'Access Terminal';
-    this.renderLogo(); // Initial render
-
-    // Observe changes to the data-theme attribute on the html element
-    this.observer = new MutationObserver(this.renderLogo.bind(this));
-    this.observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-  }
-
-  disconnectedCallback() {
-    this.observer.disconnect();
-  }
-
-  renderLogo() {
-    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light'; // Default to light
-
-    let logoSvg = '';
-    if (currentTheme === 'dark') {
-      logoSvg = FOOTER_LOGO_DARK_SVG;
-    } else {
-      logoSvg = FOOTER_LOGO_LIGHT_SVG;
-    }
-
-    // Find the logo container and update its innerHTML
-    const logoContainer = this.querySelector('.site-footer__logo');
-    if (logoContainer) {
-      logoContainer.innerHTML = logoSvg;
-    }
-    
-    // Re-render the entire footer structure to ensure other dynamic parts are consistent
+    // Initial render of the full footer structure, including the tg-theme-toggle
     this.innerHTML = `
       <footer class="site-footer">
         <div class="site-footer__left">
           <div class="site-footer__logo">
-            ${logoSvg}
+            <!-- SVG content will be injected here by updateLogo -->
           </div>
           <div class="site-footer__text">
             ${this.mode} :: Institute for Precedent Studies Archive
@@ -239,20 +212,28 @@ class TGFooter extends HTMLElement {
         </div>
       </footer>
     `;
+    this.updateLogo(); // Call a new method to specifically update the logo
+    
+    // Observe changes to the data-theme attribute on the html element
+    this.observer = new MutationObserver(this.updateLogo.bind(this)); // Observe for logo updates
+    this.observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   }
-}
-          <div class="site-footer__text">
-            ${mode} :: Institute for Precedent Studies Archive
-          </div>
-        </div>
-        <div class="site-footer__right">
-          <div class="site-footer__meta meta">
-            To report stratigraphic drift or artifactual inconsistency, broadcast an encrypted 0x88-SIGMA packet to <strong>IPS-NODE::14847</strong>. Response is not authorized; your identifying metrics have been catalogued.
-          </div>
-          <tg-theme-toggle></tg-theme-toggle>
-        </div>
-      </footer>
-    `;
+
+  disconnectedCallback() {
+    this.observer.disconnect();
+  }
+
+  updateLogo() { // Renamed and refactored method
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light'; // Default to light
+    const logoContainer = this.querySelector('.site-footer__logo');
+
+    if (logoContainer) {
+      if (currentTheme === 'dark') {
+        logoContainer.innerHTML = FOOTER_LOGO_DARK_SVG;
+      } else {
+        logoContainer.innerHTML = FOOTER_LOGO_LIGHT_SVG;
+      }
+    }
   }
 }
 
@@ -955,29 +936,6 @@ class TGThemeToggle extends HTMLElement {
     });
   }
 }
-
-// Global initialization to prevent flash
-(function() {
-  const saved = localStorage.getItem('ips-basis') || 'auto';
-  if (saved !== 'auto') {
-    document.documentElement.setAttribute('data-theme', saved);
-  } else {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
-  }
-  // Update favicon based on initial theme
-  const toggleInstance = document.querySelector('tg-theme-toggle');
-  if (toggleInstance && typeof toggleInstance.updateFavicon === 'function') {
-    toggleInstance.updateFavicon(saved);
-  } else {
-    // Fallback if component not yet defined or found
-    const faviconLink = document.getElementById('favicon-link');
-    if (faviconLink) {
-        const theme = (saved === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) || saved === 'dark' ? 'dark' : 'light';
-        faviconLink.href = theme === 'dark' ? '/assets/favicons/favicon-dark.svg' : '/assets/favicons/favicon-light.svg';
-    }
-  }
-})();
 
 // REGISTER COMPONENTS
 customElements.define('tg-theme-toggle', TGThemeToggle);

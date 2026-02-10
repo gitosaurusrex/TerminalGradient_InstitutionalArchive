@@ -226,15 +226,15 @@ button:hover, .btn:hover {
    ============================================ */
 html[data-theme="light"] .btn,
 html[data-theme="light"] button {
-  border: none;
+  border: none; /* No direct border on the button itself */
   border-radius: var(--stamp-border-radius);
   position: relative;
-  transition: box-shadow 0.1s ease, background 0.1s ease, filter 0.1s ease, color 0.1s ease;
+  transition: box-shadow 0.1s ease, filter 0.1s ease; /* Keep transition for non-animated hover properties */
   filter: url(#ink-text-noise) drop-shadow(0.3px 0.3px 0.1px rgba(0,0,0,0.1));
   font-variation-settings: "MONO" 1, "CASL" 1, "slnt" 0;
   box-shadow: 0 0 1px 0.5px rgba(26, 26, 26, 0.1); /* Soft ink bleed */
   z-index: 1;
-  color: var(--color-text-secondary); /* Lighter default text color */
+  color: var(--color-text-secondary); /* Initial text color */
 }
 html[data-theme="light"] .btn::after,
 html[data-theme="light"] button::after {
@@ -246,17 +246,19 @@ html[data-theme="light"] button::after {
   filter: url(#ink-border-noise);
   pointer-events: none;
   z-index: -1;
-  transition: border-width 0.1s ease, filter 0.1s ease, border-color 0.1s ease;
+  transition: none; /* Removed transitions here, they will be on the :hover::after rule */
 }
 
 html[data-theme="light"] .btn:hover,
 html[data-theme="light"] button:hover,
 html[data-theme="light"] .btn:active,
 html[data-theme="light"] button:active {
-  background: rgba(255, 255, 255, 0.4); /* Lighten but not white */
-  color: var(--color-text-primary); /* Return to primary text color on hover */
-  box-shadow: 0 0 3px rgba(26, 26, 26, 0.4); /* Ink bleed bloom */
+  background: #FFF; /* Changed to #FFF */
+  color: var(--color-text-primary); /* Darker text color */
+  box-shadow: 0 0 6px rgba(26, 26, 26, 0.6); /* Darker, more prominent ink bleed bloom */
   filter: none; /* Remove noise on hover */
+  text-shadow: 0 0 1px var(--color-text-primary); /* Dark bloom around text */
+  transition: background 0.3s ease, color 0.3s ease, text-shadow 0.3s ease, box-shadow 0.3s ease; /* Added text-shadow and box-shadow to transition */
 }
 
 html[data-theme="light"] .btn:hover::after,
@@ -265,7 +267,8 @@ html[data-theme="light"] .btn:active::after,
 html[data-theme="light"] button:active::after {
   border-width: 3.5px; /* Thicker solid border */
   filter: none; /* Remove border noise on hover */
-  border-color: var(--color-text-primary);
+  border-color: var(--color-text-primary); /* Darker border color */
+  transition: border-width 0.3s ease, border-color 0.3s ease, filter 0.3s ease; /* Added transitions for ::after properties */
 }
 
 /* ============================================

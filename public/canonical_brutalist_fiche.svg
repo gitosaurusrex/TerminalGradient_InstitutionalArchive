@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
+
+  <!-- background -->
+  <rect width="64" height="64" fill="#0a0a0a"></rect>
+
+  <!-- microfiche sheet (same padding/dimensions as diskette body: 8px inset, 48x48) -->
+  <rect x="8" y="8" width="48" height="48" fill="#e8e8e8"></rect>
+
+  <!-- registration marks (no rounding; rendered as cut-ins for favicon legibility) -->
+  <!-- top-left -->
+  <rect x="12" y="12" width="10" height="4" fill="#0a0a0a"></rect>
+  <rect x="12" y="12" width="4" height="10" fill="#0a0a0a"></rect>
+
+  <!-- top-right -->
+  <rect x="42" y="12" width="10" height="4" fill="#0a0a0a"></rect>
+  <rect x="48" y="12" width="4" height="10" fill="#0a0a0a"></rect>
+
+  <!-- bottom-left -->
+  <rect x="12" y="48" width="10" height="4" fill="#0a0a0a"></rect>
+  <rect x="12" y="42" width="4" height="10" fill="#0a0a0a"></rect>
+
+  <!-- bottom-right -->
+  <rect x="42" y="48" width="10" height="4" fill="#0a0a0a"></rect>
+  <rect x="48" y="42" width="4" height="10" fill="#0a0a0a"></rect>
+
+</svg>
