@@ -239,6 +239,116 @@ button:hover, .btn:hover {
 .register-flag--pattern-b .register-flag__bit { background: var(--color-accent-green); }
 .register-flag--pattern-c .register-flag__bit { background: var(--color-accent-red); }
 
+/* ============================================
+   BREADCRUMB NAVIGATION
+   ============================================ */
+
+.breadcrumb {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.breadcrumb__link {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+}
+
+.breadcrumb__link:hover {
+  color: var(--color-text-primary);
+}
+
+.breadcrumb__separator {
+  margin: 0 var(--space-1);
+  opacity: 0.5;
+}
+
+/* ============================================
+   DOCUMENT CARD COMPONENT
+   ============================================ */
+
+.document-card {
+  border: var(--border-width) solid var(--color-border);
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.document-card:hover {
+  border-color: var(--color-border-active);
+}
+
+.document-card__id {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-1);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.document-card__title {
+  font-size: var(--font-size-xl);
+  text-transform: lowercase;
+  margin-bottom: var(--space-2);
+  letter-spacing: 0.18em;
+}
+
+.document-card__title-link {
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+
+.document-card__title-link:hover {
+  color: var(--color-accent-white);
+  text-decoration: underline;
+}
+
+.document-card__meta {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-meta);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.document-card__meta-item {
+  display: inline-block;
+  margin-right: var(--space-3);
+}
+
+/* ============================================
+   METADATA DISPLAY
+   ============================================ */
+
+.metadata-grid {
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-meta);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.metadata-grid__row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: var(--space-2);
+  margin-bottom: var(--space-1);
+  padding: var(--space-1) 0;
+}
+
+.metadata-grid__label {
+  color: var(--color-text-secondary);
+  opacity: 0.75;
+}
+
+.metadata-grid__value {
+  color: var(--color-text-primary);
+}
+
+/* ============================================
+   STATUS INDICATORS
+   ============================================ */
+
 .status-badge {
   display: inline-block;
   font-size: 12px;
@@ -246,7 +356,13 @@ button:hover, .btn:hover {
   letter-spacing: 0.1em;
   padding: var(--space-1) var(--space-2);
   border: 1px solid var(--color-border);
+  background: var(--color-bg-secondary);
 }
+
+.status-badge--pattern-a { border-color: var(--color-accent-amber); color: var(--color-accent-amber); }
+.status-badge--pattern-b { border-color: var(--color-accent-green); color: var(--color-accent-green); }
+.status-badge--pattern-c { border-color: var(--color-accent-red); color: var(--color-accent-red); }
+
 
 /* ============================================
    DOCUMENT CONTENT
