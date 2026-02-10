@@ -73,14 +73,6 @@ class TGMetadataModal extends HTMLElement {
     const modal = this.querySelector('#metadata-modal');
     const tableContainer = this.querySelector('#modal-table-container');
     
-    // Reset animation frame position to center if no event provided
-    const frame = this.querySelector('.modal-animation-frame');
-    if (frame && !frame.style.left) {
-        frame.style.left = '50%';
-        frame.style.top = '50%';
-        frame.style.transform = 'translate(-50%, -50%)';
-    }
-
     const whitelist = {
       'fragment_id': 'Record ID',
       'title': 'Designation',
@@ -230,6 +222,9 @@ class TGCaseList extends HTMLElement {
   async connectedCallback() {
     this.innerHTML = '<div class="meta">Initializing stratigraphic retrieval...</div>';
 
+    this._onFilterUpdate = (e) => this.fetchAndRender(e.detail);
+    document.addEventListener('ips-filter-update', this._onFilterUpdate);
+
     try {
       let retries = 0;
       while (!window.IPS_DB && retries < 100) {
@@ -241,16 +236,47 @@ class TGCaseList extends HTMLElement {
         throw new Error('Database service not located in system environment.');
       }
 
-      const cases = await window.IPS_DB.getCases();
-      this.render(cases);
+      await this.fetchAndRender();
     } catch (err) {
       this.innerHTML = `<div class="advisory advisory--red"><div class="advisory__header">CRITICAL ERROR</div><div class="advisory__content">${err.message}</div></div>`;
     }
   }
 
+  disconnectedCallback() {
+    document.removeEventListener('ips-filter-update', this._onFilterUpdate);
+  }
+
+  async fetchAndRender(filters = {}) {
+    try {
+      let sql = 'SELECT * FROM view_institutional_cases WHERE 1=1';
+      const params = {};
+
+      if (filters.patterns && filters.patterns.length > 0) {
+        sql += ` AND observed_pattern IN (${filters.patterns.map((_, i) => `$p${i}`).join(',')})`;
+        filters.patterns.forEach((p, i) => params[`$p${i}`] = p);
+      }
+
+      if (filters.statuses && filters.statuses.length > 0) {
+        sql += ` AND (`;
+        filters.statuses.forEach((s, i) => {
+          if (i > 0) sql += ' OR ';
+          sql += `epistemic_status LIKE $s${i}`;
+          params[`$s${i}`] = `%${s}%`;
+        });
+        sql += `)`;
+      }
+
+      sql += ' ORDER BY case_id ASC';
+      const cases = await window.IPS_DB.query(sql, params);
+      this.render(cases);
+    } catch (err) {
+      this.innerHTML = `<div class="advisory advisory--red"><div class="advisory__header">QUERY ERROR</div><div class="advisory__content">${err.message}</div></div>`;
+    }
+  }
+
   render(cases) {
     if (cases.length === 0) {
-      this.innerHTML = '<div class="meta">No case files located in current strata.</div>';
+      this.innerHTML = '<div class="meta">No case files located matching current filter parameters.</div>';
       return;
     }
 
@@ -261,7 +287,7 @@ class TGCaseList extends HTMLElement {
           <a href="case-view.html?id=${c.case_id}" class="document-card__title-link">${c.title}</a>
         </h3>
         <div class="document-card__meta meta">
-          <span class="document-card__meta-item">Pattern: ${c.observed_pattern}</span>
+          <span class="document-card__meta-item">Pattern: ${c.pattern_name}</span>
           <span class="document-card__meta-item">Status: ${c.epistemic_status}</span>
         </div>
       </article>
@@ -275,10 +301,12 @@ class TGArchiveList extends HTMLElement {
   async connectedCallback() {
     this.innerHTML = '<div class="meta">Initializing stratigraphic retrieval...</div>';
     
+    // Listen for filter updates
     this._onFilterUpdate = (e) => this.fetchAndRender(e.detail);
     document.addEventListener('ips-filter-update', this._onFilterUpdate);
 
     try {
+      // Wait for database service to be registered on window
       let retries = 0;
       while (!window.IPS_DB && retries < 100) {
         await new Promise(r => setTimeout(r, 60));
@@ -328,6 +356,7 @@ class TGArchiveList extends HTMLElement {
       const fragments = await window.IPS_DB.query(sql, params);
       this.render(fragments);
     } catch (err) {
+      console.error('Fetch Error:', err);
       this.innerHTML = `<div class="advisory advisory--red"><div class="advisory__header">QUERY ERROR</div><div class="advisory__content">${err.message}</div></div>`;
     }
   }
@@ -373,9 +402,58 @@ class TGFilterPanel extends HTMLElement {
   }
 
   render() {
+    // Check if we are on the Case Index or Fragment Index
+    const isCaseMode = window.location.pathname.includes('case-index');
+
+    if (isCaseMode) {
+      this.renderCaseFilters();
+    } else {
+      this.renderFragmentFilters();
+    }
+  }
+
+  renderCaseFilters() {
     this.innerHTML = `
       <div class="filter-panel">
-        <div class="filter-panel__header">Query Parameters</div>
+        <div class="filter-panel__header">Case Query Parameters</div>
+
+        <div class="filter-group">
+          <span class="filter-group__label">Phenomenological Pattern</span>
+          <label class="filter-option">
+            <input type="checkbox" class="ips-filter" data-group="patterns" value="A" checked>
+            <span class="form-checkbox-label">Pattern Alpha (Stillness)</span>
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" class="ips-filter" data-group="patterns" value="B" checked>
+            <span class="form-checkbox-label">Pattern Beta (Fracture)</span>
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" class="ips-filter" data-group="patterns" value="C" checked>
+            <span class="form-checkbox-label">Pattern Gamma (Invalidation)</span>
+          </label>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-group__label">Verification Status</span>
+          <label class="filter-option">
+            <input type="checkbox" class="ips-filter" data-group="statuses" value="Verified" checked>
+            <span class="form-checkbox-label">Verified Incident</span>
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" class="ips-filter" data-group="statuses" value="Contested" checked>
+            <span class="form-checkbox-label">Contested / Multiple Frameworks</span>
+          </label>
+        </div>
+
+        <button class="btn btn--small mt-3 ips-filter-reset" style="width: 100%;">Reset Parameters</button>
+      </div>
+    `;
+  }
+
+  renderFragmentFilters() {
+    this.innerHTML = `
+      <div class="filter-panel">
+        <div class="filter-panel__header">Fragment Query Parameters</div>
 
         <div class="filter-group">
           <span class="filter-group__label">Temporal Basis</span>
@@ -440,24 +518,11 @@ class TGFilterPanel extends HTMLElement {
   }
 
   emitFilterUpdate() {
-    const filters = {
-      epochs: [],
-      confidence: [],
-      collections: []
-    };
-
+    const filters = {};
     this.querySelectorAll('.ips-filter:checked').forEach(cb => {
       const group = cb.getAttribute('data-group');
-      if (filters[group]) {
-        filters[group].push(cb.value);
-      } else if (group === 'medium' || group === 'low') {
-        filters.confidence.push(cb.value);
-      }
-    });
-
-    filters.confidence = [];
-    this.querySelectorAll('.ips-filter[data-group="confidence"]:checked, .ips-filter[data-group="medium"]:checked, .ips-filter[data-group="low"]:checked').forEach(cb => {
-        filters.confidence.push(cb.value);
+      if (!filters[group]) filters[group] = [];
+      filters[group].push(cb.value);
     });
 
     document.dispatchEvent(new CustomEvent('ips-filter-update', {
