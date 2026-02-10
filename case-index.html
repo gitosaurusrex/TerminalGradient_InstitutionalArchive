@@ -7,6 +7,17 @@
   <title>Case File Index :: Institute for Precedent Studies Archive</title>
   <link rel="icon" type="image/svg+xml" href="/canonical_brutalist_diskette.svg">
   <link rel="stylesheet" href="css/archive.css">
+  <script>
+    (function() {
+      const saved = localStorage.getItem('ips-basis') || 'auto';
+      if (saved !== 'auto') {
+        document.documentElement.setAttribute('data-theme', saved);
+      } else {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+      }
+    })();
+  </script>
   <script src="/js/db-service.js" defer></script>
   <script src="/js/ips-components.js?v=6" defer></script>
 </head>
