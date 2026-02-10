@@ -46,6 +46,9 @@ const interpretMarkdown = (text) => {
   return text.split('\n\n').map(p => `<p>${p}</p>`).join('');
 };
 
+window.formatStrata = formatStrata;
+window.interpretMarkdown = interpretMarkdown;
+
 class TGMetadataModal extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
@@ -293,7 +296,7 @@ class TGCaseList extends HTMLElement {
       <article class="document-card">
         <div class="document-card__id meta">${c.case_id} :: EPOCH ${c.epoch_estimate}</div>
         <h3 class="document-card__title">
-          <a href="case-view.html?id=${c.case_id}" class="document-card__title-link">${c.title}</a>
+          <a href="/case-view?id=${c.case_id}" class="document-card__title-link">${c.title}</a>
         </h3>
         <div class="document-card__meta meta">
           <span class="document-card__meta-item">Pattern: ${c.pattern_name}</span>
@@ -384,7 +387,7 @@ class TGArchiveList extends HTMLElement {
 
             <h2 class="document-card__title">
 
-              <a href="fragment-view.html?id=${f.fragment_id}" class="document-card__title-link">${f.title}</a>
+              <a href="/fragment-view?id=${f.fragment_id}" class="document-card__title-link">${f.title}</a>
 
             </h2>
 
@@ -572,7 +575,7 @@ class TGRecentlyCatalogued extends HTMLElement {
       <article class="document-card">
         <div class="document-card__id meta">${c.case_id}</div>
         <h3 class="document-card__title">
-          <a href="case-view.html?id=${c.case_id}" class="document-card__title-link">${c.title}</a>
+          <a href="/case-view?id=${c.case_id}" class="document-card__title-link">${c.title}</a>
         </h3>
         <div class="document-card__meta meta">
           <span class="document-card__meta-item">Pattern: ${c.observed_pattern}</span>
@@ -613,7 +616,7 @@ class TGFragmentList extends HTMLElement {
       <div class="document-card">
         <div class="document-card__id">${f.fragment_id} :: DEPTH ${f.strata_depth}m</div>
         <h2 class="document-card__title">
-          <a href="case-view.html?id=${f.fragment_id}" class="document-card__title-link">${f.title}</a>
+          <a href="/fragment-view?id=${f.fragment_id}" class="document-card__title-link">${f.title}</a>
         </h2>
         <div class="document-card__meta meta">
           <span class="document-card__meta-item">Confidence: ${f.epistemic_confidence}%</span>
@@ -677,7 +680,7 @@ class TGBrowsePhenomenology extends HTMLElement {
               <article class="document-card">
                 <div class="document-card__id meta">${c.case_id}</div>
                 <h3 class="document-card__title">
-                  <a href="case-view.html?id=${c.case_id}" class="document-card__title-link">${c.title}</a>
+                  <a href="/case-view?id=${c.case_id}" class="document-card__title-link">${c.title}</a>
                 </h3>
                 <div class="document-card__meta meta">
                   <span class="document-card__meta-item">Epoch: ${c.epoch_estimate}</span>
@@ -757,7 +760,7 @@ class TGBrowseChronological extends HTMLElement {
             <article class="document-card">
               <div class="document-card__id meta">${f.fragment_id} :: ${f.pi_estimation} PI</div>
               <h3 class="document-card__title">
-                <a href="fragment-view.html?id=${f.fragment_id}" class="document-card__title-link">${f.title}</a>
+                <a href="/fragment-view?id=${f.fragment_id}" class="document-card__title-link">${f.title}</a>
               </h3>
               <div class="document-card__meta meta">
                 <span class="document-card__meta-item">Strata: ${formatStrata(f.strata_depth)}m</span>
@@ -776,7 +779,7 @@ class TGBrowseChronological extends HTMLElement {
             <article class="document-card">
               <div class="document-card__id meta">${f.fragment_id} :: EPOCH ${f.time_reference_basis}</div>
               <h3 class="document-card__title">
-                <a href="fragment-view.html?id=${f.fragment_id}" class="document-card__title-link">${f.title}</a>
+                <a href="/fragment-view?id=${f.fragment_id}" class="document-card__title-link">${f.title}</a>
               </h3>
               <div class="document-card__meta meta">
                 <span class="document-card__meta-item">Strata: ${formatStrata(f.strata_depth)}m</span>

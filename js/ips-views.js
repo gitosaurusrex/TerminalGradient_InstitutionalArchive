@@ -39,6 +39,9 @@ const IPS_VIEW_UTILS = (function() {
     };
 })();
 
+// Export for use in other scripts
+window.IPS_VIEW_UTILS = IPS_VIEW_UTILS;
+
 /**
  * DIRECTIONAL VIEW TRANSITIONS (MPA COMPATIBLE)
  * Uses sessionStorage to persist direction between page loads.

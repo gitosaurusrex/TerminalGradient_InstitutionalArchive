@@ -180,10 +180,10 @@
               <div class="document-card">
                 <div class="document-card__id">${r.fragment_id}</div>
                 <h2 class="document-card__title">
-                  <a href="case-view.html?id=${r.fragment_id}" class="document-card__title-link">${r.title}</a>
+                  <a href="/case-view?id=${r.fragment_id}" class="document-card__title-link">${r.title}</a>
                 </h2>
                 <div class="document-card__actions">
-                  <a href="case-view.html?id=${r.fragment_id}" class="btn btn--small">Access Document</a>
+                  <a href="/case-view?id=${r.fragment_id}" class="btn btn--small">Access Document</a>
                 </div>
               </div>
             `).join('');

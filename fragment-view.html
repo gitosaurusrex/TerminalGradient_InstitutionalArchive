@@ -68,7 +68,7 @@
 
     <!-- ACTION BUTTONS -->
     <tg-box compact style="display: flex; gap: var(--space-2); justify-content: center;">
-      <a href="fragment-index.html" class="btn">Return to Fragment Index</a>
+      <a href="/fragment-index" class="btn">Return to Fragment Index</a>
       <a href="#" class="btn">Download Raw Buffer (DATA)</a>
       <a href="#" class="btn">Record Verification Claim</a>
     </tg-box>
@@ -157,7 +157,7 @@
             if (referringCases && referringCases.length > 0) {
               referringCasesContainer.innerHTML = referringCases.map(c => `
                 <li class="nav-menu__item">
-                  <a href="case-view.html?id=${c.case_id}" class="nav-menu__link nav-link">${c.case_id} :: ${c.title}</a>
+                  <a href="/case-view?id=${c.case_id}" class="nav-menu__link nav-link">${c.case_id} :: ${c.title}</a>
                 </li>
               `).join('');
             } else {
