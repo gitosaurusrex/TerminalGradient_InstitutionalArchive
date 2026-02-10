@@ -38,3 +38,28 @@ const IPS_VIEW_UTILS = (function() {
         handleRetrievalError
     };
 })();
+
+/**
+ * DIRECTIONAL VIEW TRANSITIONS
+ * Detects back/forward navigation to flip animation direction.
+ */
+(function() {
+    if (!window.navigation) return;
+
+    window.navigation.addEventListener('navigate', (event) => {
+        const html = document.documentElement;
+        
+        // Default to forward
+        html.setAttribute('data-transition-direction', 'forward');
+
+        if (event.navigationType === 'traverse') {
+            const currentIdx = window.navigation.currentEntry.index;
+            const destinationIdx = event.destination.index;
+
+            if (destinationIdx < currentIdx) {
+                html.setAttribute('data-transition-direction', 'back');
+            }
+        }
+    });
+})();
+

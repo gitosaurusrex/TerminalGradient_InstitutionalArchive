@@ -789,13 +789,22 @@ html[data-theme="dark"] .container.crt-animate,
   navigation: auto;
 }
 
-/* Mechanical Slide Animation */
+/* Mechanical Slide Animation (Forward - Default) */
 ::view-transition-old(root) {
   animation: 0.3s cubic-bezier(0.4, 0, 0.2, 1) both slide-out;
 }
 
 ::view-transition-new(root) {
   animation: 0.3s cubic-bezier(0.4, 0, 0.2, 1) both slide-in;
+}
+
+/* Mechanical Slide Animation (Backwards) */
+html[data-transition-direction="back"]::view-transition-old(root) {
+  animation: 0.3s cubic-bezier(0.4, 0, 0.2, 1) both slide-out-back;
+}
+
+html[data-transition-direction="back"]::view-transition-new(root) {
+  animation: 0.3s cubic-bezier(0.4, 0, 0.2, 1) both slide-in-back;
 }
 
 @keyframes slide-out {
@@ -805,6 +814,16 @@ html[data-theme="dark"] .container.crt-animate,
 
 @keyframes slide-in {
   from { transform: translateX(30px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-out-back {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(30px); opacity: 0; }
+}
+
+@keyframes slide-in-back {
+  from { transform: translateX(-30px); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
 }
 
