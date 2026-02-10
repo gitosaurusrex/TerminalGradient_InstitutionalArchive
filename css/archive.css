@@ -198,6 +198,7 @@ p {
   font-variation-settings: var(--axis-ui);
   text-decoration: none;
   color: inherit;
+  cursor: default !important;
 }
 
 button, .btn {
@@ -209,7 +210,7 @@ button, .btn {
   border: 2px solid currentColor;
   background: none;
   color: inherit;
-  cursor: pointer;
+  cursor: default !important;
   font-variation-settings: "MONO" 1, "CASL" 0.35, "slnt" -12;
   text-shadow: var(--mf-text-bloom);
 }
@@ -507,6 +508,10 @@ html[data-theme="light"] button:active::after {
 
 .btn--large::before {
   content: none !important;
+}
+
+a {
+  cursor: default !important;
 }
 
 /* ============================================
