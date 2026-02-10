@@ -782,29 +782,40 @@ html[data-theme="dark"] .container.crt-animate,
 }
 
 /* ============================================
-   VIEW TRANSITIONS (EXPERIMENTAL)
+   VIEW TRANSITIONS (MICROFICHE BASIS ONLY)
    ============================================ */
+
+/* Only enable native navigation transitions in Light Mode */
+html[data-theme="light"] {
+  view-transition-name: none; /* Reset if needed */
+}
 
 @view-transition {
   navigation: auto;
 }
 
-/* Mechanical Slide Animation (Forward - Default) */
-::view-transition-old(root) {
+/* Forward Animation (Default) */
+html[data-theme="light"]::view-transition-old(root) {
   animation: 0.3s cubic-bezier(0.4, 0, 0.2, 1) both slide-out;
 }
 
-::view-transition-new(root) {
+html[data-theme="light"]::view-transition-new(root) {
   animation: 0.3s cubic-bezier(0.4, 0, 0.2, 1) both slide-in;
 }
 
-/* Mechanical Slide Animation (Backwards) */
-html[data-transition-direction="back"]::view-transition-old(root) {
+/* Backward Animation */
+html[data-theme="light"][data-transition-direction="back"]::view-transition-old(root) {
   animation: 0.3s cubic-bezier(0.4, 0, 0.2, 1) both slide-out-back;
 }
 
-html[data-transition-direction="back"]::view-transition-new(root) {
+html[data-theme="light"][data-transition-direction="back"]::view-transition-new(root) {
   animation: 0.3s cubic-bezier(0.4, 0, 0.2, 1) both slide-in-back;
+}
+
+/* Disable transitions entirely in Dark Mode */
+html[data-theme="dark"]::view-transition-old(root),
+html[data-theme="dark"]::view-transition-new(root) {
+  animation: none !important;
 }
 
 @keyframes slide-out {
