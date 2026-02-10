@@ -535,6 +535,125 @@ class TGFragmentList extends HTMLElement {
   }
 }
 
+class TGBrowsePhenomenology extends HTMLElement {
+  async connectedCallback() {
+    this.innerHTML = '<div class="meta">Initializing stratigraphic retrieval...</div>';
+
+    try {
+      let retries = 0;
+      while (!window.IPS_DB && retries < 100) {
+        await new Promise(r => setTimeout(r, 60));
+        retries++;
+      }
+
+      if (!window.IPS_DB) {
+        throw new Error('Database service not located in system environment.');
+      }
+
+      const patterns = await window.IPS_DB.query('SELECT * FROM phenomenological_patterns ORDER BY pattern_id ASC');
+      const cases = await window.IPS_DB.query('SELECT * FROM cases');
+      
+      this.render(patterns, cases);
+    } catch (err) {
+      this.innerHTML = `<div class="advisory advisory--red"><div class="advisory__header">CRITICAL ERROR</div><div class="advisory__content">${err.message}</div></div>`;
+    }
+  }
+
+  render(patterns, cases) {
+    let html = '';
+
+    patterns.forEach(p => {
+      const patternCases = cases.filter(c => c.observed_pattern === p.pattern_id);
+      
+      html += `
+        <tg-box header="Pattern ${p.name}">
+          <p class="meta mb-3">${p.description}</p>
+          ${patternCases.length > 0 ? patternCases.map(c => `
+            <article class="document-card">
+              <div class="document-card__id meta">${c.case_id}</div>
+              <h3 class="document-card__title">
+                <a href="case-view.html?id=${c.case_id}" class="document-card__title-link">${c.title}</a>
+              </h3>
+              <div class="document-card__meta meta">
+                <span class="document-card__meta-item">Epoch: ${c.epoch_estimate}</span>
+                <span class="document-card__meta-item">Status: ${c.epistemic_status}</span>
+              </div>
+            </article>
+          `).join('') : '<div class="meta">No cases catalogued under this pattern.</div>'}
+        </tg-box>
+      `;
+    });
+
+    this.innerHTML = html;
+  }
+}
+
+class TGBrowseChronological extends HTMLElement {
+  async connectedCallback() {
+    this.innerHTML = '<div class="meta">Initializing stratigraphic retrieval...</div>';
+
+    try {
+      let retries = 0;
+      while (!window.IPS_DB && retries < 100) {
+        await new Promise(r => setTimeout(r, 60));
+        retries++;
+      }
+
+      if (!window.IPS_DB) {
+        throw new Error('Database service not located in system environment.');
+      }
+
+      // We'll show Ante-Institutional (AI) and Post-Institutional (PI) sections
+      const fragments = await window.IPS_DB.query('SELECT * FROM fragments ORDER BY time_reference_basis ASC, pi_estimation DESC');
+      
+      this.render(fragments);
+    } catch (err) {
+      this.innerHTML = `<div class="advisory advisory--red"><div class="advisory__header">CRITICAL ERROR</div><div class="advisory__content">${err.message}</div></div>`;
+    }
+  }
+
+  render(fragments) {
+    const aiFragments = fragments.filter(f => f.time_reference_basis === 'AI');
+    const piFragments = fragments.filter(f => f.time_reference_basis === 'PI');
+
+    let html = `
+      <tg-box header="Post-Institutional Epoch (PI)">
+        <p class="meta mb-3">Records originating after the formation of the Institute and the establishment of the Standard Temporal Basis.</p>
+        ${piFragments.length > 0 ? piFragments.map(f => `
+          <article class="document-card">
+            <div class="document-card__id meta">${f.fragment_id} :: ${f.pi_estimation} PI</div>
+            <h3 class="document-card__title">
+              <a href="fragment-view.html?id=${f.fragment_id}" class="document-card__title-link">${f.title}</a>
+            </h3>
+            <div class="document-card__meta meta">
+              <span class="document-card__meta-item">Strata: ${f.strata_depth}m</span>
+              <span class="document-card__meta-item">Confidence: ${f.epistemic_confidence}%</span>
+            </div>
+          </article>
+        `).join('') : '<div class="meta">No records located in this epoch.</div>'}
+      </tg-box>
+
+      <tg-box header="Ante-Institutional Epoch (AI)">
+        <p class="meta mb-3">Deep-time records originating prior to the Great Convergence and the formalization of historical metrics.</p>
+        ${aiFragments.length > 0 ? aiFragments.map(f => `
+          <article class="document-card">
+            <div class="document-card__id meta">${f.fragment_id} :: EPOCH ${f.time_reference_basis}</div>
+            <h3 class="document-card__title">
+              <a href="fragment-view.html?id=${f.fragment_id}" class="document-card__title-link">${f.title}</a>
+            </h3>
+            <div class="document-card__meta meta">
+              <span class="document-card__meta-item">Strata: ${f.strata_depth}m</span>
+              <span class="document-card__meta-item">Confidence: ${f.epistemic_confidence}%</span>
+            </div>
+          </article>
+        `).join('') : '<div class="meta">No records located in this epoch.</div>'}
+      </tg-box>
+    `;
+
+    this.innerHTML = html;
+  }
+}
+
 // REGISTER COMPONENTS
 customElements.define('tg-metadata-modal', TGMetadataModal);
 customElements.define('tg-case-list', TGCaseList);
@@ -546,6 +665,8 @@ customElements.define('tg-breadcrumb', TGBreadcrumb);
 customElements.define('tg-status', TGStatus);
 customElements.define('tg-archive-list', TGArchiveList);
 customElements.define('tg-recently-catalogued-cases', TGRecentlyCatalogued);
+customElements.define('tg-browse-phenomenology', TGBrowsePhenomenology);
+customElements.define('tg-browse-chronological', TGBrowseChronological);
 
 // Global modal instance for easy access
 window.showMetadataModal = (data) => {

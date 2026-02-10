@@ -20,6 +20,8 @@ export default defineConfig({
                 fragmentIndex: resolve(__dirname, 'fragment-index.html'),
                 fragmentView: resolve(__dirname, 'fragment-view.html'),
                 search: resolve(__dirname, 'search.html'),
+                browsePhenomenology: resolve(__dirname, 'browse-phenomenology.html'),
+                browseChronological: resolve(__dirname, 'browse-chronological.html'),
             }
         }
     }
