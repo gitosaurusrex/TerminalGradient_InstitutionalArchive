@@ -34,6 +34,11 @@ window.generateFlavorMetrics = () => {
   return `<span class="flavor-metric">${generateMetricString(selectedMetrics[0])}</span><span class="flavor-metric">${generateMetricString(selectedMetrics[1])}</span>`;
 };
 
+const formatStrata = (depth) => {
+  const value = parseFloat(depth);
+  return isNaN(value) ? '0.0' : value.toFixed(1);
+};
+
 const interpretMarkdown = (text) => {
   if (window.marked && typeof window.marked.parse === 'function') {
     return window.marked.parse(text);
@@ -81,11 +86,13 @@ class TGMetadataModal extends HTMLElement {
 
     let tableHtml = '<table class="metadata-table"><tbody>';
     for (const [key, label] of Object.entries(whitelist)) {
-      const value = data[key];
+      let value = data[key];
       let displayValue = value === null ? 'NULL' : value;
       
       if (key === 'is_corrupted') {
         displayValue = value ? '!!! CORRUPTED !!!' : 'STABLE';
+      } else if (key === 'strata_depth') {
+        displayValue = formatStrata(value);
       }
 
       tableHtml += `
@@ -323,18 +330,29 @@ class TGArchiveList extends HTMLElement {
       return;
     }
 
-    const html = fragments.map(f => `
-      <div class="document-card">
-        <div class="document-card__id">${f.fragment_id} :: DEPTH ${(f.strata_depth || 0.0).toFixed(1)}m</div>
-        <h2 class="document-card__title">
-          <a href="fragment-view.html?id=${f.fragment_id}" class="document-card__title-link">${f.title}</a>
-        </h2>
-        <div class="document-card__meta meta">
-          <span class="document-card__meta-item">Confidence: ${f.epistemic_confidence}</span>
-          <span class="document-card__meta-item">Attribution: ${f.collection_attribution || 'UNKNOWN'}</span>
-        </div>
-      </div>
-    `).join('');
+        const html = fragments.map(f => `
+
+          <div class="document-card">
+
+            <div class="document-card__id">${f.fragment_id} :: DEPTH ${formatStrata(f.strata_depth)}m</div>
+
+            <h2 class="document-card__title">
+
+              <a href="fragment-view.html?id=${f.fragment_id}" class="document-card__title-link">${f.title}</a>
+
+            </h2>
+
+            <div class="document-card__meta meta">
+
+              <span class="document-card__meta-item">Confidence: ${f.epistemic_confidence}</span>
+
+              <span class="document-card__meta-item">Attribution: ${f.collection_attribution || 'UNKNOWN'}</span>
+
+            </div>
+
+          </div>
+
+        `).join('');
 
     this.innerHTML = html;
   }
@@ -660,7 +678,7 @@ class TGBrowseChronological extends HTMLElement {
                 <a href="fragment-view.html?id=${f.fragment_id}" class="document-card__title-link">${f.title}</a>
               </h3>
               <div class="document-card__meta meta">
-                <span class="document-card__meta-item">Strata: ${f.strata_depth}m</span>
+                <span class="document-card__meta-item">Strata: ${formatStrata(f.strata_depth)}m</span>
                 <span class="document-card__meta-item">Confidence: ${f.epistemic_confidence}%</span>
               </div>
             </article>
@@ -679,7 +697,7 @@ class TGBrowseChronological extends HTMLElement {
                 <a href="fragment-view.html?id=${f.fragment_id}" class="document-card__title-link">${f.title}</a>
               </h3>
               <div class="document-card__meta meta">
-                <span class="document-card__meta-item">Strata: ${f.strata_depth}m</span>
+                <span class="document-card__meta-item">Strata: ${formatStrata(f.strata_depth)}m</span>
                 <span class="document-card__meta-item">Confidence: ${f.epistemic_confidence}%</span>
               </div>
             </article>
