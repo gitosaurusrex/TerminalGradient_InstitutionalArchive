@@ -272,6 +272,91 @@ html[data-theme="light"] button:active::after {
 }
 
 /* ============================================
+   FORM ELEMENTS
+   ============================================ */
+
+.form-group {
+  margin-bottom: var(--space-3);
+}
+
+.form-label {
+  display: block;
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-1);
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--space-2);
+  border: var(--border-width) solid var(--color-border);
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-base);
+  letter-spacing: 0.05em;
+  outline: none; /* Remove default outline */
+  -webkit-appearance: none; /* Remove default styling for cross-browser consistency */
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.form-input::placeholder {
+  color: var(--color-text-secondary);
+  opacity: 0.7; /* Slightly muted placeholder */
+}
+
+.form-input:focus {
+  border-color: var(--color-border-active); /* Highlight border on focus */
+  box-shadow: 0 0 0 1px var(--color-border-active); /* Subtle focus ring */
+}
+
+.form-checkbox-label {
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  display: inline-block; /* Ensure it wraps nicely with checkbox */
+  margin-left: var(--space-1); /* Spacing from checkbox */
+}
+
+.form-checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-text-primary); /* Style checkbox itself */
+  cursor: pointer;
+  -webkit-appearance: none; /* Remove default styling */
+  -moz-appearance: none;
+  appearance: none;
+  border: var(--border-width) solid var(--color-border);
+  background: var(--color-bg-secondary);
+  vertical-align: middle;
+  position: relative;
+  top: -1px; /* Adjust alignment */
+}
+
+.form-checkbox:checked {
+  background-color: var(--color-text-primary); /* Checked state fill */
+  border-color: var(--color-text-primary);
+}
+
+.form-checkbox:checked::before {
+  content: 'X'; /* Simple checkmark */
+  display: block;
+  color: var(--color-bg-primary);
+  font-size: 12px;
+  line-height: 1;
+  text-align: center;
+}
+
+.form-checkbox:focus {
+  outline: 1px dotted var(--color-border-active); /* Focus for accessibility */
+  outline-offset: 2px;
+}
+
+/* ============================================
    TERMINAL BOX COMPONENT
    ============================================ */
 
@@ -461,14 +546,7 @@ html[data-theme="light"] button:active::after {
   letter-spacing: 0.04em;
 }
 
-.filter-option input[type="checkbox"],
-.filter-option input[type="radio"] {
-  margin-right: var(--space-2);
-  accent-color: var(--color-text-primary);
-  width: 14px;
-  height: 14px;
-  cursor: pointer;
-}
+
 /* ============================================
    BUTTONS & LINKS
    ============================================ */
