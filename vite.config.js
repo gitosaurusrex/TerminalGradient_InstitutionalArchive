@@ -9,6 +9,7 @@ const htmlFiles = globSync('*.html').reduce((acc, file) => {
 }, {});
 
 export default defineConfig({
+    base: '/',
     server: {
         port: 3000,
         open: true
