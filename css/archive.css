@@ -240,6 +240,147 @@ button:hover, .btn:hover {
 .register-flag--pattern-c .register-flag__bit { background: var(--color-accent-red); }
 
 /* ============================================
+   NAVIGATION COMPONENTS
+   ============================================ */
+
+.nav-menu {
+  list-style: none;
+}
+
+.nav-menu__item {
+  margin-bottom: var(--space-2);
+}
+
+.nav-menu__link {
+  display: block;
+  padding: var(--space-1) 0;
+  transition: none;
+}
+
+.nav-menu__link::before {
+  content: '> ';
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.nav-menu__link:hover::before,
+.nav-menu__link:focus::before,
+.nav-menu__link--active::before {
+  opacity: 1;
+}
+
+.nav-menu__link:hover,
+.nav-menu__link:focus,
+.nav-menu__link--active {
+  color: var(--color-accent-white);
+  outline: none;
+}
+
+/* ============================================
+   FRAGMENT FRAME (IN-LINE)
+   ============================================ */
+
+.fragment-frame {
+  border: 1px solid var(--color-border);
+  margin: var(--space-4) 0;
+  background: var(--color-bg-secondary);
+  position: relative;
+  box-shadow: var(--mf-vignette);
+}
+
+.fragment-frame__header {
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--color-border);
+  padding: 4px 8px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.fragment-frame__content {
+  padding: var(--space-3);
+}
+
+.fragment-frame__content p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   FILTER PANEL
+   ============================================ */
+
+.filter-panel {
+  border: var(--border-width) solid var(--color-border);
+  padding: var(--space-3);
+  margin-bottom: var(--space-4);
+  background: var(--color-bg-primary);
+}
+
+.filter-panel__header {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.filter-group {
+  margin-bottom: var(--space-3);
+}
+
+.filter-group__label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+  display: block;
+}
+
+.filter-option {
+  display: block;
+  margin-bottom: var(--space-1);
+  cursor: pointer;
+}
+
+.filter-option input[type="checkbox"],
+.filter-option input[type="radio"] {
+  margin-right: var(--space-1);
+}
+
+/* ============================================
+   BUTTONS & LINKS
+   ============================================ */
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  transition: background-color 0.1s, color 0.1s;
+}
+
+.btn::before {
+  content: '> ';
+}
+
+.btn:hover,
+.btn:focus {
+  background: var(--color-text-primary);
+  color: var(--color-bg-primary);
+  outline: none;
+  text-decoration: none;
+}
+
+.btn--small {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+/* ============================================
    BREADCRUMB NAVIGATION
    ============================================ */
 
