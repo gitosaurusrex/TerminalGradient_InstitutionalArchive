@@ -5,6 +5,8 @@
  * Centralizes UI logic and enforces institutional design standards.
  */
 
+console.log('IPS :: COMPONENTS LIBRARY LOADING...');
+
 // UTILITY: Flavor Metric Generator
 window.generateFlavorMetrics = () => {
   const metrics = [
@@ -448,8 +450,6 @@ class TGFilterPanel extends HTMLElement {
   }
 }
 
-customElements.define('tg-filter-panel', TGFilterPanel);
-
 class TGRecentlyCatalogued extends HTMLElement {
   async connectedCallback() {
     this.innerHTML = '<div class="meta">Initializing stratigraphic retrieval...</div>';
@@ -537,7 +537,8 @@ class TGFragmentList extends HTMLElement {
 
 class TGBrowsePhenomenology extends HTMLElement {
   async connectedCallback() {
-    this.innerHTML = '<div class="meta">Initializing stratigraphic retrieval...</div>';
+    console.log('IPS :: TGBrowsePhenomenology CONNECTED');
+    this.innerHTML = '<div class="terminal-box"><div class="meta">Initializing stratigraphic retrieval...</div></div>';
 
     try {
       let retries = 0;
@@ -550,19 +551,21 @@ class TGBrowsePhenomenology extends HTMLElement {
         throw new Error('Database service not located in system environment.');
       }
 
+      console.log('IPS :: TGBrowsePhenomenology DB READY, QUERYING...');
       const patterns = await window.IPS_DB.query('SELECT * FROM phenomenological_patterns ORDER BY pattern_id ASC');
       const cases = await window.IPS_DB.query('SELECT * FROM cases');
+      console.log(`IPS :: TGBrowsePhenomenology DATA LOADED: ${patterns.length} patterns, ${cases.length} cases`);
       
       this.render(patterns, cases);
     } catch (err) {
-      console.error('IPS :: BROWSE PHENOMENOLOGY ERROR:', err);
+      console.error('IPS :: TGBrowsePhenomenology ERROR:', err);
       this.innerHTML = `<div class="advisory advisory--red"><div class="advisory__header">CRITICAL ERROR</div><div class="advisory__content">${err.message}</div></div>`;
     }
   }
 
   render(patterns, cases) {
     if (!patterns || patterns.length === 0) {
-        this.innerHTML = '<div class="meta">No phenomenological markers identified in current strata.</div>';
+        this.innerHTML = '<div class="terminal-box"><div class="meta">No phenomenological markers identified in current strata.</div></div>';
         return;
     }
 
@@ -609,6 +612,7 @@ class TGBrowsePhenomenology extends HTMLElement {
     this.querySelectorAll('.active-pattern-toggle').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const pattern = e.target.getAttribute('data-pattern');
+        console.log(`IPS :: BROWSE FILTER :: ${pattern}`);
         this.querySelectorAll('.pattern-section').forEach(sec => {
           if (pattern === 'ALL' || sec.getAttribute('data-pattern-id') === pattern) {
             sec.style.display = 'block';
@@ -623,7 +627,8 @@ class TGBrowsePhenomenology extends HTMLElement {
 
 class TGBrowseChronological extends HTMLElement {
   async connectedCallback() {
-    this.innerHTML = '<div class="meta">Initializing stratigraphic retrieval...</div>';
+    console.log('IPS :: TGBrowseChronological CONNECTED');
+    this.innerHTML = '<div class="terminal-box"><div class="meta">Initializing stratigraphic retrieval...</div></div>';
 
     try {
       let retries = 0;
@@ -636,17 +641,20 @@ class TGBrowseChronological extends HTMLElement {
         throw new Error('Database service not located in system environment.');
       }
 
+      console.log('IPS :: TGBrowseChronological DB READY, QUERYING...');
       const fragments = await window.IPS_DB.query('SELECT * FROM fragments ORDER BY time_reference_basis ASC, pi_estimation DESC');
+      console.log(`IPS :: TGBrowseChronological DATA LOADED: ${fragments.length} fragments`);
+      
       this.render(fragments);
     } catch (err) {
-      console.error('IPS :: BROWSE CHRONOLOGICAL ERROR:', err);
+      console.error('IPS :: TGBrowseChronological ERROR:', err);
       this.innerHTML = `<div class="advisory advisory--red"><div class="advisory__header">CRITICAL ERROR</div><div class="advisory__content">${err.message}</div></div>`;
     }
   }
 
   render(fragments) {
     if (!fragments || fragments.length === 0) {
-        this.innerHTML = '<div class="meta">No chronological strata identified.</div>';
+        this.innerHTML = '<div class="terminal-box"><div class="meta">No chronological strata identified.</div></div>';
         return;
     }
 
@@ -708,6 +716,7 @@ class TGBrowseChronological extends HTMLElement {
     this.querySelectorAll('.epoch-toggle').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const epoch = e.target.getAttribute('data-epoch');
+        console.log(`IPS :: CHRONO FILTER :: ${epoch}`);
         this.querySelectorAll('.epoch-section').forEach(sec => {
           if (epoch === 'ALL' || sec.getAttribute('data-epoch-id') === epoch) {
             sec.style.display = 'block';
@@ -721,6 +730,7 @@ class TGBrowseChronological extends HTMLElement {
 }
 
 // REGISTER COMPONENTS
+console.log('IPS :: REGISTERING CUSTOM ELEMENTS...');
 customElements.define('tg-metadata-modal', TGMetadataModal);
 customElements.define('tg-case-list', TGCaseList);
 customElements.define('tg-fragment-list', TGFragmentList);
@@ -733,6 +743,7 @@ customElements.define('tg-archive-list', TGArchiveList);
 customElements.define('tg-recently-catalogued-cases', TGRecentlyCatalogued);
 customElements.define('tg-browse-phenomenology', TGBrowsePhenomenology);
 customElements.define('tg-browse-chronological', TGBrowseChronological);
+console.log('IPS :: CUSTOM ELEMENTS REGISTERED.');
 
 // Global modal instance for easy access
 window.showMetadataModal = (data) => {
@@ -746,6 +757,7 @@ window.showMetadataModal = (data) => {
 
 // CRT TERMINAL INITIALIZATION
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('IPS :: DOM LOADED, INITIALIZING CRT...');
   // Add CRT Overlay
   if (!document.querySelector('.crt-overlay')) {
     const overlay = document.createElement('div');
