@@ -397,6 +397,7 @@ class TGArchiveList extends HTMLElement {
 
 class TGFilterPanel extends HTMLElement {
   connectedCallback() {
+    console.log('IPS :: TGFilterPanel CONNECTED');
     this.render();
     this.setupEventListeners();
   }
