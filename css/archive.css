@@ -785,13 +785,13 @@ html[data-theme="dark"] .container.crt-animate,
    VIEW TRANSITIONS (MICROFICHE BASIS ONLY)
    ============================================ */
 
-/* Only enable native navigation transitions in Light Mode */
-html[data-theme="light"] {
-  view-transition-name: none; /* Reset if needed */
-}
-
 @view-transition {
   navigation: auto;
+}
+
+/* Disable transitions for Dark Mode */
+html[data-theme="dark"] {
+  view-transition-name: none;
 }
 
 /* Forward Animation (Default) */
