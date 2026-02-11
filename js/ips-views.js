@@ -77,3 +77,50 @@ window.IPS_VIEW_UTILS = IPS_VIEW_UTILS;
         document.documentElement.setAttribute('data-transition-direction', 'forward');
     }
 })();
+
+/**
+ * HOME PAGE STATISTICS
+ * Dynamically populates the collection statistics on the index page.
+ */
+document.addEventListener('DOMContentLoaded', async () => {
+    // Only run on the index/root page
+    const isIndex = window.location.pathname === '/' || 
+                   window.location.pathname === '/index.html' || 
+                   window.location.pathname.endsWith('/index.html') ||
+                   (window.location.pathname === '' && window.location.href.endsWith('/'));
+
+    if (!isIndex && document.getElementById('stat-fragments')) {
+        // Fallback check in case path detection is tricky
+    } else if (!isIndex) {
+        return;
+    }
+
+    try {
+        const db = await IPS_VIEW_UTILS.waitForDB();
+        
+        // 1. Fragment Count
+        const fragments = await db.query('SELECT COUNT(*) as count FROM fragments');
+        const fragEl = document.getElementById('stat-fragments');
+        if (fragEl) fragEl.textContent = fragments[0]?.count || 0;
+
+        // 2. Pattern Count and Names
+        const patterns = await db.query('SELECT name FROM phenomenological_patterns');
+        const patEl = document.getElementById('stat-patterns');
+        if (patEl) {
+            const count = patterns.length;
+            const names = patterns.map(p => p.name).join(', ');
+            patEl.textContent = `${count} Recognized (${names})`;
+        }
+
+        // 3. Epistemic Layers (Heuristic based on DB content)
+        // We consider it "Verified" if we can find fragments (Artifactual) and cases (Institutional)
+        const cases = await db.query('SELECT COUNT(*) as count FROM cases');
+        const layersEl = document.getElementById('stat-layers');
+        if (layersEl && fragments[0]?.count > 0 && cases[0]?.count > 0) {
+            layersEl.textContent = 'Artifactual, Institutional, Interpretive';
+        }
+
+    } catch (err) {
+        console.warn('IPS :: STATS ERROR:', err);
+    }
+});

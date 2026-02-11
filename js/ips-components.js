@@ -496,15 +496,15 @@ class TGFilterPanel extends HTMLElement {
         <div class="filter-group">
           <span class="filter-group__label">Phenomenological Pattern</span>
           <label class="filter-option">
-            <input type="checkbox" class="ips-filter" data-group="patterns" value="A" checked>
+            <input type="checkbox" class="ips-filter form-checkbox" data-group="patterns" value="A" checked>
             <span class="form-checkbox-label">Pattern Alpha (Stillness)</span>
           </label>
           <label class="filter-option">
-            <input type="checkbox" class="ips-filter" data-group="patterns" value="B" checked>
+            <input type="checkbox" class="ips-filter form-checkbox" data-group="patterns" value="B" checked>
             <span class="form-checkbox-label">Pattern Beta (Fracture)</span>
           </label>
           <label class="filter-option">
-            <input type="checkbox" class="ips-filter" data-group="patterns" value="C" checked>
+            <input type="checkbox" class="ips-filter form-checkbox" data-group="patterns" value="C" checked>
             <span class="form-checkbox-label">Pattern Gamma (Invalidation)</span>
           </label>
         </div>
@@ -512,11 +512,11 @@ class TGFilterPanel extends HTMLElement {
         <div class="filter-group">
           <span class="filter-group__label">Verification Status</span>
           <label class="filter-option">
-            <input type="checkbox" class="ips-filter" data-group="statuses" value="Verified" checked>
+            <input type="checkbox" class="ips-filter form-checkbox" data-group="statuses" value="Verified" checked>
             <span class="form-checkbox-label">Verified Incident</span>
           </label>
           <label class="filter-option">
-            <input type="checkbox" class="ips-filter" data-group="statuses" value="Contested" checked>
+            <input type="checkbox" class="ips-filter form-checkbox" data-group="statuses" value="Contested" checked>
             <span class="form-checkbox-label">Contested / Multiple Frameworks</span>
           </label>
         </div>
@@ -534,11 +534,11 @@ class TGFilterPanel extends HTMLElement {
         <div class="filter-group">
           <span class="filter-group__label">Temporal Basis</span>
           <label class="filter-option">
-            <input type="checkbox" class="ips-filter" data-group="epochs" value="AI" checked>
+            <input type="checkbox" class="ips-filter form-checkbox" data-group="epochs" value="AI" checked>
             <span class="form-checkbox-label">Ante-Institutional (AI)</span>
           </label>
           <label class="filter-option">
-            <input type="checkbox" class="ips-filter" data-group="epochs" value="PI" checked>
+            <input type="checkbox" class="ips-filter form-checkbox" data-group="epochs" value="PI" checked>
             <span class="form-checkbox-label">Post-Institutional (PI)</span>
           </label>
         </div>
@@ -546,15 +546,15 @@ class TGFilterPanel extends HTMLElement {
         <div class="filter-group">
           <span class="filter-group__label">Epistemic Confidence</span>
           <label class="filter-option">
-            <input type="checkbox" class="ips-filter" data-group="confidence" value="high" checked>
+            <input type="checkbox" class="ips-filter form-checkbox" data-group="confidence" value="high" checked>
             <span class="form-checkbox-label">High Confidence</span>
           </label>
           <label class="filter-option">
-            <input type="checkbox" class="ips-filter" data-group="confidence" value="medium" checked>
+            <input type="checkbox" class="ips-filter form-checkbox" data-group="confidence" value="medium" checked>
             <span class="form-checkbox-label">Medium Confidence</span>
           </label>
           <label class="filter-option">
-            <input type="checkbox" class="ips-filter" data-group="confidence" value="low" checked>
+            <input type="checkbox" class="ips-filter form-checkbox" data-group="confidence" value="low" checked>
             <span class="form-checkbox-label">Low Confidence / Speculative</span>
           </label>
         </div>
@@ -562,15 +562,15 @@ class TGFilterPanel extends HTMLElement {
         <div class="filter-group">
           <span class="filter-group__label">Core Collections</span>
           <label class="filter-option">
-            <input type="checkbox" class="ips-filter" data-group="collections" value="REMNANTS" checked>
+            <input type="checkbox" class="ips-filter form-checkbox" data-group="collections" value="REMNANTS" checked>
             <span class="form-checkbox-label">REMNANTS</span>
           </label>
           <label class="filter-option">
-            <input type="checkbox" class="ips-filter" data-group="collections" value="Testimonies of Unraveling" checked>
+            <input type="checkbox" class="ips-filter form-checkbox" data-group="collections" value="Testimonies of Unraveling" checked>
             <span class="form-checkbox-label">Testimonies of Unraveling</span>
           </label>
           <label class="filter-option">
-            <input type="checkbox" class="ips-filter" data-group="collections" value="NULL" checked>
+            <input type="checkbox" class="ips-filter form-checkbox" data-group="collections" value="NULL" checked>
             <span class="form-checkbox-label">Unattributed Fragments</span>
           </label>
         </div>
