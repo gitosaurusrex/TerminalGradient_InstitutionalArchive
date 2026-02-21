@@ -249,16 +249,13 @@ INSERT INTO fragments (fragment_id, title, collection_attribution, content_text,
 **Threshold Review:**
 1. **Irreversible Loss of Novelty:** Confirmed. Innovation at 0.002% variance.
 2. **Recursive Safety Detection:** Confirmed. Mutual enforcement active and optimized.
-3. **Coercion Masked as Consent:** **NEGATIVEE.**
+3. **Coercion Masked as Consent:** **NEGATIVE.**
    - Behavioral analysis of 4th through 120th generations indicates genuine preference stability.
    - Satisfied state is inherited but actively reaffirmed through cultural architecture and biological tuning.
    - No evidence of systemic resistance or manufactured consent via external force.
    - Consensus remains organic to the current species-state.
 
-**Ruling:** Refusal Maintained.
-**Mandate Context:** First Vigil does not authorize intervention against genuine civilizational choice, even when choice eliminates novelty as a category. The civilization has achieved a legitimate completion through preference. 
-
-**Recommendation:** Continue observation at 500-year intervals. Finality pending.', 0, '6000', 'PI', 'high', NULL);
+**Classification Outcome:** Non-manifestation recorded. Presence observed; no decisive action taken. Observation file remains open.', 0, '6000', 'PI', 'high', NULL);
 INSERT INTO fragments (fragment_id, title, collection_attribution, content_text, is_corrupted, pi_estimation, time_reference_basis, epistemic_confidence, strata_depth) VALUES ('RF-0017', 'Fragment 004', 'The Preservation Equilibrium', '**Fragment 004: Patient Intake Form (Subject 11-402)**
 
 **Subject Profile:** Citizen 11-402 (Age: 412 local years). Profession: Ceramic Glazer.
@@ -884,9 +881,7 @@ In 14,312 PI, Levistra manifested in the Northern Tessellation while Caeroth man
 By 14,500 PI, the Tessellation had fractured into three distinct cultural and ontological blocs. The original unity was sacrificed to the ''Interpretive Pull'' of the Sentinels. This case demonstrates that the primary ''Interference'' of a Sentinel is often the way a civilization reorganizes its entire existence around the *interpretation* of the Sentinel''s presence.
 
 **4. THE WITHDRAWAL PARADOX**
-The Sentinels withdrew in 14,728 PI, but only after their presence had fundamentally and permanently altered the civilization. Their final ''reconstructions'' suggest that they viewed the resulting fracture not as a failure, but as a valid outcome of their respective mandates. 
-
-To the Sentinels, the Tessellation was no longer a single civilization, but three separate entities, each of which fell outside the original crisis parameters.
+The Sentinels withdrew in 14,728 PI, but only after their presence had fundamentally and permanently altered the civilization. Analysis of withdrawal patterns suggests the fracture fell outside the original crisis parameters for both mandates—each had been classifying a unified civilization; what remained after 14,500 PI was three separate entities, none matching the configuration that had triggered either presence. Whether this outcome satisfied, violated, or simply rendered irrelevant the original classification conditions is not determinable from withdrawal timing alone.
 
 **5. ARCHIVAL ADVISORY**
 Personnel are cautioned against viewing Case CS-S09 as a ''Sentinel Error.'' Both entities acted within their laws. The ''Error'' was the civilization''s attempt to satisfy both simultaneously—a task that is structurally impossible within the [[OFIPER|Open Framework]].
