@@ -5,52 +5,33 @@
  * Centralizes UI logic and enforces institutional design standards.
  */
 
-const FOOTER_LOGO_DARK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
-
+const FOOTER_LOGO_DARK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges" role="img" aria-labelledby="footer-logo-dark-title footer-logo-dark-desc">
+  <title id="footer-logo-dark-title">Institute for Precedent Studies Logo</title>
+  <desc id="footer-logo-dark-desc">Brutalist-style minimalist logo for the Institute for Precedent Studies in dark theme.</desc>
   <defs>
-
     <mask id="footer-logo-mask">
-
       <rect width="64" height="64" fill="white"/>
-
       <rect x="8" y="8" width="48" height="48" fill="black"/>
-
       <rect x="8" y="12" width="8" height="16" fill="white"/>
-
       <rect x="28" y="28" width="8" height="8" fill="white"/>
-
     </mask>
-
   </defs>
-
   <rect width="64" height="64" fill="currentColor" mask="url(#footer-logo-mask)"/>
-
 </svg>`;
 
-
-
-const FOOTER_LOGO_LIGHT_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
-
+const FOOTER_LOGO_LIGHT_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges" role="img" aria-labelledby="footer-logo-light-title footer-logo-light-desc">
+  <title id="footer-logo-light-title">Institute for Precedent Studies Logo</title>
+  <desc id="footer-logo-light-desc">Brutalist-style minimalist logo for the Institute for Precedent Studies in light theme.</desc>
   <rect width="64" height="64" fill="#0a0a0a"></rect>
-
   <rect x="8" y="8" width="48" height="48" fill="#dcd7c9"></rect>
-
   <rect x="12" y="12" width="10" height="4" fill="#0a0a0a"></rect>
-
   <rect x="12" y="12" width="4" height="10" fill="#0a0a0a"></rect>
-
   <rect x="42" y="12" width="10" height="4" fill="#0a0a0a"></rect>
-
   <rect x="48" y="12" width="4" height="10" fill="#0a0a0a"></rect>
-
   <rect x="12" y="48" width="10" height="4" fill="#0a0a0a"></rect>
-
   <rect x="12" y="42" width="4" height="10" fill="#0a0a0a"></rect>
-
   <rect x="42" y="48" width="10" height="4" fill="#0a0a0a"></rect>
-
   <rect x="48" y="42" width="4" height="10" fill="#0a0a0a"></rect>
-
 </svg>`;
 
 

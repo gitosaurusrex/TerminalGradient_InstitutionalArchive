@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ips-archive.org/sitemap.xml
