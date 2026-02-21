@@ -872,6 +872,64 @@ class TGBrowseChronological extends HTMLElement {
   }
 }
 
+class TGInterferenceLogList extends HTMLElement {
+  async connectedCallback() {
+    this.innerHTML = '<div class="meta">Initializing stratigraphic retrieval...</div>';
+
+    try {
+      let retries = 0;
+      while (!window.IPS_DB && retries < 100) {
+        await new Promise(r => setTimeout(r, 60));
+        retries++;
+      }
+
+      if (!window.IPS_DB) {
+        throw new Error('Database service not located in system environment.');
+      }
+
+      const logs = await window.IPS_DB.getInterferenceLogs();
+      this.render(logs);
+    } catch (err) {
+      this.innerHTML = `<div class="advisory advisory--red"><div class="advisory__header">CRITICAL ERROR</div><div class="advisory__content">${err.message}</div></div>`;
+    }
+  }
+
+  render(logs) {
+    if (logs.length === 0) {
+      this.innerHTML = '<div class="meta">No interference log entries located in current strata.</div>';
+      return;
+    }
+
+    const categories = {};
+    logs.forEach(log => {
+      if (!categories[log.category]) {
+        categories[log.category] = { name: log.category_name, logs: [] };
+      }
+      categories[log.category].logs.push(log);
+    });
+
+    const html = Object.entries(categories).map(([cat, group]) => `
+      <div class="terminal-box mb-4">
+        <div class="terminal-box__header">Category ${cat}: ${group.name}</div>
+        ${group.logs.map(log => `
+          <article class="document-card">
+            <div class="document-card__id meta">${log.log_id} :: ${log.duration || 'DURATION UNRECORDED'}</div>
+            <h3 class="document-card__title">
+              <a href="/interference-log-view?id=${log.log_id}" class="document-card__title-link">${log.title}</a>
+            </h3>
+            <div class="document-card__meta meta">
+              <span class="document-card__meta-item">Civilization: ${log.civilization || 'UNKNOWN'}</span>
+              <span class="document-card__meta-item">Outcome: ${log.outcome || 'UNRECORDED'}</span>
+            </div>
+          </article>
+        `).join('')}
+      </div>
+    `).join('');
+
+    this.innerHTML = html;
+  }
+}
+
 class TGThemeToggle extends HTMLElement {
   connectedCallback() {
     this.render();
@@ -952,6 +1010,7 @@ customElements.define('tg-archive-list', TGArchiveList);
 customElements.define('tg-recently-catalogued-cases', TGRecentlyCatalogued);
 customElements.define('tg-browse-phenomenology', TGBrowsePhenomenology);
 customElements.define('tg-browse-chronological', TGBrowseChronological);
+customElements.define('tg-interference-log-list', TGInterferenceLogList);
 
 // Global modal instance for easy access
 export const showMetadataModal = (data) => {
