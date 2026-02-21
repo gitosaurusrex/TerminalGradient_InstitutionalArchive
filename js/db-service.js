@@ -125,17 +125,13 @@ const DB_SERVICE = (function () {
             ORDER BY cf.display_order ASC
         `, { '$id': id }),
                 search: (term) => query(`
-                    SELECT fragment_id, title, 'FRAGMENT' as collection_attribution, content_text
-                    FROM fragments
+                    SELECT fragment_id, title, 'FRAGMENT' as collection_attribution, content_text 
+                    FROM fragments 
                     WHERE title LIKE $term OR content_text LIKE $term
                     UNION
                     SELECT case_id as fragment_id, title, 'CASE' as collection_attribution, analysis_text as content_text
                     FROM cases
                     WHERE title LIKE $term OR analysis_text LIKE $term
-                    UNION
-                    SELECT log_id as fragment_id, title, 'INTERFERENCE LOG' as collection_attribution, content_text
-                    FROM interference_logs
-                    WHERE title LIKE $term OR content_text LIKE $term
                 `, { '$term': `%${term}%` }),
         getFragment: (id) => query('SELECT * FROM fragments WHERE fragment_id = $id', { '$id': id }),
         getReferringCases: (fragmentId) => query(`
@@ -146,9 +142,7 @@ const DB_SERVICE = (function () {
             ORDER BY c.case_id ASC
         `, { '$fragmentId': fragmentId }),
         getPatterns: () => query('SELECT * FROM phenomenological_patterns ORDER BY pattern_id ASC'),
-        getCases: () => query('SELECT * FROM cases ORDER BY case_id ASC'),
-        getInterferenceLogs: () => query('SELECT * FROM interference_logs ORDER BY category ASC, log_id ASC'),
-        getInterferenceLog: (id) => query('SELECT * FROM interference_logs WHERE log_id = $id', { '$id': id })
+        getCases: () => query('SELECT * FROM cases ORDER BY case_id ASC')
     };
 })();
                 

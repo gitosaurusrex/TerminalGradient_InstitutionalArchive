@@ -78,25 +78,7 @@ CREATE TABLE search_index (
 );
 
 -- ============================================
--- 6. INTERFERENCE LOGS (Secondary Compilation)
--- ============================================
-
-CREATE TABLE interference_logs (
-    log_id VARCHAR(10) PRIMARY KEY,        -- e.g., 'IL-A01'
-    category CHAR(1) NOT NULL,             -- 'A' through 'F'
-    category_name VARCHAR(100),            -- e.g., 'Satisfaction Fabrication'
-    title VARCHAR(255) NOT NULL,
-    civilization TEXT,
-    duration VARCHAR(100),
-    frameworks_involved TEXT,
-    outcome TEXT,
-    authority VARCHAR(50) DEFAULT 'NON-AUTHORITATIVE',
-    epistemic_status VARCHAR(50) DEFAULT 'PROVISIONAL',
-    content_text TEXT NOT NULL
-);
-
--- ============================================
--- 7. VIEWS (For Case-View Page Generation)
+-- 6. VIEWS (For Case-View Page Generation)
 -- ============================================
 
 -- View to join Case with its Pattern Metadata
