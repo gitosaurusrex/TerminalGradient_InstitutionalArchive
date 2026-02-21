@@ -610,6 +610,25 @@ a {
    BREADCRUMB NAVIGATION
    ============================================ */
 
+tg-breadcrumb:not(:defined) {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: block;
+}
+
+tg-breadcrumb:not(:defined) a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+}
+
+tg-box:not(:defined),
+tg-footer:not(:defined) {
+  display: block;
+}
+
 .breadcrumb {
   font-size: var(--font-size-xs);
   color: var(--color-text-secondary);
