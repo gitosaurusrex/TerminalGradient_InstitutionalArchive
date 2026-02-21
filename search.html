@@ -13,16 +13,33 @@
   <meta property="og:url" content="https://ips-archive.org/search">
   <meta property="og:title" content="Archive Search :: Institute for Precedent Studies Archive">
   <meta property="og:description" content="Search the Institute for Precedent Studies database for specific case files, fragments, and civilizational records.">
-  <meta property="og:image" content="https://ips-archive.org/public/canonical_brutalist_fiche.svg">
+  <meta property="og:image" content="https://ips-archive.org/og-image.png">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://ips-archive.org/search">
   <meta property="twitter:title" content="Archive Search :: Institute for Precedent Studies Archive">
   <meta property="twitter:description" content="Search the Institute for Precedent Studies database for specific case files, fragments, and civilizational records.">
-  <meta property="twitter:image" content="https://ips-archive.org/public/canonical_brutalist_fiche.svg">
+  <meta property="twitter:image" content="https://ips-archive.org/og-image.png">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="manifest" href="/site.webmanifest">
   <link id="favicon-link" rel="icon" type="image/svg+xml" href="">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SearchResultsPage",
+    "name": "Archive Search",
+    "description": "Search the Institute for Precedent Studies database for specific case files, fragments, and civilizational records.",
+    "url": "https://ips-archive.org/search",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Institute for Precedent Studies Archive",
+      "url": "https://ips-archive.org/"
+    }
+  }
+  </script>
   <link rel="stylesheet" href="css/archive.css">
   <script>
     (function() {
@@ -52,12 +69,15 @@
     </tg-breadcrumb>
 
     <!-- PAGE HEADER -->
-    <tg-box header="Archive Search">
+    <header>
+    <tg-box header="Archive Search" heading-level="1">
       <p class="text-secondary meta mt-3">Query the institutional archive database. Search across all recovered text,
         metadata, and phenomenological markers.</p>
     </tg-box>
+    </header>
 
     <!-- SEARCH FORM -->
+    <main>
     <tg-box variant="secondary" header="Query Parameters">
       <form id="search-form">
         <!-- DATABASE TARGET -->
@@ -156,6 +176,8 @@
         </ul>
       </div>
     </div>
+
+    </main>
 
     <!-- FOOTER -->
     <tg-footer mode="Search Intelligence"></tg-footer>

@@ -13,16 +13,33 @@
   <meta property="og:url" content="https://ips-archive.org/archive-index">
   <meta property="og:title" content="Archive Index :: Institute for Precedent Studies Archive">
   <meta property="og:description" content="Access the complete index of the Institute for Precedent Studies Archive, including all recovered data fragments and case studies.">
-  <meta property="og:image" content="https://ips-archive.org/public/canonical_brutalist_fiche.svg">
+  <meta property="og:image" content="https://ips-archive.org/og-image.png">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://ips-archive.org/archive-index">
   <meta property="twitter:title" content="Archive Index :: Institute for Precedent Studies Archive">
   <meta property="twitter:description" content="Access the complete index of the Institute for Precedent Studies Archive, including all recovered data fragments and case studies.">
-  <meta property="twitter:image" content="https://ips-archive.org/public/canonical_brutalist_fiche.svg">
+  <meta property="twitter:image" content="https://ips-archive.org/og-image.png">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="manifest" href="/site.webmanifest">
   <link id="favicon-link" rel="icon" type="image/svg+xml" href="">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Archive Index :: Case Files",
+    "description": "Access the complete index of the Institute for Precedent Studies Archive, including all recovered data fragments and case studies.",
+    "url": "https://ips-archive.org/archive-index",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Institute for Precedent Studies Archive",
+      "url": "https://ips-archive.org/"
+    }
+  }
+  </script>
   <link rel="stylesheet" href="css/archive.css">
   <script>
     (function() {
@@ -52,7 +69,8 @@
     </tg-breadcrumb>
 
     <!-- PAGE HEADER -->
-    <tg-box header="Archive Index :: Case Files">
+    <header>
+    <tg-box header="Archive Index :: Case Files" heading-level="1">
       <div class="metadata-grid mt-3 meta">
         <div class="metadata-grid__row">
           <div class="metadata-grid__label">Query:</div>
@@ -68,6 +86,7 @@
         </div>
       </div>
     </tg-box>
+    </header>
 
     <!-- TWO COLUMN LAYOUT: FILTERS + RESULTS -->
     <div class="layout-grid layout-grid--sidebar-left">

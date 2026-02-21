@@ -7,18 +7,25 @@
   <title>Data Fragment View :: Institute for Precedent Studies Archive</title>
   <meta name="description" content="Access raw data fragments and verbatim civilizational records from the Institute for Precedent Studies Archive.">
   
+  <link id="canonical-link" rel="canonical" href="https://ips-archive.org/fragment-view">
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ips-archive.org/fragment-view">
   <meta property="og:title" content="Data Fragment View :: Institute for Precedent Studies Archive">
   <meta property="og:description" content="Access raw data fragments and verbatim civilizational records from the Institute for Precedent Studies Archive.">
-  <meta property="og:image" content="https://ips-archive.org/public/canonical_brutalist_fiche.svg">
+  <meta property="og:image" content="https://ips-archive.org/og-image.png">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://ips-archive.org/fragment-view">
   <meta property="twitter:title" content="Data Fragment View :: Institute for Precedent Studies Archive">
   <meta property="twitter:description" content="Access raw data fragments and verbatim civilizational records from the Institute for Precedent Studies Archive.">
-  <meta property="twitter:image" content="https://ips-archive.org/public/canonical_brutalist_fiche.svg">
+  <meta property="twitter:image" content="https://ips-archive.org/og-image.png">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="manifest" href="/site.webmanifest">
   <link id="favicon-link" rel="icon" type="image/svg+xml" href="">
   <link rel="stylesheet" href="css/archive.css">
   <script>
@@ -50,6 +57,7 @@
     </tg-breadcrumb>
 
     <!-- FRAGMENT HEADER -->
+    <header>
     <tg-box id="fragment-header-box">
       <div
         style="border-bottom: 2px solid var(--color-border); padding-bottom: var(--space-2); margin-bottom: var(--space-3); display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2);"
@@ -64,7 +72,10 @@
         <!-- Dynamic Metadata -->
       </div>
     </tg-box>
+    </header>
 
+    <main>
+    <article>
     <tg-box id="fragment-content-box" header="Raw Data Fragment (Verbatim)">
       <div id="fragment-content" class="document-content body">
         <div class="meta">Initializing stratigraphic retrieval...</div>
@@ -79,6 +90,7 @@
             </ul>
         </nav>
     </tg-box>
+    </article>
 
     <!-- ACTION BUTTONS -->
     <tg-box compact class="action-box">
@@ -86,6 +98,7 @@
       <a href="#" class="btn">Download RAW Buffer</a>
       <a href="#" class="btn">Record Verification Claim</a>
     </tg-box>
+    </main>
 
     <!-- FOOTER -->
     <tg-footer mode="Fragment View Mode"></tg-footer>
@@ -123,7 +136,42 @@
           }
         });
     
+        function updatePageMeta(id, title, description) {
+          const fullTitle = `${title} :: Institute for Precedent Studies Archive`;
+          const url = `https://ips-archive.org/fragment-view?id=${id}`;
+
+          document.title = fullTitle;
+          document.querySelector('meta[name="description"]').setAttribute('content', description);
+          document.getElementById('canonical-link').setAttribute('href', url);
+          document.querySelector('meta[property="og:url"]').setAttribute('content', url);
+          document.querySelector('meta[property="og:title"]').setAttribute('content', fullTitle);
+          document.querySelector('meta[property="og:description"]').setAttribute('content', description);
+          document.querySelector('meta[property="twitter:url"]').setAttribute('content', url);
+          document.querySelector('meta[property="twitter:title"]').setAttribute('content', fullTitle);
+          document.querySelector('meta[property="twitter:description"]').setAttribute('content', description);
+
+          // Inject JSON-LD Article schema
+          const jsonLd = document.createElement('script');
+          jsonLd.type = 'application/ld+json';
+          jsonLd.textContent = JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": title,
+            "description": description,
+            "url": url,
+            "image": "https://ips-archive.org/og-image.png",
+            "isPartOf": {
+              "@type": "WebSite",
+              "name": "Institute for Precedent Studies Archive",
+              "url": "https://ips-archive.org/"
+            }
+          });
+          document.head.appendChild(jsonLd);
+        }
+
         function renderStandaloneFragment(f, referringCases) {
+          const desc = `Data fragment ${f.fragment_id}: ${f.title || 'Untitled'}. Epistemic confidence: ${f.epistemic_confidence}. Time reference: ${f.time_reference_basis}.`;
+          updatePageMeta(f.fragment_id, f.title || f.fragment_id, desc);
           document.getElementById('fragment-title').textContent = f.title || 'UNTITLED FRAGMENT';
           document.getElementById('collection-attribution').textContent = `Analytical Window :: ${f.collection_attribution || 'REMNANTS'} Collection`;
     

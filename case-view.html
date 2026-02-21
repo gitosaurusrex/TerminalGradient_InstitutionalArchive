@@ -7,18 +7,25 @@
   <title>Case Study :: Institute for Precedent Studies Archive</title>
   <meta name="description" content="View detailed case studies and civilizational analysis from the Institute for Precedent Studies Archive.">
   
+  <link id="canonical-link" rel="canonical" href="https://ips-archive.org/case-view">
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ips-archive.org/case-view">
   <meta property="og:title" content="Case Study :: Institute for Precedent Studies Archive">
   <meta property="og:description" content="View detailed case studies and civilizational analysis from the Institute for Precedent Studies Archive.">
-  <meta property="og:image" content="https://ips-archive.org/public/canonical_brutalist_fiche.svg">
+  <meta property="og:image" content="https://ips-archive.org/og-image.png">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://ips-archive.org/case-view">
   <meta property="twitter:title" content="Case Study :: Institute for Precedent Studies Archive">
   <meta property="twitter:description" content="View detailed case studies and civilizational analysis from the Institute for Precedent Studies Archive.">
-  <meta property="twitter:image" content="https://ips-archive.org/public/canonical_brutalist_fiche.svg">
+  <meta property="twitter:image" content="https://ips-archive.org/og-image.png">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="manifest" href="/site.webmanifest">
   <link id="favicon-link" rel="icon" type="image/svg+xml" href="">
   <link rel="stylesheet" href="css/archive.css">
   <script>
@@ -50,6 +57,7 @@
     </tg-breadcrumb>
 
     <!-- CASE HEADER / METADATA BLOCK -->
+    <header>
     <tg-box id="case-header-box">
       <div
         style="border-bottom: 2px solid var(--color-border); padding-bottom: var(--space-2); margin-bottom: var(--space-3); display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2);"
@@ -64,12 +72,16 @@
         <!-- Dynamic Metadata -->
       </div>
     </tg-box>
+    </header>
 
+    <main>
+    <article>
     <tg-box id="case-analysis-box" header="Case Analysis (Institutional)">
       <div id="case-content" class="document-content body">
         <div class="meta">Initializing stratigraphic retrieval...</div>
       </div>
     </tg-box>
+    </article>
 
     <!-- ACTION BUTTONS -->
     <tg-box compact class="action-box">
@@ -77,6 +89,7 @@
       <a href="#" class="btn">Download RAW Buffer</a>
       <a href="#" class="btn">Record Verification Claim</a>
     </tg-box>
+    </main>
 
     <!-- FOOTER -->
     <tg-footer mode="Case View Mode"></tg-footer>
@@ -114,7 +127,42 @@
       }
     });
 
+    function updatePageMeta(id, title, description) {
+      const fullTitle = `${title} :: Institute for Precedent Studies Archive`;
+      const url = `https://ips-archive.org/case-view?id=${id}`;
+
+      document.title = fullTitle;
+      document.querySelector('meta[name="description"]').setAttribute('content', description);
+      document.getElementById('canonical-link').setAttribute('href', url);
+      document.querySelector('meta[property="og:url"]').setAttribute('content', url);
+      document.querySelector('meta[property="og:title"]').setAttribute('content', fullTitle);
+      document.querySelector('meta[property="og:description"]').setAttribute('content', description);
+      document.querySelector('meta[property="twitter:url"]').setAttribute('content', url);
+      document.querySelector('meta[property="twitter:title"]').setAttribute('content', fullTitle);
+      document.querySelector('meta[property="twitter:description"]').setAttribute('content', description);
+
+      // Inject JSON-LD Article schema
+      const jsonLd = document.createElement('script');
+      jsonLd.type = 'application/ld+json';
+      jsonLd.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": title,
+        "description": description,
+        "url": url,
+        "image": "https://ips-archive.org/og-image.png",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Institute for Precedent Studies Archive",
+          "url": "https://ips-archive.org/"
+        }
+      });
+      document.head.appendChild(jsonLd);
+    }
+
     function renderCase(c) {
+      const desc = `Institutional case study ${c.case_id}: ${c.title}. Phenomenological pattern: ${c.pattern_name}. Epoch: ${c.epoch_estimate}.`;
+      updatePageMeta(c.case_id, c.title, desc);
       document.getElementById('case-title').textContent = c.title;
       document.getElementById('collection-attribution').textContent = `Analytical Window :: INSTITUTIONAL ANALYTICS`;
 

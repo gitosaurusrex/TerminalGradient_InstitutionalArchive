@@ -395,6 +395,17 @@ html[data-theme="light"] button:active::after {
   margin-bottom: var(--space-3);
 }
 
+h1.terminal-box__header,
+h2.terminal-box__header,
+h3.terminal-box__header {
+  line-height: inherit;
+  text-shadow: none;
+  margin: 0;
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-3);
+}
+
 /* ============================================
    DATA REGISTERS & BADGES
    ============================================ */

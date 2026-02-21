@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Institute for Precedent Studies Archive :: Access Terminal</title>
   <meta name="description" content="The Institute for Precedent Studies Archive provides access to deep-time data fragments and case studies related to civilizational anomalies and phenomenological patterns.">
-  <meta name="keywords" content="IPS, archive, precedent studies, anomalies, civilizational ruins, stratigraphic retrieval, deep-time, database">
   <link rel="canonical" href="https://ips-archive.org/">
   
   <!-- Open Graph / Facebook -->
@@ -14,15 +13,18 @@
   <meta property="og:url" content="https://ips-archive.org/">
   <meta property="og:title" content="Institute for Precedent Studies Archive :: Access Terminal">
   <meta property="og:description" content="Access deep-time data fragments and case studies related to civilizational anomalies and phenomenological patterns.">
-  <meta property="og:image" content="https://ips-archive.org/public/canonical_brutalist_fiche.svg">
+  <meta property="og:image" content="https://ips-archive.org/og-image.png">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://ips-archive.org/">
   <meta property="twitter:title" content="Institute for Precedent Studies Archive :: Access Terminal">
   <meta property="twitter:description" content="Access deep-time data fragments and case studies related to civilizational anomalies and phenomenological patterns.">
-  <meta property="twitter:image" content="https://ips-archive.org/public/canonical_brutalist_fiche.svg">
+  <meta property="twitter:image" content="https://ips-archive.org/og-image.png">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="manifest" href="/site.webmanifest">
   <link id="favicon-link" rel="icon" type="image/svg+xml" href="">
   <script type="application/ld+json">
   {
@@ -61,6 +63,7 @@
   <div class="container">
 
     <!-- MAIN HEADER / SYSTEM IDENTIFIER -->
+    <header>
     <tg-box>
       <h1>INSTITUTE FOR PRECEDENT STUDIES ARCHIVE</h1>
       <div class="metadata-grid mt-3 meta">
@@ -82,8 +85,10 @@
         </div>
       </div>
     </tg-box>
+    </header>
 
     <!-- MAIN NAVIGATION MENU -->
+    <main>
     <tg-box variant="secondary" header="System Access">
       <div class="nav-mosaic">
         <a href="/case-index" class="btn btn--large">ACCESS<br>CASE FILES</a>
@@ -121,6 +126,8 @@
     <tg-box header="Recently Catalogued">
       <tg-recently-catalogued-cases></tg-recently-catalogued-cases>
     </tg-box>
+
+    </main>
 
     <!-- FOOTER -->
     <tg-footer mode="Access Terminal"></tg-footer>

@@ -154,15 +154,18 @@ class TGBox extends HTMLElement {
     const header = this.getAttribute('header');
     const variant = this.getAttribute('variant') || '';
     const isCompact = this.hasAttribute('compact');
+    const headingLevel = this.getAttribute('heading-level');
 
     let classes = ['terminal-box'];
     if (variant === 'secondary') classes.push('terminal-box--secondary');
     if (isCompact) classes.push('terminal-box--compact');
 
+    const headerTag = headingLevel && ['1','2','3'].includes(headingLevel) ? `h${headingLevel}` : 'div';
+
     const content = this.innerHTML;
     this.innerHTML = `
       <div class="${classes.join(' ')}">
-        ${header ? `<div class="terminal-box__header">${header}</div>` : ''}
+        ${header ? `<${headerTag} class="terminal-box__header">${header}</${headerTag}>` : ''}
         <div class="tg-box-content">
           ${content}
         </div>
@@ -176,7 +179,7 @@ class TGFooter extends HTMLElement {
     this.mode = this.getAttribute('mode') || 'Access Terminal';
     // Initial render of the full footer structure, including the tg-theme-toggle
     this.innerHTML = `
-      <footer class="site-footer">
+      <footer class="site-footer" aria-label="Site footer">
         <div class="site-footer__left">
           <div class="site-footer__logo">
             <!-- SVG content will be injected here by updateLogo -->
@@ -229,8 +232,9 @@ class TGNav extends HTMLElement {
       `;
     }).join('');
 
+    const label = this.getAttribute('aria-label') || 'Primary navigation';
     this.innerHTML = `
-      <nav>
+      <nav aria-label="${label}">
         <ul class="nav-menu">
           ${listItems}
         </ul>
@@ -425,27 +429,16 @@ class TGArchiveList extends HTMLElement {
     }
 
         const html = fragments.map(f => `
-
-          <div class="document-card">
-
+          <article class="document-card">
             <div class="document-card__id">${f.fragment_id} :: DEPTH ${formatStrata(f.strata_depth)}m</div>
-
             <h2 class="document-card__title">
-
               <a href="/fragment-view?id=${f.fragment_id}" class="document-card__title-link">${f.title}</a>
-
             </h2>
-
             <div class="document-card__meta meta">
-
               <span class="document-card__meta-item">Confidence: ${f.epistemic_confidence}</span>
-
               <span class="document-card__meta-item">Attribution: ${f.collection_attribution || 'UNKNOWN'}</span>
-
             </div>
-
-          </div>
-
+          </article>
         `).join('');
 
     this.innerHTML = html;
@@ -658,7 +651,7 @@ class TGFragmentList extends HTMLElement {
       return;
     }
     this.innerHTML = fragments.map(f => `
-      <div class="document-card">
+      <article class="document-card">
         <div class="document-card__id">${f.fragment_id} :: DEPTH ${f.strata_depth}m</div>
         <h2 class="document-card__title">
           <a href="/fragment-view?id=${f.fragment_id}" class="document-card__title-link">${f.title}</a>
@@ -667,7 +660,7 @@ class TGFragmentList extends HTMLElement {
           <span class="document-card__meta-item">Confidence: ${f.epistemic_confidence}%</span>
           <span class="document-card__meta-item">Attribution: ${f.collection_attribution}</span>
         </div>
-      </div>
+      </article>
     `).join('');
   }
 }
