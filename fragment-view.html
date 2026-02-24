@@ -78,12 +78,12 @@
     <article>
     <tg-box id="fragment-content-box" header="Raw Data Fragment (Verbatim)">
       <div id="fragment-content" class="document-content body">
-        <div class="meta">Initializing stratigraphic retrieval...</div>
+        <div class="meta">Decoding stratigraphic datagrams...</div>
       </div>
     </tg-box>
 
     <!-- REFERENCED IN CASES -->
-    <tg-box id="referring-cases-box" header="Referenced In Institutional Cases">
+    <tg-box id="referring-cases-box" header="Referenced In Institutional Cases" hidden>
         <nav>
             <ul class="nav-menu" id="referring-cases">
                 <!-- Cases will be rendered here -->
@@ -93,7 +93,7 @@
     </article>
 
     <!-- ACTION BUTTONS -->
-    <tg-box compact class="action-box">
+    <tg-box compact class="action-box" id="fragment-actions" hidden>
       <a href="/fragment-index" class="btn">Return to Fragment Index</a>
       <a href="#" class="btn">Download RAW Buffer</a>
       <a href="#" class="btn">Record Verification Claim</a>
@@ -213,6 +213,9 @@
             </div>
           `;
           
+          document.getElementById('fragment-actions').hidden = false;
+          document.getElementById('referring-cases-box').hidden = false;
+
           // Render referring cases
           const referringCasesContainer = document.getElementById('referring-cases');
           if (referringCasesContainer) {

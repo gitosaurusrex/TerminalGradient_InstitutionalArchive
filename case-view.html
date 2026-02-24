@@ -78,13 +78,13 @@
     <article>
     <tg-box id="case-analysis-box" header="Case Analysis (Institutional)">
       <div id="case-content" class="document-content body">
-        <div class="meta">Initializing stratigraphic retrieval...</div>
+        <div class="meta">Decoding stratigraphic datagrams...</div>
       </div>
     </tg-box>
     </article>
 
     <!-- ACTION BUTTONS -->
-    <tg-box compact class="action-box">
+    <tg-box compact class="action-box" id="case-actions" hidden>
       <a href="/case-index" class="btn">Return to Case Files</a>
       <a href="#" class="btn">Download RAW Buffer</a>
       <a href="#" class="btn">Record Verification Claim</a>
@@ -183,6 +183,7 @@
       `).join('');
 
       document.getElementById('case-content').innerHTML = `<div>${marked.parse(c.analysis_text)}</div><div id="fragments-list"></div>`;
+      document.getElementById('case-actions').hidden = false;
     }
 
     async function renderFragments(fragments) {
