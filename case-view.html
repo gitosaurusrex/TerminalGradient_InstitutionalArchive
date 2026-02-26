@@ -116,9 +116,9 @@
         const caseData = await db.getCase(id);
 
         if (caseData.length > 0) {
-          renderCase(caseData[0]);
           const fragments = await db.getCaseFragments(id);
-          renderFragments(fragments);
+          const fragmentMap = new Map(fragments.map(f => [f.fragment_id, f]));
+          renderCase(caseData[0], fragmentMap);
         } else {
           throw new Error(`Record ${id} is not a valid case study. Please provide a Case ID (e.g., CS-S01).`);
         }
@@ -160,7 +160,7 @@
       document.head.appendChild(jsonLd);
     }
 
-    function renderCase(c) {
+    function renderCase(c, fragmentMap) {
       const desc = `Institutional case study ${c.case_id}: ${c.title}. Phenomenological pattern: ${c.pattern_name}. Epoch: ${c.epoch_estimate}.`;
       updatePageMeta(c.case_id, c.title, desc);
       document.getElementById('case-title').textContent = c.title;
@@ -182,41 +182,34 @@
         </div>
       `).join('');
 
-      document.getElementById('case-content').innerHTML = `<div>${marked.parse(c.analysis_text)}</div><div id="fragments-list"></div>`;
-      document.getElementById('case-actions').hidden = false;
-    }
+      window._fragmentData = window._fragmentData || {};
 
-    async function renderFragments(fragments) {
-      const container = document.getElementById('fragments-list');
-      if (!container) return;
-
-      container.innerHTML = fragments.map((f, index) => {
-        // Store fragment data in a global-ish way or pass as stringified JSON (carefully)
-        // Best approach for simplicity in this vanilla setup is stringification if data is small,
-        // or using an index to a global array.
-        window._fragmentData = window._fragmentData || {};
+      let analysisHtml = marked.parse(c.analysis_text);
+      analysisHtml = analysisHtml.replace(/<p>\[\[SURFACE_FRAGMENT:(RF-\d+)\]\]<\/p>/g, (match, fragmentId) => {
+        const f = fragmentMap.get(fragmentId);
+        if (!f) return match;
         window._fragmentData[f.fragment_id] = f;
-
         return `
-            <div class="fragment-frame">
-                <div class="fragment-frame__header meta">
-                    <div class="fragment-frame__metrics">
-                        <span>REF: ${f.fragment_id}</span>
-                        <span>STRATA: ${formatStrata(f.strata_depth)}m</span>
-                        <span>ISO-VAR: ${f.isotope_variance || 'NULL'}</span>
-                        <span>EPI-CONF: ${f.epistemic_confidence}</span>
-                        ${window.generateFlavorMetrics ? window.generateFlavorMetrics() : ''}
-                    </div>
-                    <button class="info-icon" onclick='window.showMetadataModal(window._fragmentData["${f.fragment_id}"])'>
-                        i
-                    </button>
-                </div>
-                <div class="fragment-frame__content document-content">
-                    <div>${marked.parse(f.content_text)}</div>
-                </div>
+          <div class="fragment-frame">
+            <div class="fragment-frame__header meta">
+              <div class="fragment-frame__metrics">
+                <span>REF: ${f.fragment_id}</span>
+                <span>STRATA: ${formatStrata(f.strata_depth)}m</span>
+                <span>ISO-VAR: ${f.isotope_variance || 'NULL'}</span>
+                <span>EPI-CONF: ${f.epistemic_confidence}</span>
+                ${window.generateFlavorMetrics ? window.generateFlavorMetrics() : ''}
+              </div>
+              <button class="info-icon" onclick='window.showMetadataModal(window._fragmentData["${f.fragment_id}"])'>i</button>
             </div>
+            <div class="fragment-frame__content document-content">
+              <div>${marked.parse(f.content_text)}</div>
+            </div>
+          </div>
         `;
-      }).join('');
+      });
+
+      document.getElementById('case-content').innerHTML = `<div>${analysisHtml}</div>`;
+      document.getElementById('case-actions').hidden = false;
     }
 
     function renderStandaloneFragment(f) {

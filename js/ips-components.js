@@ -74,6 +74,9 @@ export const formatStrata = (depth) => {
   return isNaN(value) ? '0.0' : value.toFixed(1);
 };
 
+// Re-expose to window for direct HTML calls
+window.formatStrata = formatStrata;
+
 export const interpretMarkdown = (text) => {
   if (window.marked && typeof window.marked.parse === 'function') {
     return window.marked.parse(text);

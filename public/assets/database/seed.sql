@@ -707,7 +707,19 @@ INSERT INTO cases (case_id, title, epoch_estimate, observed_pattern, sentinel_at
 The fragments collectively designated ''The First Silence'' represent the oldest recovered documentation of terminal stability in the REMNANTS collection. The site was not a planetary center, but a spatial configuration located in the [REDACTED] rift. Its architecture suggests a singular function: finality.
 
 **2. RECOVERED FRAGMENTS**
-Five text fragments were recovered from structurally distinct locations across the site. Their placement suggests intentional distribution—each embedded in a different load-bearing surface, as though the civilization inscribed its final record into the architecture itself. The progression across surfaces—from the resolution of danger (RF-0001) through the arrival of certainty (RF-0002), the confirmation of observation (RF-0003), the departure from form (RF-0004), to the terminal declaration (RF-0005)—has been cited by all three institutional schools as evidence for their respective positions. None can account for the complete sequence without discarding at least one fragment as anomalous.
+Five text fragments were recovered from structurally distinct locations across the site. Their placement suggests intentional distribution—each embedded in a different load-bearing surface, as though the civilization inscribed its final record into the architecture itself. They are presented below in stratigraphic order, from innermost structure outward.
+
+[[SURFACE_FRAGMENT:RF-0001]]
+
+[[SURFACE_FRAGMENT:RF-0002]]
+
+[[SURFACE_FRAGMENT:RF-0003]]
+
+[[SURFACE_FRAGMENT:RF-0004]]
+
+[[SURFACE_FRAGMENT:RF-0005]]
+
+The progression across surfaces—from the resolution of danger (RF-0001) through the arrival of certainty (RF-0002), the confirmation of observation (RF-0003), the departure from form (RF-0004), to the terminal declaration (RF-0005)—has been cited by all three institutional schools as evidence for their respective positions. None can account for the complete sequence without discarding at least one fragment as anomalous.
 
 **3. COMPETING INSTITUTIONAL THEORIES**
 Three institutional schools claim analytical authority over this event. No consensus has been reached in 847 years of review.
@@ -735,6 +747,8 @@ The Echoing Accord achieved total civilizational equilibrium in Year 1,840 PI. R
 **2. THE CALDERA INCIDENT**
 In 2,041 PI, a Petitioner designated ''Elowen'' attempted to trigger a Fracture event by spending the world''s last unique energy source—a star-core remnant—in a singular performance of "Crisis."
 
+[[SURFACE_FRAGMENT:RF-0012]]
+
 Elowen intended to "screams loud enough to crack the sky," hoping to provoke an intervention that would restore the possibility of failure to their world.
 
 **3. THE SILENCE**
@@ -743,7 +757,9 @@ Institutional sensors recorded a massive gravity spike in the planetary high-gra
 Then, the pressure lifted. No fracture occurred. No systems were unmade. The sky remained intact.
 
 **4. INSTITUTIONAL INTERPRETATION**
-Recovery of the petitioner''s sensory drive provided a data intercept from the event. 
+Recovery of the petitioner''s sensory drive provided a data intercept from the event.
+
+[[SURFACE_FRAGMENT:RF-0013]]
 
 The data shows a "Classification Sequence" was completed, but no action followed. Scholars are divided. The "Lawful School" argues the Accord was found to be genuinely finished, rendering intervention a violation of mandate. The "Blindness School" suggests the Petitioner''s cry was simply too small to register against the background radiation of a satisfied world.
 
@@ -759,7 +775,9 @@ INSERT INTO cases (case_id, title, epoch_estimate, observed_pattern, sentinel_at
 The Radiant Congruence was a nanite-heavy society that achieved total "Recursive Safety." Their planetary Lattice was programmed to involuntarily synchronize and "heal" any non-harmonized mass within the atmosphere.
 
 **2. THE MANIFESTATION**
-In 1,214 PI, a Sentinel manifested at the Core Node. Unlike standard Fracture events where the Sentinel unmakes infrastructure, the Congruence Lattice attempted to **absorb the manifestation**. 
+In 1,214 PI, a Sentinel manifested at the Core Node. Unlike standard Fracture events where the Sentinel unmakes infrastructure, the Congruence Lattice attempted to **absorb the manifestation**.
+
+[[SURFACE_FRAGMENT:RF-0014]]
 
 Witness reports describe the "Eleven Minutes"—a period where the Sentinel''s golden armor became semi-translucent. The Lattice was not attacking; it was treating the Sentinel as a structural error to be corrected.
 
@@ -789,20 +807,36 @@ INSERT INTO cases (case_id, title, epoch_estimate, observed_pattern, sentinel_at
 The Forty Worlds cluster achieved "Terminal Stability" at Year 0 PI. They did not fall into stillness; they built it through forty recursive stabilization grids. Innovation, curiosity, and risk were reclassified as biological failures and systematically dampened.
 
 **2. THE FOUNDING DECISION**
-The Accord was not imposed. It was chosen—unanimously, across forty worlds, with the solemnity of a species that had studied its own history and decided to stop making more of it. The Charter is notable for Chancellor Vey''s language: "the perfect afternoon of our species." Subsequent institutional analysis has debated whether this phrase constitutes a genuine civilizational preference or a rhetorical instrument designed to foreclose future dissent. The forty biometric signatures suggest consensus. Whether consensus constitutes genuine choice remains a foundational question in precedent studies.
+The Accord was not imposed. It was chosen—unanimously, across forty worlds, with the solemnity of a species that had studied its own history and decided to stop making more of it.
+
+[[SURFACE_FRAGMENT:RF-0014]]
+
+The Charter is notable for Chancellor Vey''s language: "the perfect afternoon of our species." Subsequent institutional analysis has debated whether this phrase constitutes a genuine civilizational preference or a rhetorical instrument designed to foreclose future dissent. The forty biometric signatures suggest consensus. Whether consensus constitutes genuine choice remains a foundational question in precedent studies.
 
 **3. THE CHRONIC STILLNESS**
 For eight thousand years, the Forty Worlds persisted in a state of immaculate "Enough." Every morning, forty generations of citizens woke up to the same smell of Eternal Grass and the same voted-upon blue sky.
 
-The "Hungry Spark" fable was used to condition children to fear change. Any flicker of novelty was detected by the grids and neutralized. The clinical record recovered from Year 5,000 of the Accord (RF-0017) illustrates the system''s enforcement at the individual level. The subject''s final statement—"I don''t want to want change"—is cited in institutional literature as evidence of both voluntary preference and coercive internalization. Neither reading has been ruled out. The phrase "mercy of the Lamp" echoes the Hungry Spark fable, suggesting the educational conditioning persisted for at least two thousand years after implementation.
+[[SURFACE_FRAGMENT:RF-0015]]
+
+The "Hungry Spark" fable (above) was used to condition children to fear change. Any flicker of novelty was detected by the grids and neutralized.
+
+The following clinical record, recovered from Year 5,000 of the Accord, illustrates the system''s enforcement at the individual level.
+
+[[SURFACE_FRAGMENT:RF-0017]]
+
+The subject''s final statement—"I don''t want to want change"—is cited in institutional literature as evidence of both voluntary preference and coercive internalization. Neither reading has been ruled out. The phrase "mercy of the Lamp" echoes the Hungry Spark fable, suggesting the educational conditioning persisted for at least two thousand years after implementation.
 
 **4. THE RECONNAISSANCE DATA**
 Institute sensors maintained a presence in the cluster''s high-gradient for the duration of the Stillness.
+
+[[SURFACE_FRAGMENT:RF-0016]]
 
 The logs record a permanent "Signature" in the planetary gradient—a high-density presence characterized by six wing-like gravitational shadows. The presence never manifested. It never acted. It simply *observed* the rate of novelty decay. For 8,000 years, the civilization''s profile remained consistent with what institutional analysts would later designate "Genuine Stillness"—a classification inferred from the absence of intervention, not from any communicated determination.
 
 **5. THE OUT-SYSTEMER ACCOUNT**
 In 8,000 PI, a merchant vessel entered the cluster. The crew found a world where the biologicals were "finished." They were not dying; they were concluding.
+
+[[SURFACE_FRAGMENT:RF-0018]]
 
 **6. ARCHIVAL SUMMARY**
 The Forty Worlds are projected to achieve "Total Stillness" within the next two millennia. Birth rates have declined to 0.001% per century—a voluntary cessation of the reproductive drive.
@@ -822,10 +856,14 @@ Pre-Institutional records indicate the civilization was a high-functioning post-
 **2. THE DOCTRINE OF THE POSE**
 The recovery of Codex 88-Beta (RF-0020) suggests that the Congruence leadership was engaged in a massive, civilization-wide effort to simulate the signature of a finished world.
 
+[[SURFACE_FRAGMENT:RF-0020]]
+
 Scholarship is divided on the intent behind this mandate. One school of thought, the ''Counterfeiters,'' argues that the Congruence was attempting to deceive the anticipated presence (designated ''Sentinel'' in institutional records), believing that a performance of stillness would trigger a favorable outcome. Others suggest the mandate was a form of ritualized suicide—a civilization choosing to end itself before the Sentinel could arrive to do so.
 
 **3. THE VOICE FROM INSIDE THE POSE**
 The following document was recovered from street-level excavation, found in the closed hand of a mummified figure. Stratigraphic analysis dates it to the fourth generation after the Descension mandate was enacted—approximately the period when the original distinction between performance and belief would have been lost to generational turnover.
+
+[[SURFACE_FRAGMENT:RF-0033]]
 
 This fragment is the only known first-person account from inside the Congruence during the active Descension period. It complicates both the ''Counterfeiters'' and the ''Ritualized Suicide'' readings. The citizen does not describe a performance of satisfaction—they describe an inability to determine whether satisfaction is what they feel. The linguistic gap they identify ("the word for the difference was taken") suggests the Doctrine of the Pose did not merely suppress dissent; it removed the cognitive tools required to distinguish compliance from belief.
 
@@ -833,6 +871,8 @@ Whether this constitutes a successful transformation of consciousness or an espe
 
 **4. THE CESSATION EVENT**
 At 12,041 AI, a massive data burst (RF-0019) was recorded globally. Simultaneously, all sensors on the planet ceased functioning.
+
+[[SURFACE_FRAGMENT:RF-0019]]
 
 The physical impact of this event was total. The planet did not merely stop its rotation; it appears to have been ''withdrawn'' from dynamic time. Every citizen, every machine, and every molecule was locked into its current configuration.
 
@@ -859,6 +899,8 @@ Unlike Pattern Alpha (Stillness) or Pattern Beta (Fracture), the collapse of the
 **2. THE EPISTEMIC VOID**
 The manifestation of what the Institute designates the ''Ixel-pattern'' (Pattern Gamma) did not invalidate the Lyceum''s logic. On the contrary, the logic remained perfect. The crisis was semantic: the population retained the *how* of their existence but lost the *why*.
 
+[[SURFACE_FRAGMENT:RF-0021]]
+
 **3. THE MASTER PROOF**
 The terminal event was the completion of ''The Master Proof.'' Designed to bind civilizational purpose to the fundamental laws of the universe, the proof was intended to end the ''Why-Fades'' by providing an unassailable reason for existence.
 
@@ -880,20 +922,28 @@ INSERT INTO cases (case_id, title, epoch_estimate, observed_pattern, sentinel_at
 **1. THE HEGEMONATE EXPERIMENT**
 Case CS-S07, colloquially known within the Institute as ''The Sentinel Zoo,'' represents the most ambitious and catastrophic attempt to empirically study the mechanics of entities institutionally designated ''Sentinels.'' The Scientific Hegemonate, a civilization defined by totalizing observational rigor, attempted to ''induce'' a manifestation by creating a pocket civilization (Habitat Gamma) and driving it toward terminal novelty closure.
 
+[[SURFACE_FRAGMENT:RF-0022]]
+
 **2. THE THRESHOLD ANOMALY**
 The experiment was designed to trigger the mandate attributed to the entity designated ''Levistra'' ([[LEVISTRA_V2|The First Vigil]]). However, as Habitat Gamma crossed the predicted 82% closure threshold, no manifestation occurred. The Hegemonate continued to tighten the ''cage,'' driving the pocket civilization into deeper and deeper stagnation.
 
 By Year 40, the lack of manifestation led to a split in the research team. Some argued the model was flawed; others suggested that the experimental context was somehow detected, and the anticipated manifestation was withheld.
+
+[[SURFACE_FRAGMENT:RF-0023]]
 
 **3. THE OBSERVER COLLAPSE**
 The terminal phase of the experiment was not a manifestation within the habitat, but a collapse within the observation deck. What the Institute designates the ''Ixel-pattern'' (Pattern Gamma) began to manifest among the researchers themselves. They retained their intellectual faculties but lost the ability to validate their own observations.
 
 This ''Epistemic Static'' suggests that by attempting to control the manifestation, the Hegemonate inadvertently turned themselves into the subject of observation.
 
+[[SURFACE_FRAGMENT:RF-0024]]
+
 **4. INSTITUTIONAL ANALYSIS**
-The Institute classifies Case CS-S07 as a ''Recursive Failure.'' The Hegemonate''s attempt to isolate the Sentinel within a controlled frame resulted in the frame expanding to include the Hegemonate. 
+The Institute classifies Case CS-S07 as a ''Recursive Failure.'' The Hegemonate''s attempt to isolate the Sentinel within a controlled frame resulted in the frame expanding to include the Hegemonate.
 
 The ''Zoo'' was not Habitat Gamma; it was the observation facility itself.
+
+[[SURFACE_FRAGMENT:RF-0025]]
 
 **5. ARCHIVAL ADVISORY**
 Personnel are reminded that the ''Contagion of Doubt'' mentioned in the Hegemonate files is a recognized epistemic hazard. Analysts should not attempt to ''solve'' the observation paradox of Case CS-S07 without a certified anchor-team.
@@ -909,8 +959,12 @@ Case CS-S08 is not a single event, but a compilation of how civilizations interp
 **2. THE ETHNOGRAPHIC COLLECTION**
 The following fragments represent a cross-section of civilizational responses to perceived refusal. These documents illustrate the ''Interpretive Residue'' left behind when a Sentinel is expected but does not manifest.
 
+[[SURFACE_FRAGMENT:RF-0026]]
+
 **3. THE PERSONAL TESTIMONY**
 The Hymns of Absence represent cultural responses—collective, ritualized, shaped by generations of retelling. The letter recovered from the Maren Compact administrative vault provides a rarer perspective: a private record of an individual who sought intervention and received nothing.
+
+[[SURFACE_FRAGMENT:RF-0034]]
 
 Governor Denn''s letter is distinct from the hymns in a critical respect: the hymns transform refusal into meaning (blessing, curse, proof, satire). Denn''s account refuses to transform it. The silence remains silence. The letter was sealed, unread, for six thousand years—a communication that found no audience, about a crisis that found no answer.
 
@@ -941,13 +995,19 @@ Case CS-S09 is the definitive study of ''Sentinel Gridlock.'' It involves the si
 **2. THE DUAL MANIFESTATION**
 In 14,312 PI, Levistra manifested in the Northern Tessellation while Caeroth manifested in the Southern Tessellation. The presence of both entities effectively ''froze'' the civilization''s development. The North felt compelled to innovate, interpreting the Vigil''s presence as a demand for change, while the South felt compelled to rest, interpreting the Watch''s presence as validation of their stillness.
 
+[[SURFACE_FRAGMENT:RF-0027]]
+
 **3. THE TRIPARTITE SPLIT**
 By 14,500 PI, the Tessellation had fractured into three distinct cultural and ontological blocs. The original unity was sacrificed to the ''Interpretive Pull'' of the Sentinels. This case demonstrates that the primary ''Interference'' of a Sentinel is often the way a civilization reorganizes its entire existence around the *interpretation* of the Sentinel''s presence.
+
+[[SURFACE_FRAGMENT:RF-0028]]
 
 **4. THE WITHDRAWAL PARADOX**
 The Sentinels withdrew in 14,728 PI, but only after their presence had fundamentally and permanently altered the civilization. Analysis of withdrawal patterns suggests the fracture fell outside the original crisis parameters for both mandates—both presences had manifested in response to what was then a unified civilization; what remained after 14,500 PI was three separate entities, none matching the configuration that had been associated with either manifestation.
 
 Whether this outcome satisfied, violated, or simply rendered irrelevant the original classification conditions is not determinable from withdrawal timing alone.
+
+[[SURFACE_FRAGMENT:RF-0029]]
 
 **5. ARCHIVAL ADVISORY**
 Personnel are cautioned against viewing Case CS-S09 as a ''Sentinel Error.'' Both entities acted within their laws. The ''Error'' was the civilization''s attempt to satisfy both simultaneously—a task that is structurally impossible within the [[OFIPER|Open Framework]].
@@ -963,13 +1023,19 @@ Case CS-S10 is the record of an attempt to perform a ''Total Synthesis'' of all 
 **2. THE RIGOR OF TRUTH**
 The Cartographer began with absolute confidence in the empirical method. By visiting sites of manifestation and cross-referencing eyewitness accounts, he intended to resolve the ''Interpretive Static'' that characterized the post-Interference world.
 
+[[SURFACE_FRAGMENT:RF-0030]]
+
 **3. THE REEDS OF CONTRADICTION**
 As the survey progressed, the Cartographer encountered ''Truth-Drift.'' The facts gathered at the beginning of the journey were invalidated by new observations. Locations that were empty one year were sites of ancient manifestations the next. The maps became a palimpsest of incompatible realities.
 
 This phenomenon is classified by the Institute as a ''Secondary Ixel-Pattern''—the invalidation not of a civilization, but of the *knowledge* of that civilization.
 
+[[SURFACE_FRAGMENT:RF-0031]]
+
 **4. THE SILENCE OF THE MAP**
 The project ended not with a completion, but with an abandonment. The Cartographer realized that any ''Complete Atlas'' would be a falsification. To map the Sentinels is to attempt to fix that which is inherently fluid. The ''Silence'' mentioned in the title is the silence of the surveyor who chooses to stop speaking rather than speak a partial truth.
+
+[[SURFACE_FRAGMENT:RF-0032]]
 
 **5. INSTITUTIONAL CONCLUSION**
 The Institute maintains Case CS-S10 as a warning to all analysts. The anthology you are currently reading is, in itself, a form of mapping. Like the Cartographer, we are attempting to bind the Sentinels to a symbolic framework. 
