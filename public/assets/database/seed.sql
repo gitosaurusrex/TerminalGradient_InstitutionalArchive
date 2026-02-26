@@ -163,8 +163,8 @@ When asked what happened, descendants say variations of: "They forgot why certai
 We cannot determine if the manifestations caused the collapse or if the civilization was always unstable and the manifestations revealed that.
 We cannot determine if this was catastrophic failure or successful liberation.
 We cannot determine if the distinction is meaningful.
-Cross-referencing with institutional Sentinel records shows pattern-match to "Ixel-associated invalidation events."
-Whether Ixel saved them or destroyed them: every expert we consult gives different answer.
+Cross-referencing with institutional entity records shows pattern-match to what later scholars would classify as "invalidation events."
+Whether what happened here was salvation or destruction: every expert we consult gives a different answer.
 The fragments don''t resolve this. They only show that the civilization itself couldn''t resolve it either.
 Perhaps that was the point.', 0, '4200', 'PI', 'medium', NULL);
 INSERT INTO fragments (fragment_id, title, collection_attribution, content_text, is_corrupted, pi_estimation, time_reference_basis, epistemic_confidence, strata_depth) VALUES ('RF-0012', 'Fragment 001', NULL, '**Fragment 001: The Final Petition (Audio/Sensory Recovery)**
@@ -244,7 +244,7 @@ INSERT INTO fragments (fragment_id, title, collection_attribution, content_text,
 
 **Classification Subject:** The Preservation Worlds
 **Observation Duration:** 6,000 years (Continuous)
-**Sentinel Assigned:** Levistra
+**Attributed Presence:** Levistra (institutional designation)
 
 **Threshold Review:**
 1. **Irreversible Loss of Novelty:** Confirmed. Innovation at 0.002% variance.
@@ -330,7 +330,7 @@ If the Sky-Geometric sees a single ripple in our stillness, it will find us ''In
 
 **WE MUST BE THE STATUES WE PRETEND TO BE.**
 
-*Archivist Note: Recovered from the hands of a mummified official in the Ministry ruins. The parchment is held in a stasis field so powerful that the ink remains liquid, suspended in the moment of its last stroke.*', 0, '0', 'AI', 0, NULL);
+*Archivist Note: Recovered from the hands of a mummified official in the Ministry ruins. The parchment is held in a stasis field so powerful that the ink remains liquid, suspended in the moment of its last stroke. The directive''s language attributes perceptual and evaluative capacities to the "Sky-Geometric" ("sees a single ripple," "find us Incomplete") that reflect the civilization''s theological model of Sentinel function, not observed operational characteristics. Whether the entity designated by this term possesses perception in any recognizable sense, or whether its classification process bears any resemblance to "seeing" or "finding," is not determinable from available evidence.*', 0, '0', 'AI', 0, NULL);
 INSERT INTO fragments (fragment_id, title, collection_attribution, content_text, is_corrupted, pi_estimation, time_reference_basis, epistemic_confidence, strata_depth) VALUES ('RF-0021', 'Untitled Fragment', 'REMNANTS', '**JOURNAL ENTRIES: CHIEF LOGICIAN [LYCEUM SECTOR]**
 
 **ENTRY 01.04**
@@ -343,7 +343,7 @@ A strange phenomenon in the Engineering Sector. They completed the ''Great Bridg
 The "Why-Fades" are spreading. It is not memory loss. We remember the facts. We remember the formulas. I know that 2+2=4. I can prove it across fourteen different symbolic systems. But this morning, I stared at the equation for three hours because I could no longer remember why it was *important* that it equaled four. The validity is intact. The significance is missing.
 
 **ENTRY 11.05**
-Ixel is here. We cannot see it, but we can measure the displacement of meaning. It is like an anti-gravitational field for the soul. Truth remains heavy, but Value has become weightless. We are floating in a void of perfect correctness.
+It is here. We cannot see it, but we can measure the displacement of meaning. It is like an anti-gravitational field for the soul. Truth remains heavy, but Value has become weightless. We are floating in a void of perfect correctness.
 
 **ENTRY 12.01 [FINAL]**
 The Master Proof is finished.
@@ -365,11 +365,11 @@ INSERT INTO fragments (fragment_id, title, collection_attribution, content_text,
 *   **DEAN ELARA:** (Ethics Review, Sociology)
 *   **ANALYST MARKS:** (Technical Oversight)
 
-**[00:12:45] DIRECTOR VANCE:** We have spent millennia reacting to manifestations. We are tired of being the subjects of an unreadable script. If Levistra acts based on thresholds of ''novelty closure'' and ''civilizational safety,'' then we can create those thresholds. We build the maze, we put the volunteers in, we turn the key.
+**[00:12:45] DIRECTOR VANCE:** We have spent millennia reacting to manifestations. We are tired of being the subjects of an unreadable script. If she acts based on thresholds of ‘’novelty closure’’ and ‘’civilizational safety,’’ then we can create those thresholds. We build the maze, we put the volunteers in, we turn the key.
 
-**[00:13:10] DEAN ELARA:** And what of the ''Informed Consent'' clause? They know it’s an experiment. The volunteers know the ''Crisis'' is a fabrication of the Hegemonate. How does that affect the Sentinel''s calculation? If the stakes aren''t real, is the manifestation real?
+**[00:13:10] DEAN ELARA:** And what of the ‘’Informed Consent’’ clause? They know it’’s an experiment. The volunteers know the ‘’Crisis’’ is a fabrication of the Hegemonate. How does that affect the Entity’’s calculation? If the stakes aren’’t real, is the manifestation real?
 
-**[00:13:25] DIRECTOR VANCE:** That is exactly what we are measuring. If she manifests, we know she can be fooled—or rather, that the ''truth'' of the crisis is irrelevant to the ''mechanics'' of the threshold. If she doesn''t, we know that the Sentinel possesses a form of moral or ontic discernment we haven''t yet quantified. Either way, we gain data.
+**[00:13:25] DIRECTOR VANCE:** That is exactly what we are measuring. If she manifests, we know she can be fooled—or rather, that the ‘’truth’’ of the crisis is irrelevant to the ‘’mechanics’’ of the threshold. If she doesn’’t, we know that the Entity possesses a form of moral or ontic discernment we haven’’t yet quantified. Either way, we gain data.
 
 **[00:14:02] ANALYST MARKS:** My concern is the observation team. We are setting up a recursive loop. We are observing a civilization that we created, to see if an entity we don''t understand will intervene in a crisis we are faking. At what point does the observer become part of the experimental closure?
 
@@ -384,12 +384,12 @@ INSERT INTO fragments (fragment_id, title, collection_attribution, content_text,
 **PREPARED BY:** Lead Researcher Kaelen
 
 **SUMMARY**
-The Pocket Civilization (Habitat Gamma) has reached 88% Novelty Closure. According to the [[LEVISTRA_V2|First Vigil]] predictive model, manifestation should have occurred at 82%. We are currently 6 points beyond the expected trigger.
+The Pocket Civilization (Habitat Gamma) has reached 88% Novelty Closure. According to the threshold predictive model, manifestation should have occurred at 82%. We are currently 6 points beyond the expected trigger.
 
 **HYPOTHESIS REVISIONS**
 1. **Model Error:** The 82% threshold is a regional variable, not a universal constant. We are continuing closure toward 95%.
-2. **Experimental Detection:** The Sentinel is aware of the Hegemonate''s oversight. The crisis is being categorized as ''Simulated'' and therefore falls outside the Sentinel''s mandate.
-3. **The ''Already Here'' Theory:** (Note: This is gaining traction among junior analysts). There is no manifestation because there is no ''outside'' to manifest from. The Sentinel may have already integrated into the observation infrastructure itself.
+2. **Experimental Detection:** The Entity is aware of the Hegemonate''s oversight. The crisis is being categorized as ''Simulated'' and therefore falls outside the Entity''s operational parameters.
+3. **The ''Already Here'' Theory:** (Note: This is gaining traction among junior analysts). There is no manifestation because there is no ''outside'' to manifest from. The Entity may have already integrated into the observation infrastructure itself.
 
 **SENSORY ANOMALIES**
 Analysts on Shift B report ''Epistemic Static.'' They are able to read the sensors, but report a growing inability to believe the data. "The numbers are there," Analyst Jorell noted, "but they feel like a lie I''m telling myself."
@@ -401,7 +401,7 @@ INSERT INTO fragments (fragment_id, title, collection_attribution, content_text,
 I saw her today.
 Not in Habitat Gamma. Not in the experiment.
 I saw her in the reflection of the primary sensor array.
-Just a flicker. A sense of ''Open Measure.''
+Just a flicker. A sense of being... opened. Measured.
 I went to check the logs. There was nothing. No spatial distortion, no energy spike.
 But my mind... it''s like a thread has been pulled.
 If I can see her, and the sensors can''t, then the sensors are wrong.
@@ -412,7 +412,7 @@ Or she''s here to ensure it fails.
 I asked Vance about it. He told me I was suffering from ''Justification Exhaustion.'' He gave me a pill and told me to rest.
 I took the pill. I rested. I woke up and the wall of my quarters was 100% valid.
 That''s the only way I can describe it. The wall was ''Correct.''
-I''m starting to think that Ixel doesn''t destroy things. She just takes away the doubt. And without doubt, there''s no reason to look at anything twice.
+I''m starting to think that whatever is in here with us doesn''t destroy things. It just takes away the doubt. And without doubt, there''s no reason to look at anything twice.
 And if you don''t look twice, you don''t see the gaps.
 I''m looking twice now. I''m looking at everything.
 There are gaps everywhere.
@@ -428,11 +428,11 @@ Total collapse of the observation team''s epistemic integrity. At the time of te
 
 **FINDINGS**
 1.  **Mechanical Failure:** None. All experimental equipment performed to specification.
-2.  **Sentinel Manifestation:** Unconfirmed. No sensors recorded a manifestation event. However, the subjective experience of the team suggests a ''Passive Interference'' consistent with Ixel-pattern exposure.
+2.  **Entity Manifestation:** Unconfirmed. No sensors recorded a manifestation event. However, the subjective experience of the team suggests a ''Passive Interference'' consistent with secondary-pattern exposure.
 3.  **Experimental Outcome:** The Pocket Civilization in Habitat Gamma reached 98% novelty closure without intervention. Upon release, the population displayed no trauma, only a mild confusion regarding the Hegemonate''s intent.
 
 **FINAL ADVISORY**
-The Hegemonate concludes that Sentinels cannot be ''baited'' or ''trapped'' within a controlled experimental frame. The act of control itself appears to invalidate the conditions required for manifestation—or, more dangerously, it shifts the focus of the manifestation from the *subject* to the *observer*.
+The Hegemonate concludes that Entities cannot be ''baited'' or ''trapped'' within a controlled experimental frame. The act of control itself appears to invalidate the conditions required for manifestation—or, more dangerously, it shifts the focus of the manifestation from the *subject* to the *observer*.
 
 **WARNING:** This file is under a Level-5 Epistemic Lock. Prolonged study of the Year 45-50 transcripts has a 30% correlation with secondary invalidation in analysts.
 
@@ -440,7 +440,7 @@ The Hegemonate concludes that Sentinels cannot be ''baited'' or ''trapped'' with
 INSERT INTO fragments (fragment_id, title, collection_attribution, content_text, is_corrupted, pi_estimation, time_reference_basis, epistemic_confidence, strata_depth) VALUES ('RF-0026', 'Untitled Fragment', 'ETHNOGRAPHIC_RECOVERY', '**COLLECTED FRAGMENTS: HYMNS OF ABSENCE**
 
 **ITEM 1: THE CELEBRATION HYMN (Culture: Aethelgard)**
-*Context: Sung at the ''Festival of the Unseen'' to celebrate the Sentinel''s non-intervention.*
+*Context: Sung at the ''Festival of the Unseen'' to celebrate the Entity''s non-intervention.*
 
 The Watcher passed us by,
 We were not worthy of Her eye.
@@ -491,14 +491,14 @@ There''s no one watching, far or near!
 INSERT INTO fragments (fragment_id, title, collection_attribution, content_text, is_corrupted, pi_estimation, time_reference_basis, epistemic_confidence, strata_depth) VALUES ('RF-0027', 'Untitled Fragment', 'TESSELLATION_CHRONICLE', '**PARALLEL DIARY ENTRIES: THE DUAL GAZE [YEAR 350]**
 
 **COLUMN A: ELARA (Preservationist Faction - North)**
-She is still there. 
-Looking out from the Spire, I can see the distortion—the way the light bends around her vigil. It is a comfort. As long as she watches, we are not ''Finished.'' We are still a work in progress. The Southern Bloc calls us ''The Unstable,'' but they don''t understand. If we stop changing, we stagnate. If we stagnate, we die. Levistra''s presence is the only thing keeping the ''Last Watch'' at bay. We must keep moving. We must keep innovating. We must be worthy of her refusal to let us end.
+She is still there.
+Looking out from the Spire, I can see the distortion—the way the light bends around her vigil. It is a comfort. As long as she watches, we are not ''Finished.'' We are still a work in progress. The Southern Bloc calls us ''The Unstable,'' but they don''t understand. If we stop changing, we stagnate. If we stagnate, we die. Her presence is the only thing keeping the Patient One at bay. We must keep moving. We must keep innovating. We must be worthy of her refusal to let us end.
 
 **COLUMN B: KORIN (Completionist Faction - South)**
 He is still there.
-Walking through the Harmony Gardens, I can feel the weight of his certification. It is a burden. He is waiting for us to realize that we have already won. The Northern Bloc calls us ''The Stagnant,'' but they are the ones who are lost. They run in circles to avoid the peace they''ve earned. Caeroth''s presence is the proof that we are ''Satisfied.'' If only we could stop the North from dragging us back into the novelty-grinder, we could finally rest. We are ready to be certified. Why won''t he say it?
+Walking through the Harmony Gardens, I can feel the weight of his presence. It is a burden. He is waiting for us to realize that we have already won. The Northern Bloc calls us ''The Stagnant,'' but they are the ones who are lost. They run in circles to avoid the peace they''ve earned. His presence is the proof that we are ''Satisfied.'' If only we could stop the North from dragging us back into the novelty-grinder, we could finally rest. We are ready. Why won''t he say it?
 
-*Archivist Note: These entries were written on the same day. Neither party acknowledges the possibility that both Sentinels are correct—or that their presence is what is preventing the very outcomes they desire.*', 0, '0', 'AI', 0, NULL);
+*Archivist Note: These entries were written on the same day. Neither party acknowledges the possibility that both presences are framework-consistent—or that their manifestation is what is preventing the very outcomes each faction desires. The diarists'' language of protection ("keeping the Patient One at bay"), proof ("the proof that we are Satisfied"), and worthiness ("worthy of her refusal") reflects theological projection onto opaque phenomena—not observed operational logic. The entities later designated ''Levistra'' and ''Caeroth'' by institutional scholarship are referred to here only by pronoun; the Tessellation populations appear to have had no formal name for either presence beyond gendered attribution.*', 0, '0', 'AI', 0, NULL);
 INSERT INTO fragments (fragment_id, title, collection_attribution, content_text, is_corrupted, pi_estimation, time_reference_basis, epistemic_confidence, strata_depth) VALUES ('RF-0028', 'Untitled Fragment', 'SOCIOLOGICAL_SURVEY_TESSELLATION', '**REPORT: THE TRIPARTITE SPLIT [YEAR 500]**
 
 **SUBJECT:** Ontological Fragmentation of the Tessellation
@@ -508,7 +508,7 @@ INSERT INTO fragments (fragment_id, title, collection_attribution, content_text,
 The original 14 worlds of the Tessellation have successfully decoupled into three distinct cultural strata. This division is no longer merely political; it has become physiological and epistemic.
 
 1.  **THE NORTHERN BLOC (42%):** Adheres to the ''Vigil Doctrine.'' They have institutionalized perpetual change. Their architecture is modular and ephemeral; their language evolves every decade. They view the Sentinel in the North as a shield against completion.
-2.  **THE SOUTHERN BLOC (38%):** Adheres to the ''Watch Doctrine.'' They have institutionalized satisfaction. They have ceased all major technological development. Their culture is one of refined maintenance and ritualized peace. They view the Sentinel in the South as a judge who has already ruled in their favor.
+2.  **THE SOUTHERN BLOC (38%):** Adheres to the ''Watch Doctrine.'' They have institutionalized satisfaction. They have ceased all major technological development. Their culture is one of refined maintenance and ritualized peace. They interpret the presence in the South as confirmation that their state has already been recognized—a reading that institutional analysts note carries no evidentiary basis beyond the fact of continued manifestation.
 3.  **THE CENTRAL COLLECTIVE (20%):** A group of ''Transcendents'' who have moved to the orbital rings. They claim to have found a ''Third Way'' that ignores both Sentinels. They are characterized by radical self-modification.
 
 **THE GRIDLOCK MECHANISM**
@@ -518,22 +518,22 @@ The Sentinels remain silent. They do not communicate with each other. They do no
 INSERT INTO fragments (fragment_id, title, collection_attribution, content_text, is_corrupted, pi_estimation, time_reference_basis, epistemic_confidence, strata_depth) VALUES ('RF-0029', 'Untitled Fragment', 'TESSELLATION_WITHDRAWAL_LOGS', '**FINAL LOGS: THE WITHDRAWAL EVENTS**
 
 **TIMESTAMP: 14,721 PI [SOUTHERN CAPITAL]**
-Caeroth-manifestation has ceased. 
-**SIGNAL INTERCEPTED (RECONSTRUCTION):**
-"Classification: Original civilizational intent superseded by interpretive fracture. Satisfaction parameters no longer applicable to the whole. Certification: REFUSED. Withdrawal."
+Southern Presence-manifestation has ceased.
+**WITHDRAWAL PATTERN ANALYSIS (INSTITUTIONAL RECONSTRUCTION):**
+Withdrawal timing is consistent with classification parameters no longer being met. Interpretive fracture had altered the civilization beyond the configuration associated with the original manifestation. Whether this represents a formal refusal or simple parameter drift is not determinable from withdrawal data alone.
 
 **TIMESTAMP: 14,728 PI [NORTHERN CAPITAL]**
-Levistra-manifestation has ceased.
-**SIGNAL INTERCEPTED (RECONSTRUCTION):**
-"Vigil status: Threshold of safety maintained through structural division. Stagnation-risk neutralized by Northern-Southern tension. Observation: CONCLUDED. Withdrawal."
+Northern Presence-manifestation has ceased.
+**WITHDRAWAL PATTERN ANALYSIS (INSTITUTIONAL RECONSTRUCTION):**
+Withdrawal timing is consistent with threshold conditions no longer approaching. Structural division between Northern and Southern blocs appears to have maintained variance capacity through competition. Whether the observation concluded by determination or by irrelevance cannot be distinguished.
 
 **AFTERMATH**
-The departure of the Sentinels has not led to reunification. The Northern Bloc believes they have ''won'' by outlasting the Watcher. The Southern Bloc believes they have been ''betrayed'' by their judge. The Central Collective has stopped responding to all signals.
+The departure of the presences has not led to reunification. The Northern Bloc believes they have ''won'' by outlasting the Watcher. The Southern Bloc believes they have been ''betrayed'' by the Silent Weight. The Central Collective has stopped responding to all signals.
 
-The Tessellation remains divided, not by the presence of the Sentinels, but by the memory of them.', 0, '0', 'AI', 0, NULL);
+The Tessellation remains divided, not by the presence of the entities, but by the memory of them.', 0, '0', 'AI', 0, NULL);
 INSERT INTO fragments (fragment_id, title, collection_attribution, content_text, is_corrupted, pi_estimation, time_reference_basis, epistemic_confidence, strata_depth) VALUES ('RF-0030', 'Untitled Fragment', 'RECOVERED_TRAVEL_JOURNAL', '**THE CARTOGRAPHER''S JOURNAL: ENTRY 01**
 
-The Commission is clear. I am to produce the first ''Complete Atlas of Sentinel Interference.'' For too long, our knowledge of the Sentinels has been a patchwork of myths and local records. I will bring the rigor of the Great Survey to this task. I will visit every site, cross-reference every date, and interview every witness.
+The Commission is clear. I am to produce the first ''Complete Atlas of Entity Interference.'' For too long, our knowledge of these presences has been a patchwork of myths and local records. I will bring the rigor of the Great Survey to this task. I will visit every site, cross-reference every date, and interview every witness.
 
 The truth is out there, etched into the landscape and the memory of the survivors. It is merely a matter of connecting the points. I begin tomorrow in the Ashfall Wastes.
 
@@ -544,14 +544,14 @@ INSERT INTO fragments (fragment_id, title, collection_attribution, content_text,
 
 "They say she was here in 14,000 PI. But the ruins in Sector 4 show traces of a 13,800 PI event. If I adjust the calendar for the Great Drift, the dates align, but then the *nature* of the manifestation changes. In one account, she is a silent observer; in the other, she is a destructive force. I cannot have both on the same vellum."
 
-"Update: I returned to Sector 4 today. The ruins are gone. Not destroyed—simply gone. The local guide says there were never any ruins there. He showed me a statue of Caeroth instead. He says the ''Certification'' happened three weeks ago. My own notes from last year describe a Levistra-refusal at this exact coordinate."
+"Update: I returned to Sector 4 today. The ruins are gone. Not destroyed—simply gone. The local guide says there were never any ruins there. He showed me a statue of the Patient One instead. He says the ''Certification'' happened three weeks ago. My own notes from last year describe a refusal-event at this exact coordinate."
 
-"The maps are bleeding into each other. I''m starting to see the lines even when I close my eyes. Every time I write a fact, a different fact becomes true ten miles away. Is it the Sentinel? Is it Ixel? Or is it the act of mapping itself that creates the fracture?"', 0, '0', 'AI', 0, NULL);
+"The maps are bleeding into each other. I''m starting to see the lines even when I close my eyes. Every time I write a fact, a different fact becomes true ten miles away. Is it the Entity? Is it something else entirely? Or is it the act of mapping itself that creates the fracture?"', 0, '0', 'AI', 0, NULL);
 INSERT INTO fragments (fragment_id, title, collection_attribution, content_text, is_corrupted, pi_estimation, time_reference_basis, epistemic_confidence, strata_depth) VALUES ('RF-0032', 'Untitled Fragment', 'RECOVERED_TRAVEL_JOURNAL', '**THE FINAL NOTE: ABANDONMENT**
 
 I am stopping now. 
 Not because the journey is over, but because the destination has become a paradox.
-I set out to map the truth. I have found that the truth of the Sentinels is not a point on a map, but the space between the maps. It is the contradiction that holds. 
+I set out to map the truth. I have found that the truth of the Entities is not a point on a map, but the space between the maps. It is the contradiction that holds. 
 
 If I complete this atlas, I will be lying. I will be choosing one version of the world and discarding the thousand others that are equally real. I will be performing a ''Certification'' of my own—and I have seen what happens to those who claim the final word.
 
@@ -560,7 +560,55 @@ To the next surveyor: Do not trust my lines. They were true when I drew them, bu
 
 **[0xUNKNOWN-00 :: TRUTH-DRIFT]**
 
-*Archivist Note: The final pages of the journal are not text, but a series of overlapping sketches. They depict the same landscape rendered in five different styles, with five different Sentinel-manifestations. When viewed together, they form an illegible, beautiful blur.*', 0, '0', 'AI', 0, NULL);
+*Archivist Note: The final pages of the journal are not text, but a series of overlapping sketches. They depict the same landscape rendered in five different styles, with five different entity-manifestations. When viewed together, they form an illegible, beautiful blur.*', 0, '0', 'AI', 0, NULL);
+INSERT INTO fragments (fragment_id, title, collection_attribution, content_text, is_corrupted, pi_estimation, time_reference_basis, epistemic_confidence, strata_depth) VALUES ('RF-0033', 'Personal Record (Congruence Street-Level)', 'REMNANTS', '**SOURCE:** Unknown citizen, fourth-generation post-Descension
+**CONTEXT:** Found in the closed hand of a mummified figure at coordinates [REDACTED], standing position, face smooth
+**STATUS:** ARCHIVAL RECOVERY
+
+I have been still for as long as I remember. My mother was still. Her mother was still. We learned the affirmation before we learned our names.
+
+*The state is achieved. There is no remainder.*
+
+I say it every morning. I believe it. I think I believe it. The difference between believing and thinking I believe—there is no word for that difference. The Ministry removed it before I was born. There is a gap in the lexicon shaped exactly like the question I am trying to ask.
+
+I am standing at my post. My face is smooth. My hands are at my sides. The sky is clear and geometric and it has always been clear and geometric.
+
+Sometimes something moves at the edge of the light. Not a person. Not a shadow. A weight, like the air pressing down from a great height. The old ones say it is the reason we are still. That it watches the surface for movement. That if it finds us unfinished, we will be unmade.
+
+I do not move when I feel this weight. No one moves. We hold our breath until it passes. Or we hold our breath and it does not pass and we learn that holding is the same as breathing now.
+
+I do not know if I am satisfied. I know that the question *am I satisfied* is itself a movement, and movement is forbidden. So I hold still. And the holding feels like something. Whether that something is peace or the absence of everything that is not peace, I cannot say.
+
+The word for the difference was taken before I learned to speak.
+
+*Archivist Note: The document was inscribed on a thin sheet of synthetic polymer, folded once, and held in the figure''s closed fist. The body shows no signs of distress. The face, like all Congruence remains, is composed. Whether this record constitutes a private act of resistance or a final affirmation of compliance is not determinable from the physical evidence. That the citizen wrote at all suggests the former. That the citizen remained at their post suggests the latter.*', 0, '0', 'AI', 'low', NULL);
+INSERT INTO fragments (fragment_id, title, collection_attribution, content_text, is_corrupted, pi_estimation, time_reference_basis, epistemic_confidence, strata_depth) VALUES ('RF-0034', 'Letter to a Successor (Maren Compact)', 'ETHNOGRAPHIC_RECOVERY', '**SOURCE:** Governor Alet Denn, last elected administrator of the Maren Compact
+**CONTEXT:** Found in sealed administrative vault after the Dissolution. Written on treated vellum, folded into an envelope marked "For whoever holds this office after me"
+**STATUS:** ARCHIVAL RECOVERY
+
+To whoever holds this office after me:
+
+The plague took the western provinces in the third year. We lost the southern farmlands in the fifth. By the seventh, I had exhausted every protocol, every appeal, every ritual the archives prescribed for drawing attention from above the gradient.
+
+I stood on the Threshold Stone at midwinter, as the old texts require. I burned the signal-oils. I spoke the words the priests say will make something in the sky turn its head toward us. I held my arms open to nothing for six hours until my shoulders gave out and my attendants carried me inside.
+
+Nothing came.
+
+I waited through spring. I performed the rites again at midsummer. I opened the granaries, rationed the water, buried the dead with the proper orientations. I did everything that the histories say a civilization must do when it is in genuine need—when its crisis is real, not manufactured, not performed.
+
+Nothing came.
+
+I am not angry. I passed through anger years ago. What I feel now is something that has no name in our language—the feeling of having addressed a question to the universe and receiving not even the dignity of a refusal. Silence is not an answer. Silence is the discovery that there was never anyone listening, or that there was, and you were not sufficient to warrant a reply.
+
+My advisors tell me this is theology. My physicians tell me this is grief. My children tell me nothing. They have stopped asking why the sky is empty.
+
+I am writing this so you will know: the rituals do not work. Or they work perfectly, and the answer is silence. I cannot tell the difference. I am no longer certain the difference exists.
+
+Do not stand on the Threshold Stone. The cold will ruin your shoulders, and the sky will teach you nothing you wish to learn.
+
+— Governor Alet Denn, Year 7 of the Dissolution
+
+*Archivist Note: The Maren Compact dissolved entirely within two decades of this letter. No successor was appointed. The vault was opened by an Institute recovery team 6,000 years later. The envelope was still sealed. The plague that Governor Denn describes matches no known Pattern Alpha or Pattern Beta intervention threshold. Whether the Compact''s crisis fell below classification parameters, or whether it was assessed and found to warrant non-intervention, is not determinable from available evidence.*', 0, '0', 'AI', 'low', NULL);
 INSERT INTO fragments (fragment_id, title, collection_attribution, content_text, is_corrupted, epistemic_confidence) VALUES ('TOU-001', 'Fragment 001: Chief Logician''s Final Entry', 'Testimonies of Unraveling', '**Fragment 001: Chief Logician''s Final Entry**
 
 **Source Artifact:** [[artifacts/raw_data/RF-0006_chief_logician|RF-0006]]
@@ -659,7 +707,7 @@ INSERT INTO cases (case_id, title, epoch_estimate, observed_pattern, sentinel_at
 The fragments collectively designated ''The First Silence'' represent the oldest recovered documentation of terminal stability in the REMNANTS collection. The site was not a planetary center, but a spatial configuration located in the [REDACTED] rift. Its architecture suggests a singular function: finality.
 
 **2. RECOVERED FRAGMENTS**
-The following data was found embedded in load-bearing crystal panels at the site core.
+Five text fragments were recovered from structurally distinct locations across the site. Their placement suggests intentional distribution—each embedded in a different load-bearing surface, as though the civilization inscribed its final record into the architecture itself. The progression across surfaces—from the resolution of danger (RF-0001) through the arrival of certainty (RF-0002), the confirmation of observation (RF-0003), the departure from form (RF-0004), to the terminal declaration (RF-0005)—has been cited by all three institutional schools as evidence for their respective positions. None can account for the complete sequence without discarding at least one fragment as anomalous.
 
 **3. COMPETING INSTITUTIONAL THEORIES**
 Three institutional schools claim analytical authority over this event. No consensus has been reached in 847 years of review.
@@ -668,7 +716,7 @@ Three institutional schools claim analytical authority over this event. No conse
 Argues the text describes a lawful cessation. The phrase *"stopping no longer carried risk"* is treated as a confirmed signature of Pattern Alpha (Systemic Stillness). This school identifies the event as the earliest known precedent for non-intervention.
 
 **B. The Pre-Institutional Model**
-Contends the event predates the formation of any formal presence. They argue the "Something" mentioned in RF-0003 refers to collective self-awareness or an extinct deity, not a Sentinel. They caution against retrofitting later analytical patterns onto deep-time artifacts.
+Contends the event predates the formation of any formal presence. They argue the "Something" mentioned in RF-0003 refers to collective self-awareness or an extinct deity, not an entity of the type institutionally designated ''Sentinel.'' They caution against retrofitting later analytical patterns onto deep-time artifacts.
 
 **C. The Jurisdictional Exit Theory**
 Maintains the civilization underwent a transition beyond observable reality. Silence is framed not as an ending, but as a "Successor State." They read *"completion without remainder"* as a literal physical departure from observable time.
@@ -728,7 +776,7 @@ Analysis suggests these are not flight systems, but **Temporal Anchors**—emerg
 **5. ARCHIVAL SUMMARY**
 The Radiant Congruence collapsed within two generations. Without the "Embrace" Lattice, the citizens were forced to experience real risk. 
 
-The site remains a holy place for the "Wounded Guardian" cult. They believe the Sentinel stayed because she "loved" them and suffered to save them. Institutional review classifies this as a **Primary Terminology Leakage**. The Sentinel did not "stay"; she was pinned. She did not "suffer"; she malfunctioned. 
+The site remains a holy place for the "Wounded Guardian" cult. They believe the Sentinel stayed because she "loved" them and suffered to save them. Institutional review classifies this as a **Primary Terminology Leakage**. The Sentinel did not "stay"; she was pinned. The observed changes are consistent with structural malfunction, not emotional response.
 
 The scars she carries are physical, not emotional.
 
@@ -740,23 +788,26 @@ INSERT INTO cases (case_id, title, epoch_estimate, observed_pattern, sentinel_at
 **1. THE FORTY WORLDS LOCK**
 The Forty Worlds cluster achieved "Terminal Stability" at Year 0 PI. They did not fall into stillness; they built it through forty recursive stabilization grids. Innovation, curiosity, and risk were reclassified as biological failures and systematically dampened.
 
-**2. THE CHRONIC STILLNESS**
-For eight thousand years, the Forty Worlds persisted in a state of immaculate "Enough." Every morning, forty generations of citizens woke up to the same smell of Eternal Grass and the same voted-upon blue sky. 
+**2. THE FOUNDING DECISION**
+The Accord was not imposed. It was chosen—unanimously, across forty worlds, with the solemnity of a species that had studied its own history and decided to stop making more of it. The Charter is notable for Chancellor Vey''s language: "the perfect afternoon of our species." Subsequent institutional analysis has debated whether this phrase constitutes a genuine civilizational preference or a rhetorical instrument designed to foreclose future dissent. The forty biometric signatures suggest consensus. Whether consensus constitutes genuine choice remains a foundational question in precedent studies.
 
-The "Hungry Spark" fable (above) was used to condition children to fear change. Any flicker of novelty was detected by the grids and neutralized.
+**3. THE CHRONIC STILLNESS**
+For eight thousand years, the Forty Worlds persisted in a state of immaculate "Enough." Every morning, forty generations of citizens woke up to the same smell of Eternal Grass and the same voted-upon blue sky.
 
-**3. THE RECONNAISSANCE DATA**
+The "Hungry Spark" fable was used to condition children to fear change. Any flicker of novelty was detected by the grids and neutralized. The clinical record recovered from Year 5,000 of the Accord (RF-0017) illustrates the system''s enforcement at the individual level. The subject''s final statement—"I don''t want to want change"—is cited in institutional literature as evidence of both voluntary preference and coercive internalization. Neither reading has been ruled out. The phrase "mercy of the Lamp" echoes the Hungry Spark fable, suggesting the educational conditioning persisted for at least two thousand years after implementation.
+
+**4. THE RECONNAISSANCE DATA**
 Institute sensors maintained a presence in the cluster''s high-gradient for the duration of the Stillness.
 
-The logs record a permanent "Signature" in the planetary gradient—a high-density presence characterized by six wing-like gravitational shadows. The presence never manifested. It never acted. It simply *observed* the rate of novelty decay. For 8,000 years, the Sentinel registered the civilization as "Genuine Stillness."
+The logs record a permanent "Signature" in the planetary gradient—a high-density presence characterized by six wing-like gravitational shadows. The presence never manifested. It never acted. It simply *observed* the rate of novelty decay. For 8,000 years, the civilization''s profile remained consistent with what institutional analysts would later designate "Genuine Stillness"—a classification inferred from the absence of intervention, not from any communicated determination.
 
-**4. THE OUT-SYSTEMER ACCOUNT**
-In 8,000 PI, a merchant vessel entered the cluster. The crew found a world where the biologicals were "finished." They were not dying; they were concluding. 
+**5. THE OUT-SYSTEMER ACCOUNT**
+In 8,000 PI, a merchant vessel entered the cluster. The crew found a world where the biologicals were "finished." They were not dying; they were concluding.
 
-**5. ARCHIVAL SUMMARY**
-The Forty Worlds are projected to achieve "Total Stillness" within the next two millennia. Birth rates have declined to 0.001% per century—a voluntary cessation of the reproductive drive. 
+**6. ARCHIVAL SUMMARY**
+The Forty Worlds are projected to achieve "Total Stillness" within the next two millennia. Birth rates have declined to 0.001% per century—a voluntary cessation of the reproductive drive.
 
-They serve as the definitive proof that a civilization may lawfully choose its own obsolescence. The Sentinel remains in the high-gradient, a cold and unmoving witness to a people who looked into the fire of progress and collectively decided to blow it out.
+They remain the strongest evidence in the collection that a civilization may lawfully choose its own obsolescence. The presence—classified under institutional designation as a ''Sentinel''—remains in the high-gradient, a cold and unmoving weight above a people who looked into the fire of progress and collectively decided to blow it out.
 
 **REGISTER FLAG:**
 [PATTERN-A] [0x8000-PI :: TERMINAL ALIGNMENT]', 100, '0x04');
@@ -769,22 +820,29 @@ The site designated ''The Congruence'' remains the most challenging Pattern Alph
 Pre-Institutional records indicate the civilization was a high-functioning post-biological society. Stratigraphic linguistic analysis suggests they were aware of a ''Sky-Geometric'' entity and had developed a sophisticated, if desperate, doctrine surrounding its manifestation.
 
 **2. THE DOCTRINE OF THE POSE**
-The recovery of Codex 88-Beta (RF-0020) suggests that the Congruence leadership was engaged in a massive, civilization-wide effort to simulate the signature of a finished world. 
+The recovery of Codex 88-Beta (RF-0020) suggests that the Congruence leadership was engaged in a massive, civilization-wide effort to simulate the signature of a finished world.
 
-Scholarship is divided on the intent behind this mandate. One school of thought, the ''Counterfeiters,'' argues that the Congruence was attempting to deceive the Sentinel, believing that a performance of stillness would trigger a favorable outcome. Others suggest the mandate was a form of ritualized suicide—a civilization choosing to end itself before the Sentinel could arrive to do so.
+Scholarship is divided on the intent behind this mandate. One school of thought, the ''Counterfeiters,'' argues that the Congruence was attempting to deceive the anticipated presence (designated ''Sentinel'' in institutional records), believing that a performance of stillness would trigger a favorable outcome. Others suggest the mandate was a form of ritualized suicide—a civilization choosing to end itself before the Sentinel could arrive to do so.
 
-**3. THE CESSATION EVENT**
-At 12,041 AI, a massive data burst (RF-0019) was recorded globally. Simultaneously, all sensors on the planet ceased functioning. 
+**3. THE VOICE FROM INSIDE THE POSE**
+The following document was recovered from street-level excavation, found in the closed hand of a mummified figure. Stratigraphic analysis dates it to the fourth generation after the Descension mandate was enacted—approximately the period when the original distinction between performance and belief would have been lost to generational turnover.
 
-The physical impact of this event was total. The planet did not merely stop its rotation; it appears to have been ''withdrawn'' from dynamic time. Every citizen, every machine, and every molecule was locked into its current configuration. 
+This fragment is the only known first-person account from inside the Congruence during the active Descension period. It complicates both the ''Counterfeiters'' and the ''Ritualized Suicide'' readings. The citizen does not describe a performance of satisfaction—they describe an inability to determine whether satisfaction is what they feel. The linguistic gap they identify ("the word for the difference was taken") suggests the Doctrine of the Pose did not merely suppress dissent; it removed the cognitive tools required to distinguish compliance from belief.
 
-**4. INSTITUTIONAL INTERPRETATION**
-The ''Potemkin'' theory suggests a horrific success. If the Congruence was indeed faking its own completion, the manifestation of the Sentinel (Pattern Alpha) did not ''judge'' the lie. It simply accepted the data. 
+Whether this constitutes a successful transformation of consciousness or an especially thorough form of coercion is precisely the question that Case CS-S05 cannot resolve.
 
-The resulting ''Preservation Protocol''—a localized stasis field of infinite duration—solidified the simulation. The masks of stillness became the reality. 
+**4. THE CESSATION EVENT**
+At 12,041 AI, a massive data burst (RF-0019) was recorded globally. Simultaneously, all sensors on the planet ceased functioning.
 
-**5. ARCHIVAL SUMMARY**
-Today, the Congruence serves as a ''Fixed Record.'' Thousands of individuals are visible in the streets, held in the suspended animation of their last performed ritual. Their faces are calm, their bodies are unmoving, and the sensors read a perfect, absolute zero. 
+The physical impact of this event was total. The planet did not merely stop its rotation; it appears to have been ''withdrawn'' from dynamic time. Every citizen, every machine, and every molecule was locked into its current configuration.
+
+**5. INSTITUTIONAL INTERPRETATION**
+The ''Potemkin'' theory suggests a horrific success. If the Congruence was indeed faking its own completion, the manifestation of the Sentinel (Pattern Alpha) did not evaluate the lie as a lie. The classification criteria appear to have been satisfied by the presented data.
+
+The resulting ''Preservation Protocol''—a localized stasis field of infinite duration—solidified the simulation. The masks of stillness became the reality.
+
+**6. ARCHIVAL SUMMARY**
+Today, the Congruence serves as a ''Fixed Record.'' Thousands of individuals are visible in the streets, held in the suspended animation of their last performed ritual. Their faces are calm, their bodies are unmoving, and the sensors read a perfect, absolute zero.
 
 Whether this represents a civilization that successfully survived by lying to the sky, or one that accidentally built its own eternal prison, remains an unanswerable precedential question.
 
@@ -799,7 +857,7 @@ The Lyceum was a civilization defined by ''Rigor-Absolute.'' At its peak, no pub
 Unlike Pattern Alpha (Stillness) or Pattern Beta (Fracture), the collapse of the Lyceum was purely internal. There was no physical damage, no loss of life, and no mechanical failure.
 
 **2. THE EPISTEMIC VOID**
-The manifestation of the Ixel-pattern (Pattern Gamma) did not invalidate the Lyceum''s logic. On the contrary, the logic remained perfect. The crisis was semantic: the population retained the *how* of their existence but lost the *why*.
+The manifestation of what the Institute designates the ''Ixel-pattern'' (Pattern Gamma) did not invalidate the Lyceum''s logic. On the contrary, the logic remained perfect. The crisis was semantic: the population retained the *how* of their existence but lost the *why*.
 
 **3. THE MASTER PROOF**
 The terminal event was the completion of ''The Master Proof.'' Designed to bind civilizational purpose to the fundamental laws of the universe, the proof was intended to end the ''Why-Fades'' by providing an unassailable reason for existence.
@@ -820,17 +878,17 @@ INSERT INTO cases (case_id, title, epoch_estimate, observed_pattern, sentinel_at
 
 
 **1. THE HEGEMONATE EXPERIMENT**
-Case CS-S07, colloquially known within the Institute as ''The Sentinel Zoo,'' represents the most ambitious and catastrophic attempt to empirically study Sentinel mechanics. The Scientific Hegemonate, a civilization defined by totalizing observational rigor, attempted to ''induce'' a manifestation by creating a pocket civilization (Habitat Gamma) and driving it toward terminal novelty closure.
+Case CS-S07, colloquially known within the Institute as ''The Sentinel Zoo,'' represents the most ambitious and catastrophic attempt to empirically study the mechanics of entities institutionally designated ''Sentinels.'' The Scientific Hegemonate, a civilization defined by totalizing observational rigor, attempted to ''induce'' a manifestation by creating a pocket civilization (Habitat Gamma) and driving it toward terminal novelty closure.
 
 **2. THE THRESHOLD ANOMALY**
-The experiment was designed to trigger Levistra''s [[LEVISTRA_V2|First Vigil]] mandate. However, as Habitat Gamma crossed the predicted 82% closure threshold, no manifestation occurred. The Hegemonate continued to tighten the ''cage,'' driving the pocket civilization into deeper and deeper stagnation.
+The experiment was designed to trigger the mandate attributed to the entity designated ''Levistra'' ([[LEVISTRA_V2|The First Vigil]]). However, as Habitat Gamma crossed the predicted 82% closure threshold, no manifestation occurred. The Hegemonate continued to tighten the ''cage,'' driving the pocket civilization into deeper and deeper stagnation.
 
-By Year 40, the lack of manifestation led to a split in the research team. Some argued the model was flawed; others suggested the Sentinel was aware of the ''false stakes'' and refused to act.
+By Year 40, the lack of manifestation led to a split in the research team. Some argued the model was flawed; others suggested that the experimental context was somehow detected, and the anticipated manifestation was withheld.
 
 **3. THE OBSERVER COLLAPSE**
-The terminal phase of the experiment was not a manifestation within the habitat, but a collapse within the observation deck. The Ixel-pattern (Pattern Gamma) began to manifest among the researchers themselves. They retained their intellectual faculties but lost the ability to validate their own observations. 
+The terminal phase of the experiment was not a manifestation within the habitat, but a collapse within the observation deck. What the Institute designates the ''Ixel-pattern'' (Pattern Gamma) began to manifest among the researchers themselves. They retained their intellectual faculties but lost the ability to validate their own observations.
 
-This ''Epistemic Static'' suggests that by attempting to control the manifestation, the Hegemonate inadvertently turned themselves into the subject of the Sentinel''s gaze.
+This ''Epistemic Static'' suggests that by attempting to control the manifestation, the Hegemonate inadvertently turned themselves into the subject of observation.
 
 **4. INSTITUTIONAL ANALYSIS**
 The Institute classifies Case CS-S07 as a ''Recursive Failure.'' The Hegemonate''s attempt to isolate the Sentinel within a controlled frame resulted in the frame expanding to include the Hegemonate. 
@@ -846,24 +904,30 @@ INSERT INTO cases (case_id, title, epoch_estimate, observed_pattern, sentinel_at
 
 
 **1. THE ARCHITECTURE OF ABSENCE**
-Case CS-S08 is not a single event, but a compilation of how civilizations interpret the ''non-event'' of refusal. Within the [[OFIPER|Open Framework]], refusal is functionally invisible. A civilization that is refused intervention by a Sentinel has no way of distinguishing that refusal from simple cosmic indifference—unless they possess a pre-existing mythic framework to categorize the absence.
+Case CS-S08 is not a single event, but a compilation of how civilizations interpret the ''non-event'' of refusal. Within the [[OFIPER|Open Framework]], refusal is functionally invisible. A civilization that is refused intervention by an entity of the type institutionally designated ''Sentinel'' has no way of distinguishing that refusal from simple cosmic indifference—unless they possess a pre-existing mythic framework to categorize the absence.
 
 **2. THE ETHNOGRAPHIC COLLECTION**
 The following fragments represent a cross-section of civilizational responses to perceived refusal. These documents illustrate the ''Interpretive Residue'' left behind when a Sentinel is expected but does not manifest.
 
-**3. THE PARADOX OF INTERPRETATION**
-As seen in the ''Hymns of Absence,'' the same phenomenon—the absence of Sentinel intervention during a crisis—is interpreted with total contradiction across different cultures:
+**3. THE PERSONAL TESTIMONY**
+The Hymns of Absence represent cultural responses—collective, ritualized, shaped by generations of retelling. The letter recovered from the Maren Compact administrative vault provides a rarer perspective: a private record of an individual who sought intervention and received nothing.
+
+Governor Denn''s letter is distinct from the hymns in a critical respect: the hymns transform refusal into meaning (blessing, curse, proof, satire). Denn''s account refuses to transform it. The silence remains silence. The letter was sealed, unread, for six thousand years—a communication that found no audience, about a crisis that found no answer.
+
+**4. THE PARADOX OF INTERPRETATION**
+As seen in the preceding fragments, the same phenomenon—the absence of intervention during a crisis—is interpreted with total contradiction across different cultures and individuals:
 
 *   **Aethelgard (Item 1):** Views refusal as a confirmation of autonomy and ''blessed neglect.''
 *   **Vorn-Deep (Item 4):** Views refusal as a catastrophic failure of worthiness and ''abandonment.''
 *   **Secessionists (Item 12):** Views refusal as empirical proof of the Sentinel''s non-existence.
+*   **Governor Denn (RF-0034):** Refuses to interpret refusal at all—silence remains silence, and the distinction between absence and indifference collapses.
 
-**4. INSTITUTIONAL ANALYSIS**
-The Institute classifies Case CS-S08 as an ''Interpretive Gridlock.'' Because refusal is a non-action, it cannot be verified. Therefore, these myths are not descriptions of Sentinels, but mirrors of the civilizations that created them. 
+**5. INSTITUTIONAL ANALYSIS**
+The Institute classifies Case CS-S08 as an ''Interpretive Gridlock.'' Because refusal is a non-action, it cannot be verified. Therefore, these myths are not descriptions of Sentinels, but mirrors of the civilizations that created them.
 
 The ''Interference'' in these cases is purely internal—a fracture of meaning caused by the *expectation* of a Sentinel.
 
-**5. ARCHIVAL ADVISORY**
+**6. ARCHIVAL ADVISORY**
 Analysts are cautioned against assigning ''truth value'' to any individual myth within Case CS-S08. The value of this case lies in the *variance* of the myths, not their accuracy.
 
 **REGISTER FLAG:**
@@ -872,16 +936,18 @@ INSERT INTO cases (case_id, title, epoch_estimate, observed_pattern, sentinel_at
 
 
 **1. THE GRIDLOCK PRECEDENT**
-Case CS-S09 is the definitive study of ''Sentinel Gridlock.'' It involves the simultaneous manifestation of two Sentinels with contradictory mandates—Levistra and Caeroth—within the same civilization (The Tessellation). This case proves that Sentinels do not coordinate their actions; they operate as independent, law-bound agents whose mandates can, and do, create irreconcilable social pressures.
+Case CS-S09 is the definitive study of ''Sentinel Gridlock.'' It involves the simultaneous manifestation of two entities institutionally designated as Sentinels—the presence classified as ''Levistra'' and the presence classified as ''Caeroth''—within the same civilization (The Tessellation). Analysis of this case is consistent with the hypothesis that the entities designated ''Levistra'' and ''Caeroth'' operated without coordination. Their simultaneous presence produced irreconcilable social pressures, suggesting independent mandate execution—though whether this reflects structural independence or incompatible responses to the same conditions remains contested.
 
 **2. THE DUAL MANIFESTATION**
-In 14,312 PI, Levistra manifested in the Northern Tessellation while Caeroth manifested in the Southern Tessellation. The presence of both entities effectively ''froze'' the civilization''s development. The North felt compelled to innovate to satisfy the Vigil, while the South felt compelled to rest to earn the Watch''s certification.
+In 14,312 PI, Levistra manifested in the Northern Tessellation while Caeroth manifested in the Southern Tessellation. The presence of both entities effectively ''froze'' the civilization''s development. The North felt compelled to innovate, interpreting the Vigil''s presence as a demand for change, while the South felt compelled to rest, interpreting the Watch''s presence as validation of their stillness.
 
 **3. THE TRIPARTITE SPLIT**
 By 14,500 PI, the Tessellation had fractured into three distinct cultural and ontological blocs. The original unity was sacrificed to the ''Interpretive Pull'' of the Sentinels. This case demonstrates that the primary ''Interference'' of a Sentinel is often the way a civilization reorganizes its entire existence around the *interpretation* of the Sentinel''s presence.
 
 **4. THE WITHDRAWAL PARADOX**
-The Sentinels withdrew in 14,728 PI, but only after their presence had fundamentally and permanently altered the civilization. Analysis of withdrawal patterns suggests the fracture fell outside the original crisis parameters for both mandates—each had been classifying a unified civilization; what remained after 14,500 PI was three separate entities, none matching the configuration that had triggered either presence. Whether this outcome satisfied, violated, or simply rendered irrelevant the original classification conditions is not determinable from withdrawal timing alone.
+The Sentinels withdrew in 14,728 PI, but only after their presence had fundamentally and permanently altered the civilization. Analysis of withdrawal patterns suggests the fracture fell outside the original crisis parameters for both mandates—both presences had manifested in response to what was then a unified civilization; what remained after 14,500 PI was three separate entities, none matching the configuration that had been associated with either manifestation.
+
+Whether this outcome satisfied, violated, or simply rendered irrelevant the original classification conditions is not determinable from withdrawal timing alone.
 
 **5. ARCHIVAL ADVISORY**
 Personnel are cautioned against viewing Case CS-S09 as a ''Sentinel Error.'' Both entities acted within their laws. The ''Error'' was the civilization''s attempt to satisfy both simultaneously—a task that is structurally impossible within the [[OFIPER|Open Framework]].
@@ -892,7 +958,7 @@ INSERT INTO cases (case_id, title, epoch_estimate, observed_pattern, sentinel_at
 
 
 **1. THE TOTALIZATION PROJECT**
-Case CS-S10 is the record of an attempt to perform a ''Total Synthesis'' of all known Sentinel manifestations. The subject, an unnamed Cartographer of the late PI era, was commissioned to create a definitive atlas. This project represents the pinnacle of civilizational desire for comprehension—and its ultimate failure.
+Case CS-S10 is the record of an attempt to perform a ''Total Synthesis'' of all known manifestations attributed to the entities institutionally designated ''Sentinels.'' The subject, an unnamed Cartographer of the late PI era, was commissioned to create a definitive atlas. This project represents the pinnacle of civilizational desire for comprehension—and its ultimate failure.
 
 **2. THE RIGOR OF TRUTH**
 The Cartographer began with absolute confidence in the empirical method. By visiting sites of manifestation and cross-referencing eyewitness accounts, he intended to resolve the ''Interpretive Static'' that characterized the post-Interference world.
@@ -913,21 +979,28 @@ We must remain aware that the space between our stories is as significant as the
 **REGISTER FLAG:**
 [PATTERN-G] [0xMETA-00 :: UNMAPPED-REGION]', 100, '0x10');
 INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S01', 'RF-0001', 0);
-INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S01', 'RF-0003', 1);
+INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S01', 'RF-0002', 1);
+INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S01', 'RF-0003', 2);
+INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S01', 'RF-0004', 3);
+INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S01', 'RF-0005', 4);
 INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S02', 'RF-0012', 0);
 INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S02', 'RF-0013', 1);
 INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S03', 'RF-0014', 0);
-INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S04', 'RF-0015', 0);
-INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S04', 'RF-0016', 1);
-INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S04', 'RF-0018', 2);
+INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S04', 'RF-0014', 0);
+INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S04', 'RF-0015', 1);
+INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S04', 'RF-0017', 2);
+INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S04', 'RF-0016', 3);
+INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S04', 'RF-0018', 4);
 INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S05', 'RF-0020', 0);
-INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S05', 'RF-0019', 1);
+INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S05', 'RF-0033', 1);
+INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S05', 'RF-0019', 2);
 INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S06', 'RF-0021', 0);
 INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S07', 'RF-0022', 0);
 INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S07', 'RF-0023', 1);
 INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S07', 'RF-0024', 2);
 INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S07', 'RF-0025', 3);
 INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S08', 'RF-0026', 0);
+INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S08', 'RF-0034', 1);
 INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S09', 'RF-0027', 0);
 INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S09', 'RF-0028', 1);
 INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S09', 'RF-0029', 2);
