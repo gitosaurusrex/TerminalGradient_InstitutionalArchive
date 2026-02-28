@@ -40,7 +40,7 @@ To initiate stratigraphic retrieval via this node:
 1.  **Environment Initialization:** Load the `sql-wasm.js` substrate.
 2.  **Stratigraphic Injection:** Execute schema and seed sequences to populate the in-memory database.
 3.  **Component Hydration:** Wait for the `IPS_DB` singleton to stabilize before rendering data frames.
-4.  **CRT Calibration:** Apply scanline overlays and flicker animations to anchor the physical metaphor of the interface.
+4.  **Interface Calibration:** Apply the observer's preferred Basis (Standard Terminal Basis / Monochrome Field Basis). Standard Terminal Basis activates scanline rendering. Monochrome Field Basis activates tray-displacement transitions between retrieval zones. Basis preference is retained across sessions via local inscription.
 
 ---
 

@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 npm run dev      # Start Vite dev server on port 3000
-npm run build    # Build to dist/
+npm run build    # Build to dist/ (postbuild auto-generates sitemap via scripts/generate-sitemap.js)
 npm run preview  # Preview the dist/ build
 ```
 
@@ -25,11 +25,15 @@ This is a **Vite MPA (multi-page app)** with no framework. All interactivity is 
 
 ### Three JS Files
 
-**`js/db-service.js`** — Exposes `window.IPS_DB` (an IIFE singleton). Loads sql.js from CDN, creates an in-memory DB, runs schema + seed, and provides the public query API (`query()`, `getCase()`, `getCaseFragments()`, `getFragments()`, `getFragment()`, `search()`, etc.). All other JS polls `window.IPS_DB` before use.
+**`js/db-service.js`** — Exposes `window.IPS_DB` (an IIFE singleton). Loads sql.js from CDN, creates an in-memory DB, runs schema + seed, and provides the public query API: `query()`, `getCase()`, `getCaseFragments()`, `getFragments()`, `getFragment()`, `search()`, `getReferringCases()`, `getPatterns()`, `getCases()`. All other JS polls `window.IPS_DB` before use.
 
 **`js/ips-components.js`** — Registers all Custom Elements. Components that need DB data poll `window.IPS_DB` with a retry loop (up to 100 × 60ms). Inter-component communication for filters uses a custom DOM event: `document.dispatchEvent(new CustomEvent('ips-filter-update', { detail: filters }))`. `TGFilterPanel` dispatches it; `TGCaseList` and `TGArchiveList` listen for it.
 
 **`js/ips-views.js`** — `window.IPS_VIEW_UTILS` (shared DB-wait helper + error handler), MPA view transition logic using the Navigation API + `pagereveal`, and home page statistics population.
+
+**`css/archive.css`** — Single stylesheet containing the entire design system: CSS custom properties (tokens), theme definitions for dark (STB) and light (MFB) modes, all component styles.
+
+**CDN: marked.js** — Loaded by all HTML pages (`https://cdn.jsdelivr.net/npm/marked/marked.min.js`). Used by `interpretMarkdown()` in `ips-components.js` to render markdown in case analysis text.
 
 ### Custom Elements
 
@@ -37,14 +41,14 @@ This is a **Vite MPA (multi-page app)** with no framework. All interactivity is 
 |---|---|
 | `<tg-box>` | Base container (wraps content in `.terminal-box`) |
 | `<tg-footer>` | Page footer with theme-aware SVG logo |
-| `<tg-nav>` | Navigation menu from child `<a>` tags |
+| `<tg-nav>` | Navigation menu from child `<a>` tags (defined but not currently used in any page) |
 | `<tg-breadcrumb>` | Breadcrumb from child `<a>`/`<span>` tags |
 | `<tg-status>` | Pattern status badge |
 | `<tg-filter-panel>` | Filter checkboxes; auto-detects case vs fragment mode by pathname |
 | `<tg-case-list>` | DB-driven case card list; listens for `ips-filter-update` |
 | `<tg-archive-list>` | DB-driven fragment card list; listens for `ips-filter-update` |
 | `<tg-fragment-list>` | Simple fragment list (no filtering) |
-| `<tg-recently-catalogued-cases>` | Last 2 cases for homepage |
+| `<tg-recently-catalogued-cases>` | First 2 cases by `case_id ASC` for homepage |
 | `<tg-browse-phenomenology>` | Pattern-grouped case browser |
 | `<tg-browse-chronological>` | Epoch-grouped fragment browser |
 | `<tg-theme-toggle>` | STB/MFB/AUTO buttons; writes `ips-basis` to `localStorage` |
@@ -71,9 +75,13 @@ Cases contain `analysis_text` (institutional prose). Fragments contain `content_
 
 ## Design Constraints
 
-This site has a **strict brutalist terminal aesthetic**. The full spec lives in `public/assets/guidance/`. The enforced rules:
+This site has a **brutalist terminal aesthetic with two approved skeuomorphic exceptions**. The full spec lives in `public/assets/guidance/`. The enforced rules:
 
-**Never add:** box shadows, drop shadows, text shadows, gradients, blur, opacity transitions, rounded corners, background images, fade/slide/keyframe animations, loading spinners, glitch/scanline/CRT effects, typewriter effects, or any decorative element.
+**Never add:** box shadows, drop shadows, text shadows, gradients, blur, opacity transitions, rounded corners, background images, loading spinners, glitch/flicker effects, typewriter effects, or any decorative element.
+
+**Approved exceptions (skeuomorphic, mode-specific):**
+- **CRT scanline overlay** — dark mode (`data-theme="dark"`) only.
+- **Page transition animation** — light mode (`data-theme="light"`) only. Must mimic lateral microfiche tray movement. No fades, no generic slides.
 
 **Interactions are instant:** hover states flip colors with no transition delay. Buttons invert (white bg / black text). Nav links turn white with `> ` prefix appearing.
 
