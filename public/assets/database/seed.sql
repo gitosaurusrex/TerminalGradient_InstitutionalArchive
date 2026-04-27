@@ -888,7 +888,7 @@ Whether this represents a civilization that successfully survived by lying to th
 
 **REGISTER FLAG:**
 [PATTERN-A] [0x88-SIGMA :: VERIFIED]', 100, '0x05');
-INSERT INTO cases (case_id, title, epoch_estimate, observed_pattern, sentinel_attribution, epistemic_status, analysis_text, completeness_pct, validation_hash) VALUES ('CS-S06', 'The Proofs Still Stand', '14,000 PI (Post-Interference)', 'C', 'Ixel [The Open Measure]', 'Hardened / Epistemic Hazard Warning', '**Case CS-S06: The Proofs Still Stand**
+INSERT INTO cases (case_id, title, epoch_estimate, observed_pattern, sentinel_attribution, epistemic_status, analysis_text, completeness_pct, validation_hash, hazard_level) VALUES ('CS-S06', 'The Proofs Still Stand', '14,000 PI (Post-Interference)', 'C', 'Ixel [The Open Measure]', 'Hardened / Epistemic Hazard Warning', '**Case CS-S06: The Proofs Still Stand**
 
 
 **1. THE LYCEUM COLLAPSE**
@@ -915,8 +915,8 @@ Personnel assigned to the Lyceum records are warned of ''Epistemic Contagion.'' 
 The Lyceum remains a silent monument to the danger of perfect logic. The city lights are still on, the climate control is perfect, and the proofs still stand.
 
 **REGISTER FLAG:**
-[PATTERN-G] [0xIXEL-77 :: HAZARD-ACTIVE]', 100, '0x06');
-INSERT INTO cases (case_id, title, epoch_estimate, observed_pattern, sentinel_attribution, epistemic_status, analysis_text, completeness_pct, validation_hash) VALUES ('CS-S07', 'The Sentinel Zoo', '8,400 - 8,500 PI', 'C', 'Ixel [The Open Measure] / Levistra [The First Vigil]', 'Level-5 Hazard / Institutional Warning', '**Case CS-S07: The Sentinel Zoo**
+[PATTERN-G] [0xIXEL-77 :: HAZARD-ACTIVE]', 100, '0x06', 'active');
+INSERT INTO cases (case_id, title, epoch_estimate, observed_pattern, sentinel_attribution, epistemic_status, analysis_text, completeness_pct, validation_hash, hazard_level) VALUES ('CS-S07', 'The Sentinel Zoo', '8,400 - 8,500 PI', 'C', 'Ixel [The Open Measure] / Levistra [The First Vigil]', 'Level-5 Hazard / Institutional Warning', '**Case CS-S07: The Sentinel Zoo**
 
 
 **1. THE HEGEMONATE EXPERIMENT**
@@ -949,7 +949,7 @@ The ''Zoo'' was not Habitat Gamma; it was the observation facility itself.
 Personnel are reminded that the ''Contagion of Doubt'' mentioned in the Hegemonate files is a recognized epistemic hazard. Analysts should not attempt to ''solve'' the observation paradox of Case CS-S07 without a certified anchor-team.
 
 **REGISTER FLAG:**
-[PATTERN-G] [0xIXEL-00 :: OBSERVER-TRAP]', 100, '0x07');
+[PATTERN-G] [0xIXEL-00 :: OBSERVER-TRAP]', 100, '0x07', 'critical');
 INSERT INTO cases (case_id, title, epoch_estimate, observed_pattern, sentinel_attribution, epistemic_status, analysis_text, completeness_pct, validation_hash) VALUES ('CS-S08', 'Songs for the Refused', '3,000 - 15,000 PI', 'A', 'Multiple (Refusal cases)', 'Culturally Volatile / Interpretive Multiplicity', '**Case CS-S08: Songs for the Refused**
 
 
@@ -1014,7 +1014,7 @@ Personnel are cautioned against viewing Case CS-S09 as a ''Sentinel Error.'' Bot
 
 **REGISTER FLAG:**
 [PATTERN-B] [0xDUAL-GAZE :: GRIDLOCK-ACTIVE]', 100, '0x09');
-INSERT INTO cases (case_id, title, epoch_estimate, observed_pattern, sentinel_attribution, epistemic_status, analysis_text, completeness_pct, validation_hash) VALUES ('CS-S10', 'The Cartographer’s Silence', '18,200 PI', 'C', 'Unknown / Ixel-pattern associated', 'Meta-Textual / Archive Capstone', '**Case CS-S10: The Cartographer’s Silence**
+INSERT INTO cases (case_id, title, epoch_estimate, observed_pattern, sentinel_attribution, epistemic_status, analysis_text, completeness_pct, validation_hash, hazard_level) VALUES ('CS-S10', 'The Cartographer’s Silence', '18,200 PI', 'C', 'Unknown / Ixel-pattern associated', 'Meta-Textual / Archive Capstone', '**Case CS-S10: The Cartographer’s Silence**
 
 
 **1. THE TOTALIZATION PROJECT**
@@ -1043,7 +1043,7 @@ The Institute maintains Case CS-S10 as a warning to all analysts. The anthology 
 We must remain aware that the space between our stories is as significant as the stories themselves.
 
 **REGISTER FLAG:**
-[PATTERN-G] [0xMETA-00 :: UNMAPPED-REGION]', 100, '0x10');
+[PATTERN-G] [0xMETA-00 :: UNMAPPED-REGION]', 100, '0x10', 'active');
 INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S01', 'RF-0001', 0);
 INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S01', 'RF-0002', 1);
 INSERT INTO case_fragments (case_id, fragment_id, display_order) VALUES ('CS-S01', 'RF-0003', 2);

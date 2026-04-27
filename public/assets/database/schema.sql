@@ -32,6 +32,7 @@ CREATE TABLE cases (
     analysis_text TEXT,              -- The main institutional analysis prose
     completeness_pct INT DEFAULT 0,  -- 0-100
     access_level VARCHAR(50) DEFAULT 'PUBLIC',
+    hazard_level VARCHAR(20) DEFAULT 'none', -- 'none' | 'flagged' | 'active' | 'critical'
     last_verification_date DATE,
     validation_hash VARCHAR(64)      -- e.g., '0x4F22'
 );

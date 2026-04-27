@@ -75,6 +75,7 @@
     </header>
 
     <main>
+    <div id="hazard-notice" hidden></div>
     <article>
     <tg-box id="case-analysis-box" header="Case Analysis (Institutional)">
       <div id="case-content" class="document-content body">
@@ -163,6 +164,16 @@
     function renderCase(c, fragmentMap) {
       const desc = `Institutional case study ${c.case_id}: ${c.title}. Phenomenological pattern: ${c.pattern_name}. Epoch: ${c.epoch_estimate}.`;
       updatePageMeta(c.case_id, c.title, desc);
+
+      const hazardEl = document.getElementById('hazard-notice');
+      if (c.hazard_level && c.hazard_level !== 'none') {
+        hazardEl.innerHTML =
+          `<span>[EPISTEMIC HAZARD :: ${c.hazard_level.toUpperCase()}]</span>` +
+          `<span>[${c.epistemic_status.toUpperCase()}]</span>`;
+        hazardEl.className = 'hazard-notice';
+        hazardEl.hidden = false;
+      }
+
       document.getElementById('case-title').textContent = c.title;
       document.getElementById('collection-attribution').textContent = `Analytical Window :: INSTITUTIONAL ANALYTICS`;
 

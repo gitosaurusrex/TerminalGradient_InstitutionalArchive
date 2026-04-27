@@ -1186,3 +1186,21 @@ html[data-theme="dark"]::view-transition-new(root) {
     gap: var(--space-1);
   }
 }
+
+/* ============================================
+   HAZARD NOTICE
+   ============================================ */
+
+.hazard-notice {
+  border: var(--border-width) solid var(--color-accent-red);
+  padding: var(--space-2) var(--space-4);
+  margin-bottom: var(--space-4);
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  color: var(--color-accent-red);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-variation-settings: var(--axis-institutional);
+}
